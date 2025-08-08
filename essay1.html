@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reflections on Lain</title>
+  <link rel="stylesheet" href="style.css" />
+
+<script type="text/javascript">
+// <![CDATA[
+var delay=5; // seconds until attack starts
+var seconds=60; // seconds until attack complete (from start)
+
+/***************************\
+*   Mock-Virus Text Effect  *
+* (c) 2005 mf2fm web-design *
+*  http://www.mf2fm.com/rv  *
+* DON'T EDIT BELOW THIS BOX *
+\***************************/
+var colours=new Array("#090", "#0f0", "#6f6", "#cfc", "transparent");
+var elems=new Array();
+var chars=new Array();
+var elmax=chmax=0;
+window.onload=function() { if (document.getElementById) {
+  var i, j, txt, parent, span, words;
+  getAllText(document.body);
+  for (i=0; i<elmax; i++) {
+    txt=elems[i].nodeValue;
+    parent=elems[i].parentNode;
+    words=elems[i].nodeValue.split(" ");
+    for (j=0; j<words.length; j++) {
+      span=document.createElement("span");
+      span.appendChild(document.createTextNode(words[j]));
+      parent.insertBefore(span, elems[i]);
+      if (j!=words.length-1) parent.insertBefore(document.createTextNode(" "), elems[i]);
+      chars[chmax++]=span;
+    }
+    parent.removeChild(elems[i]);
+  }
+  virus();
+}}
+
+function virus() {
+  var i, t, j;
+  for (i=0; i<chmax; i++) {
+    t=1000*(delay+seconds*Math.random());
+    for (j=0; j<colours.length; j++) setTimeout('chars['+i+'].style.backgroundColor="'+colours[j]+'"', t+100*j);
+    setTimeout('chars['+i+'].style.visibility="hidden"', t+100*j);
+  }
+  setTimeout('document.body.style.cursor="pointer";document.body.onclick=function(){top.location.href="http://www.mf2fm.com/rv/"};end()', 1000*(delay+seconds));
+}
+
+function end() {
+  document.body.style.backgroundColor=colours[elmax=++elmax%colours.length];
+  setTimeout("end()", 100);
+}
+
+function getAllText(el) {
+  if (el.nodeType==3 && !el.nodeValue.match(/^\s+$/)) elems[elmax++]=el;
+  if (!el.childNodes.length) return;
+  else for (var i=0; i<el.childNodes.length; i++) getAllText(el.childNodes[i]);
+}
+// ]]>
+</script>
+
+
+</head>
+<body>
+  <div class="essays">
+
+
+
+
+
+
+
+
+
+<p><span style="font-weight: 400;">Meditations on Psychological Narrativization / Silence as Stimulation &amp; Therapy.</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Abstract: This essay examines the psychoanalytic benefits of narrativizing your life to renourish a sense of self, arguing that various exercises - &ldquo;past life exercises&rdquo; and such allow a person to interact with unconscious elements of their mind to identify and confront repressions and complexes that would otherwise be ignored. I further this therapeutic model by insisting on a regimen that emphasises living in &ldquo;silence&rdquo; (i.e., depriving oneself of social media, excessive music, etc) in order to stabilize the anxious state that our minds are so used to living in, in hopes to show that we can access stable, deep thought by working and existing in periods of lengthy silence throughout our days. By sitting in silence, I&rsquo;ve observed that I&rsquo;m able to access deep thinking, and subsequently stimulate my mind and thinking much more than when i am multitasking and spreading my focus over an array of tasks that actually just drain my psyche and breed passivity. In the last leg of the essay, i explain (in a somewhat conspiratorial way) that our capitalist world is effectively trying to produce docile and passive bodies that are psychically too weak to revolt on an individual and societal level; and that social media has become the predominant conditioning medium (or put simply, drug) that this is achieved within.</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Essay Roadmap:</span></p>
+<p>&nbsp;</p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Narrativizing your life &amp; past life exercises &amp; accessing parts of the mind to confront deep-rooted issues</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Explaining (briefly) psychoanalysis and the unconscious, it being a septic tank where things are necessarily pushed underneath, and there needs to be excavation work to unearth that content. Similar to the project that foucault does with his genealogy, except this is in the setting of the psyche.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Explaining one practical exercise that is also important to furthering ourselves as beings, as becoming true ubermenches - sitting in silence.&nbsp;</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Explaining first the reason why stimulation without silence is dangerous. Social media, multi-tasking, how there is enough creative arsenal within us already, and distraction is a form of avoidancy that just makes us incredibly fearful and controllable beings</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">We can do our best therapy when we get to know ourselves well. Writing down our thoughts, sitting in silence, examining our internal states like we&rsquo;re our own zoologist. The real work of therapy is the services you can do for yourself long after you are out of the office.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Explain a bit about controllable beings, docility, biopower, foucault, dopamine, and how this ties into social media</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Explain that if societally this is how you create beings that will conform and be exploited, then on an individual level you are also complicit in the level of docility you create in your psyche, given the patterns and behaviours you engage in (e.g., using social media excessively, overconsuming, smoking and drinking in excess, judging and harassing others, posturing yourself as above others morally, shaming beliefs because they are not yours (dont try to decorate this sentence by saying that your beliefs are more moral, because you have no proof of this), etc), whereas you should be sitting in silence, observing and taking note of what you dislike or like for yourself, and trying actively to resist patterns of behaviour that harm yourself and others. Try to be devoted to your constellation of values, and practise understanding and forgiveness for when you - and others - fall short of this.&nbsp;</span></li>
+</ul>
+<p>&nbsp;</p>
+<p><em><span style="font-weight: 400;">&nbsp;"Of the innumerable effects, or impressions, of which the heart, the intellect, or (more generally) the soul is susceptible, what one shall I, on the present occasion, select?&rdquo; Having chosen a novel, first, and secondly a vivid effect, I consider whether it can be best wrought by incident or tone&mdash;whether by ordinary incidents and peculiar tone, or the converse, or by peculiarity both of incident and tone&mdash;afterward looking about me (or rather within) for such combinations of event, or tone, as shall best aid me in the construction of the effect."&nbsp;</span></em></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">edgar allen poe - philosophy of composition</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">In this essay, and more specifically in this selected passage, Poe is outlining his creative process in writing. He explains how he chooses his medium first (poem, novel, etc), then the effect (melancholic, empowering, etc) and decides how this is achieved best - wrought upon by a series of incidents of a particular nature, or with a tone, or both. What I find interesting about this process is the reflexive benefit that story-telling can have for a person. Applied individually and inwards, you can see writing as a tool to extrapolate an internal feeling and create a narrative purpose in that. So instead of creating an effect, you start at the effect and work backwards, seeing which incidents and which tones have coloured your experience in the way that it is so coloured. It is very useful, helpful for people to face their repressions via storytelling. the unconscious already tries to whisper truths to us through our dreams, but unfortunately the jaunted morning brain represses it all over again, being taken by complete surprise and against all consent. however, if that same person commits to writing out a story of their choice, they may find that similar to the exercise of "explaining what you think you were in your past life", you will confront the truths you hold about yourself.&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Past life exercise: benefits are that you abstract away from your real life limitations and considerations. you can safely admit that in your past life you believe you were a jester, whom everyone laughed at, but you secretly knew the darkest truths about those around you, and by your own unacknowledged grace and kindness, decided to allow everyone to remain happy and undisturbed about their own wickedness. but if i were to ask what i think i am in my current life, the answer would be mundane, so to not sound fantastical, egomaniac, or to dismiss the good relations i do have in my current life (parents, friends,). that is why the question only works in a fantasy setting, where the mind is able to fully express its own feelings without fear that it is negating the things of its real life; the aspects it truly does love and cherish. past life exercises allow you to draw this conclusion about your jestered fantasies - you believe that you are the one true good out of a crowd of bad, that you are fated to be underappreciated, that you hold some mystic power over everyone among you, and that you are ultimately virtuous because you have chosen not to destroy the happiness of others around you (many assumptions here). from this point, i can extract/sift the raw unprocessed feelings: societal exclusion, abnormality, an eternal fate of being ridiculed, low self-image grating against the ego's inflation, etc. if i were to now plug that into telling a story, i may write a beautiful tale (that actually functions as a solution) to my situation:: the jester in my story remains principled, and one day receives the regard and respect of the crowd. They recognize in him the beautiful qualities once overlooked, and our character finally reaches peace with what he knew all along. However, during this story will be scenarios where the jester is heavily ridiculed, and raging moments where he nearly chooses the easier (and uncharacteristic) path, but eventually recommits to the overarching goal. The individual writing this story will naturally find allegorical and personal purpose in their own life, by seeing what their individual incidents are really a part of.&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">People feel misery when they think the things that happen to them are not for their benefit, but for their fated demise. when they realize that every event can be an opportunity for greatness and a pivot for their own character development, they will find the inner drive to rise above it. Silence as Stimulation The imperative cognitive state for deep thought The research done on our brains point to the fact that multitasking is not conducive to focusing. Our minds need time to process information both analytically (which we can train and do quite easily) and also emotionally (which is done at a slower rate, and through a more unconscious register that needs to operatively digest the information and construct a narrative for what it means in a larger framework.)&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Put shortly, we are both thinking about information as well as thinking about what the information means. If we blast ourselves with various tasks, all unrelated to our personal goals, this creates a friction between our analytical mind and our will. You will legitimately not conjure the focus required for the task. Your analytical gears will stall in protest to the unsatisfying work. But of course the point isn&rsquo;t to always be doing what aligns with your values - many tasks need to be done irrespective of whether it makes your spiritual psyche whole. But the point is to do the task in a pace and rate that lets you think at the highest level you can. </span><strong><em>Silence As Stimulation</em></strong><span style="font-weight: 400;"> is a new phenomenon (and I hope, trend) that will be the first step towards fixing the attentive focus of the non-reading generation.</span></p>
+<p><br /><br /><br /><br /></p>
+<p><span style="font-weight: 400;">&nbsp;Addiction. TikTok and many social media apps are addictive. Now, the nature of addiction is not that it&rsquo;s a conscious process that beckons you to cave into the stimulus each time it calls your name, but rather that it&rsquo;s this unconscious pulling of your attention cords, the stimulus has its own gravitational pull, if and only if produces some occasional benefit in you. Studies show that people get dopamine when the stimulus is only afforded 50% of the time. TikTok and many social media apps will produce a positive stimulus around half the time as well. Other videos will be nostalgic, reminiscent of a moody, touchy subject that takes the psyche by surprise, embeds it with minor distress, then makes you anxiously scroll in hopes of finding another happy video in your feed. This process results in the user scrolling for a good 20 or so minutes until a burnout of a sort forms. The impression you are left with is nothingness. Even if you scrolled in search for creative inspiration, you will exit the app too tired to implement it into anything, or you saw too much and it overcrowded your brain. Even with creativity it doesn&rsquo;t help when you&rsquo;re blasted with twenty varying visuals. When you watch a movie, there is one binding aesthetic that you&rsquo;ll think of &amp; will remind you of all the little details and notes that call back to that aesthetic. Watching seven different creators working on different visuals will leave you confused. Using Instagram responsibly for creativity means you do a specialist deep dive, absorb the content and exit the app. Do not fall into the consumerism of &ldquo;I need more&rdquo; Or &ldquo;it will just fuel me with more ideas&rdquo; Nonsense. Your mind is stimulating enough. You will churn out work with what you have in your head already. What is creativity if not answering a question in your own head? You necessarily need to sit with a blank space, an unanswered prompt, a silence before you can start to colour it with your imaginative pigment.</span></p>
+<p><br /><br /></p>
+<p><span style="font-weight: 400;">i had to necessarily put myself through the torture of idling away my day, choosing my phone as the medium i'd decay through. That's what it is, by the way, it's just something that numbs you while it slowly hacks away at your will, your spirit. it ingrains nostalgia, a wanting, a yearning, but it pulls you so far away from the reality of that thing. i mean hey, maybe if you had achieved all you wanted in life, using those apps may not 'get' to you. but everyone has some void that it'll prick at. it doesn't have fucking manners. if you're the EP of your own production house, but you don't have a child of your own, the app will taunt you from afar with reels of a perfect family. what the actual fuck, it's not your friend. it's not good for our social conscious mind that has its own private spiritual needs. we need to gently deal with our own shortcomings. just like working in a toxic workplace, you dont need your inadequacies thrown into your face when you're just trying to life, just trying to work and do the best you can. fuck social media.</span></p>
+<p><br /><br /></p>
+<p><span style="font-weight: 400;">i need very seriously to emphasize that this way of living: of eating separately in an office, of not smiling at people when they walk by you, of focusing hard on other people's assets, this is reducing humanity to a machine that doesn't need affection, love, friendship, true bonds, and a healthy internal sense of self. you can only love others if you love yourself. this is a truth everyone comes to realize at some point or another. we need to return to the habits that give us a sense of purpose, of camaraderie. only then will we actually identify with the place we live in (a massive metropolitan city in this case im writing in), and refuse passivity.</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">because the way things are now, we're emotionally, socially, and spiritually passive beings at this point.&nbsp;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">the point of nightmares is that it's the space where all our worst assumptions have the highest credence and truth value, we scream in terror and fear while we're there because it's everything we feared the most.&nbsp;</span></p>
+<p><span style="font-weight: 400;">but nightmares can serve something really useful: it can reveal the absurdity of our assumptions, juxtaposed with what real life is like. it also displays the most critical issues we have, and thus spotlighting what it is we've got to work on, urgently.&nbsp;</span></p>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
+
+
+
+</body>
+</head>
+</html>

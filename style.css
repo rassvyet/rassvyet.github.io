@@ -50,7 +50,7 @@ header h1 {
   font-size: 2.0rem;
   color: #e29aff;
   margin-bottom:0.9rem;
-  text-shadow: 0 0 5px #91ffff, 0 0 10px #8820ff;
+  text-shadow: 0 0 5px #91ffff, 0 0 10px #9634ff;
 }
 h1.glitch {
   font-size: 6rem;
@@ -76,7 +76,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #51ff01;
+  color: #77ff38;
   font-weight: bold;
   text-shadow: 0 0 5px #ff00cc;
   transition: all 0.5s ease;
@@ -105,10 +105,10 @@ section {
 }
 
 h2 {
-  color: #39ff14;
+  color: #3cff1a;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
-  text-shadow: 0 0 5px #39ff14;
+  text-shadow: 0 0 5px #169100;
 }
 
 p {
