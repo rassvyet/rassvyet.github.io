@@ -1,273 +1,649 @@
-<!DOCTYPE html>
-<html lang="en">
+<html><!--
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>rassvyet / cammy</title>
-  <link rel="stylesheet" href="style.css">  <!-- Must be here -->
-<script type="text/javascript">
-// <![CDATA[
-var colour="random"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
-var sparkles=50;
+The lace borders and plates are from foollovers.com! I made my button using: https://goblin-heart.net/sadgrl/projects/88x31-button-maker.
 
-/****************************
-*  Tinkerbell Magic Sparkle *
-*(c)2005-13 mf2fm web-design*
-*  http://www.mf2fm.com/rv  *
-* DON'T EDIT BELOW THIS BOX *
-****************************/
-var x=ox=400;
-var y=oy=300;
-var swide=800;
-var shigh=600;
-var sleft=sdown=0;
-var tiny=new Array();
-var star=new Array();
-var starv=new Array();
-var starx=new Array();
-var stary=new Array();
-var tinyx=new Array();
-var tinyy=new Array();
-var tinyv=new Array();
+Feel free to look around my code, but pleeeaaase don't steal it ... thank you ...!
 
-window.onload=function() { if (document.getElementById) {
-  var i, rats, rlef, rdow;
-  for (var i=0; i<sparkles; i++) {
-    var rats=createDiv(3, 3);
-    rats.style.visibility="hidden";
-    rats.style.zIndex="999";
-    document.body.appendChild(tiny[i]=rats);
-    starv[i]=0;
-    tinyv[i]=0;
-    var rats=createDiv(5, 5);
-    rats.style.backgroundColor="transparent";
-    rats.style.visibility="hidden";
-    rats.style.zIndex="999";
-    var rlef=createDiv(1, 5);
-    var rdow=createDiv(5, 1);
-    rats.appendChild(rlef);
-    rats.appendChild(rdow);
-    rlef.style.top="2px";
-    rlef.style.left="0px";
-    rdow.style.top="0px";
-    rdow.style.left="2px";
-    document.body.appendChild(star[i]=rats);
-  }
-  set_width();
-  sparkle();
-}}
+--><!--METADATA--><head>
+   <link href="https://db.onlinewebfonts.com/c/56d3addcc26c615d76f21e7e540c2647?family=Carol+Gothic" rel="stylesheet"> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">   
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A digital lair featuring my writing, poetry, discarded memos and art I love.">
+    <title>rassvyet's labyrinth</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/30/50/0a/30500a53480c5c2bd9bada02a7926d58.jpg">
+    <link href="C:\Users\Hanna\Documents\GitHub\cammy\assets" rel="stylesheet">   
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+    </style>
+        
+<!-- demo: https://liveweave.com/gu0ReI -->
+ 
+<!--PASSWORD PROMPT FOR PAGE - REMEMBER TO UNCOMMENT WHEN YOU ARE UPLOADING <script>
+var password;
+var pass1="cammy";
+password=prompt("enter your password to view this page.","");
+if (password==pass1)
+alert('password correct! click ok to enter.');
+else
+{
+window.location="https://fauux.neocities.org/god";
+}
 
-function sparkle() {
-  var c;
-  if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
-    ox=x;
-    oy=y;
-    for (c=0; c<sparkles; c++) if (!starv[c]) {
-      star[c].style.left=(starx[c]=x)+"px";
-      star[c].style.top=(stary[c]=y+1)+"px";
-      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
-      star[c].childNodes[0].style.backgroundColor=star[c].childNodes[1].style.backgroundColor=(colour=="random")?newColour():colour;
-      star[c].style.visibility="visible";
-      starv[c]=50;
-      break;
+    </script> -->
+
+<style>
+    
+    ::-webkit-scrollbar {width: 4px;}::-webkit-scrollbar:horimzontal {height: 10px;}::-webkit-scrollbar-corner {background: #dfdfdf;}::-webkit-scrollbar-track {background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='2' height='2' viewBox='0 0 2 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 0H0V1H1V2H2V1H1V0Z' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 0H1V1H0V2H1V1H2V0Z' fill='white'/%3E %3C/svg%3E");}::-webkit-scrollbar-thumb {background-color: #dfdfdf;box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #ffffff, inset -2px -2px #808080,inset 2px 2px #dfdfdf;}::-webkit-scrollbar-button:vertical:start {height: 17px;background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E %3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 6H7V7H6V8H5V9H4V10H11V9H10V8H9V7H8V6Z' fill='black'/%3E %3C/svg%3E");}::-webkit-scrollbar-button:vertical:end { height: 17px;background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E %3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11 6H4V7H5V8H6V9H7V10H8V9H9V8H10V7H11V6Z' fill='black'/%3E %3C/svg%3E");}::-webkit-scrollbar-button:horizontal:start {width: 17px;background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E %3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 4H8V5H7V6H6V7H5V8H6V9H7V10H8V11H9V4Z' fill='black'/%3E %3C/svg%3E");}::-webkit-scrollbar-button:horizontal:end {width: 17px;background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E %3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 4H6V11H7V10H8V9H9V8H10V7H9V6H8V5H7V4Z' fill='black'/%3E %3C/svg%3E");}
+    
+</style><style>
+    
+    a {
+        color: #96776e;
     }
-  }
-  for (c=0; c<sparkles; c++) {
-    if (starv[c]) update_star(c);
-    if (tinyv[c]) update_tiny(c);
-  }
-  setTimeout("sparkle()", 40);
-}
-
-function update_star(i) {
-  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
-  if (starv[i]) {
-    stary[i]+=1+Math.random()*3;
-    starx[i]+=(i%5-2)/5;
-    if (stary[i]<shigh+sdown) {
-      star[i].style.top=stary[i]+"px";
-      star[i].style.left=starx[i]+"px";
+    
+    a:visited { 
+        color: #b7ae7d;
     }
-    else {
-      star[i].style.visibility="hidden";
-      starv[i]=0;
-      return;
+
+    a:hover {
+        color: #610000; 
     }
-  }
-  else {
-    tinyv[i]=50;
-    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
-    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
-    tiny[i].style.width="2px";
-    tiny[i].style.height="2px";
-    tiny[i].style.backgroundColor=star[i].childNodes[0].style.backgroundColor;
-    star[i].style.visibility="hidden";
-    tiny[i].style.visibility="visible"
-  }
-}
-
-function update_tiny(i) {
-  if (--tinyv[i]==25) {
-    tiny[i].style.width="1px";
-    tiny[i].style.height="1px";
-  }
-  if (tinyv[i]) {
-    tinyy[i]+=1+Math.random()*3;
-    tinyx[i]+=(i%5-2)/5;
-    if (tinyy[i]<shigh+sdown) {
-      tiny[i].style.top=tinyy[i]+"px";
-      tiny[i].style.left=tinyx[i]+"px";
+    
+    ::selection {
+        background-color: #b7ae7d;
+        color: #696138;
     }
-    else {
-      tiny[i].style.visibility="hidden";
-      tinyv[i]=0;
-      return;
+    
+    html {
+        background-image: url(https://i.pinimg.com/736x/80/4b/72/804b72c8014e29af4482e4328dd9a56b.jpg);
+        background-attachment: fixed;
+        background-size: auto;
+        background-position: repeat;
+        overflow: inherit;
+        margin-left: 30px;
     }
-  }
-  else tiny[i].style.visibility="hidden";
-}
+    
+    .all {
+        margin-left: 10px;
+        margin-top: 25px;
+    }
+    
+    .topbar {
+        margin-left: 25px;
+        width: 1045px;
+        height: 40px;
+        background-image: url(https://i.pinimg.com/1200x/30/bd/26/30bd26bb9f8dc4ccb067a2d5cf6613f8.jpg);
+        background-position: center;
+        border-radius: 50px 50px 5px 5px;
+        background-size: cover;
+        border-style: double;
+        border-color: #d3a761;
+    }
+    
+    .mainbg {
+        background-image: url(https://i.pinimg.com/1200x/30/bd/26/30bd26bb9f8dc4ccb067a2d5cf6613f8.jpg);
+        width: 1005px;
+        height: 507px;
+        margin-left: 25px;
+        margin-top: 5px;
+        padding: 20px;
+        border-style: double;
+        border-color: #d3a761;
+        border-radius: 5px 5px 5px 5px;
+        padding: 10px;
+    }
+    
+    .header {
+        font-family: "Carol Gothic";
+        background-image: url(https://i.pinimg.com/originals/31/a0/99/31a09936e6b1c42f7eb6cd87c18fb22c.png);
+        height: 100px;
+        margin: -10px;
+        background-position: bottom left;
+        border-radius: 5px 5px px px;
+        color: #ead2b6;
+        letter-spacing: 5px;
+        text-shadow: -1px 0 #a47c3b, 0 1px #a47c3b, 1px 0 #a47c3b, 0 -1px #a47c3b, 0 0;
+        transition: 3s;
+        border-bottom-style: double;
+        border-color: #a47c3b;
+        margin-bottom: 10px;
+    }
+    
+    .header:hover {
+        color: #a47c3b;
+        text-shadow: -1px 0 #ead2b6, 0 1px #ead2b6, 1px 0 #ead2b6, 0 -1px #ead2b6, 0 0;
+        transition: 3s;
+        background-position: top;
+    }
+    
+    .sidebar {
+        width: 350px;
+        background-image: url(https://images4.imagebam.com/44/0f/a2/ME101MPX_o.png);
+        height: 425;
+        position: absolute;
+        margin-left: -10px;
+        margin-top: -10px;
+        border-right: double;
+        color: #a47c3b;
+    }
+    
+    .desc {
+        background-color: #a3946a;
+        width: 305px;
+        padding: 10px;
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        font-size: 12px;
+        text-align: justify;
+        color: #5e4a2c;
+        line-height: 13px;
+        position: absolute;
+        margin-top: -1px;
+    }
+    
+    .directory {
+        width: 250px;
+        height: 200px;
+        border-width: 40px;
+        border-style:solid;
+        border-image: url("https://images4.imagebam.com/e9/a1/a7/MEPI84T_o.png") 45 fill round;
+        padding-top: 20px;
+        margin-top: 100px;
+        position: absolute;
+    }
+    
+    .directory table a:hover {
+      color: rgb(83, 0, 0);
+      text-shadow: 0 0 10px #5a4040;
+      transition: all 0.7s ease;
+    }
 
-document.onmousemove=mouse;
-function mouse(e) {
-  if (e) {
-    y=e.pageY;
-    x=e.pageX;
-  }
-  else {
-    set_scroll();
-    y=event.y+sdown;
-    x=event.x+sleft;
-  }
-}
+   
+    
+    .about {
+        position: absolute;
+        background-color: #a3946a;
+        width: 305px;
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        color: #5e4a2c;
+        margin-left: 350px;
+        margin-top: 52px;
+        padding-top: 5px;
+        height: 220px;
+        text-align: left;
+        padding: 5px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        font-size: 12px;
+    }
+    
+    .natureofsite {
+        background: linear-gradient(180deg, #4e3d1f, #8b8860);
+        color: #ead2b6;
+        font-size: 19px;
+        padding: 5px;
+        margin-top: -5px;
+        margin-left: -5px;
+        width: 305px;
+        font-family: carol gothic;
+    }
+    
+    .neginsays {
+        position: absolute;
+        background-color: #a3946a;
+        width: 200px;
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        color: #5e4a2c;
+        font-size: 11px;
+        margin-left: 350px;
+        margin-top: 293px;
+        height: 98.5px;
+        overflow-y: scroll;
+        padding: 5px;
+        transition: 0.3s;
+        z-index: 1;
+    }
+    
+    .neginsays:hover {
+        width: 500px;
+        height: auto;
+        transition: 0.5s;
+        position: absolute;
+        z-index: 1;
+        font-size: 15px;
+        font-family: Serif;
+        margin-bottom: 20px;
+    }
+    
+    .meee {
+        position: absolute;
+        background-color: #a3946a;
+        width: 95px;
+        background-image: url(https://i.pinimg.com/1200x/69/5d/49/695d49bc0653f20a85939d999eebddd6.jpg);
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        color: #5e4a2c;
+        font-size: 10px;
+        margin-left: 570px;
+        margin-top: 293px;
+        height: 108.5px;
+        overflow: hidden;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: #d9ceb7;
+        text-align: center;
+        font-size: 9px;
+        transition: 0.3s;
+    }
+    
+    .meee:hover {
+        background-image: url(https://i.pinimg.com/1200x/0c/ef/00/0cef001e0e14de7fca46d9bb2fd6c8d0.jpg);
+        transition: 0.3s;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .album {
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        margin-left: 785px;
+        margin-top: -100px;
+        width: 208px;
+        height: 85.9px;
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        font-size: 11px;
+        padding: 5px;
+        text-align: justify;
+        color: #5e4a2c;
+        position: absolute;
+    }
+    
+    .albumimg {
+        float: left;
+        margin-right: 5px;
+        margin-left: -5px;
+        margin-top: -5px;
+        transition: 0.3s;
+    }
+    
+    .albumimg:hover {
+        filter: saturate(4);
+        transition: 0.3s;
+    }
+    
+    .cred {
+        font-family: DotGothic16;
+        font-size: 9px;
+        color: #d2cdba;
+        margin-top: 25px;
+        margin-left: 510px;
+        position: absolute;
+        text-align: center;
+    }
+    
+    .buttons {
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        margin-left: 675px;
+        margin-top: 62px;
+        width: 98;
+        height: 95px;
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        font-size: 11px;
+        text-align: justify;
+        color: #5e4a2c;
+        overflow-y: scroll;
+        text-align: center;
+        color: #ece4d4;
+        transition: 0.3s;
+    }
+    
+    .buttons img:hover {
+        filter: saturate(3);
+        transition: 0.3s;
+    }
+    
+    .laceright {
+        background-image: url(https://images4.imagebam.com/e4/e3/85/ME1195FY_o.png);
+        width: 20px;
+        height: 500px;
+        margin-top: 50px;
+        margin-left: 1055px;
+        position: absolute;
+    }
+    
+    .lacebottom {
+        background-image: url(https://images4.imagebam.com/e4/e3/85/ME1195FY_o.png);
+        width: 20px;
+        height: 1040px;
+        transform: rotate(90deg);
+        margin-top: 72px;
+        margin-left: 540px;
+        position: absolute;
+    }
+    
+    .linkme {
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        margin-left: 675px;
+        margin-top: 5px;
+        width: 318px;
+        height: 30px;
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        font-size: 11px;
+        padding: 5px;
+        text-align: justify;
+        color: #5e4a2c;
+        position: absolute;
+    }
+    
+    .antics {
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        margin-left: 675px;
+        margin-top: 55px;
+        width: 318px;
+        height: 185px;
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        font-size: 12px;
+        padding: 5px;
+        text-align: justify;
+        color: #5e4a2c;
+        position: absolute;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    
+    .anticsside {
+        background: linear-gradient(180deg, #4e3d1f, #8b8860);
+        color: #ead2b6;
+        font-size: 19px;
+        padding: 5px;
+        margin-top: -5px;
+        margin-left: -5px;
+        width: 318px;
+        font-family: carol gothic;
+        margin-bottom: 5px;
+    }
+    
+    .marina {
+        background-image: url(https://images4.imagebam.com/c2/05/f2/ME10ECD4_o.png);
+        margin-top: -210px;
+        margin-left: 1000px;
+        position: absolute;
+        width: 190px;
+        height: 270px;
+        transition: 0.3s;
+    }
+    
+    .marina:hover {
+        background-image: url(https://images4.imagebam.com/26/f5/7c/ME10ECA6_o.png);
+        transition: 0.3s;
+    }
+    
+    .tooltip {
+        position: absolute;
+        display: inline-block;
+    }
+    
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 100px;
+        background-color: #a47c3b;
+        color: #ece4d4;
+        text-align: center;
+        border-radius: 5px;
+        font-family: DotGothic16;
+        font-size: 10px;
+        padding: 3px;
+        border-style: dashed;
+        border-width: 1px;
+        transform: rotate(0deg);
+    }
 
-window.onscroll=set_scroll;
-function set_scroll() {
-  if (typeof(self.pageYOffset)=='number') {
-    sdown=self.pageYOffset;
-    sleft=self.pageXOffset;
-  }
-  else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
-    sdown=document.body.scrollTop;
-    sleft=document.body.scrollLeft;
-  }
-  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
-    sleft=document.documentElement.scrollLeft;
-    sdown=document.documentElement.scrollTop;
-  }
-  else {
-    sdown=0;
-    sleft=0;
-  }
-}
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+    
+    .rightsidebar { 
+        margin: 1em 0;
+        width: 150px;
+        position: absolute;
+        margin-left: 1090px;
+        margin-top: 100px;
+        font-family: DotGothic16;
+        font-size: 11px;
+        color: #a47c3b;
+    }
+    
+    .log {
+        font-family: Carol Gothic;
+        text-align: center;
+        font-size: 25px;
+        margin-top: -10px;
+        color: #8a754f;
+    }
+    
+    .updates {
+        background: #cebe8c;
+        overflow-y: scroll;
+        height: 100px;
+        font-size: 10px;
+        margin-top: 5px;
+        color: #5e4a2c;
+    }
+    
+    .u01 { 
+        background: url(https://images4.imagebam.com/3c/36/a5/ME10G4HF_o.png) repeat-x; 
+        height: 23px; 
+        margin: 0 23px;
+    }
+    
+    .s01 { 
+        background: url(https://images4.imagebam.com/e4/b2/31/ME10G4HG_o.png) repeat-x; 
+        height: 23px ; 
+        margin: 0 23px;
+    }
+    
+    .box-top { 
+        background-image : url(https://images4.imagebam.com/c7/64/aa/ME10G4HH_o.png), url(https://images4.imagebam.com/3a/1b/74/ME10G4HI_o.png); 
+        background-position: top left, top right; 
+        background-repeat : no-repeat, no-repeat; 
+        height: 23px;
+    }
+    
+    .box-center { 
+        background-image: url(https://images4.imagebam.com/cb/0c/9f/ME10G4HJ_o.png), url(https://images4.imagebam.com/d2/94/12/ME10G4HK_o.png); 
+        background-position: top right, top left; 
+        background-repeat : repeat-y , repeat-y;
+    }
+    
+    .box-inner { 
+        background: #cebe8c;
+        margin: 0 23px;
+    
+        
+    }
+    
+    .box-bottom { 
+        background-image: url(https://images4.imagebam.com/11/3d/c0/ME10G4HL_o.png), url(https://images4.imagebam.com/c6/6c/60/ME10G4HM_o.png); 
+        background-position : top left, top right; 
+        background-repeat: no-repeat, no-repeat; 
+        height: 23px;
+    }
 
-window.onresize=set_width;
-function set_width() {
-  var sw_min=999999;
-  var sh_min=999999;
-  if (document.documentElement && document.documentElement.clientWidth) {
-    if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
-    if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
-  }
-  if (typeof(self.innerWidth)=='number' && self.innerWidth) {
-    if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
-    if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
-  }
-  if (document.body.clientWidth) {
-    if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
-    if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
-  }
-  if (sw_min==999999 || sh_min==999999) {
-    sw_min=800;
-    sh_min=600;
-  }
-  swide=sw_min;
-  shigh=sh_min;
-}
+    .tile {
+      position:absolute;
+      width: 200px;
+      height: auto;
+      margin-left: 680px;
+      margin-top: -99px;
+      z-index: 1;
+    }
 
-function createDiv(height, width) {
-  var div=document.createElement("div");
-  div.style.position="absolute";
-  div.style.height=height+"px";
-  div.style.width=width+"px";
-  div.style.overflow="hidden";
-  return (div);
-}
+    .heart {
+        position: absolute;
+        margin-left: 1190px;
+        margin-top: 230px;
+        z-index: 1;
+        transition: 2s;
+    }
+    
+    .heart:hover {
+        transform: rotate(720deg);
+        transition: 2s;
+    }
+    
+</style></head>
+    
+<!--SCROLLBAR MONSTROSITY-->
+    
 
-function newColour() {
-  var c=new Array();
-  c[0]=255;
-  c[1]=Math.floor(Math.random()*256);
-  c[2]=Math.floor(Math.random()*(256-c[1]/2));
-  c.sort(function(){return (0.5 - Math.random());});
-  return ("rgb("+c[0]+", "+c[1]+", "+c[2]+")");
-}
-// ]]>
-</script>
+    
+<!--CSS CONTENT-->
+    
 
-</head>
-
-
-
-
+    
+<!--HTML CONTENT-->
+    
 <body>
-  <div class="background-wires"></div>
-
-  <header>
-    <div class="profile">
-      <img img src="assets/rass.gif" alt="Profile Picture" class="profile-pic" />
-      <h1 class="glitch" data-text="rassvyet">/rassvyet</h1>
-      <p>writer, director & philosopher</p>
+  
+        <div class="all">
+        <div class="heart">
+            <img src="assets/heart.png" style="width: 50px;">
+        </div>
+        <div class="rightsidebar">
+        <div class="box-top">
+            <div class="u01"></div>
+        </div>
+        <div class="box-center">
+            <div class="box-inner">
+                <div class="log">
+                    <u>Progress?</u>
+                </div>
+                <div class="updates">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="box-bottom">
+            <div class="s01">
+            </div>
+        </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#films">Films</a></li>
-        <li><a href="#poems">Poems</a></li>
-        <li><a href="#essays">Essays</a></li>
-        <li><a href="#blog">Entries</a></li>
-      </ul>
-    </nav>
-  </header>
+    <div class="laceright"></div>
+    <div class="lacebottom"></div>
+    <div class="topbar"></div>
+    <div class="mainbg">
+        <div class="header">
+           <text style="margin-left: 550px; font-size: 70px;">Rassvyet</text>
+        </div>
+        <div class="sidebar"></div>
+        <div class="desc">
+            Hello &amp; welcome, dear visitor. Come in, do not be afraid... this is  <span style="background-color: #939468; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; color: #ece4d4"><i>Rass' bunker</i></span>:
+a lavish junkyard of old relics, a rabbit hole that leads to all things fundamentally unsound, and a quiet haven for all to lament in somber hues.
+        </div>
+        <div class="directory">
+            <text style="font-family: 'Carol Gothic'; margin-left: 90px; color: #5e4a2c; font-size: 25px;"><u>Directory</u></text>
+                <table cellpadding="1" style="font-size: 11px; margin-left: 15px; color: #5e4a2c; font-family: DotGothic16; margin-top: 10px;">
+                    <tbody><tr>
+                        <td>☞ <a href="philosophy.html">philosophy</a></td>
+                        <td>☞ <a href="https://rassvyet.com">psychoanalysis</a></td>
+                        <td>☞ <a href="https://rassvyet.com">films</a></td>
+                    </tr>
+                    <tr>
+                        <td>☞ <a href="https://rassvyet.com">literature</a></td>
+                        <td>☞ <a href="https://rassvyet.com">thoughts</a></td>
+                        <td>☞ <a href="https://rassvyet.com">pics</a></td>
+                    </tr>
+                    <tr>
+                        <td>☞ <a href="https://rassvyet.com">danger</a></td>
+                        <td>☞ <a href="https://rassvyet.com">writing</a></td>
+                        <td>☞ <a href="https://rassvyet.com">poems</a></td>
+                    </tr>
+            </tbody></table>
+            <img src="assets/god.png" style="width:220px; margin-left: 15px; margin-top: 10px;" alt="A scroll-like banner depicting a knight and a lady at either ends of the words 'The judgement of God'.">
+        </div>
+        
+        <div class="about">
+            <div class="natureofsite">
+                ✵ info &amp; info
+            </div>
+                <text style="color: transparent; font-size: 4px;">.</text><br>
+                <img src="https://i.pinimg.com/736x/70/55/c7/7055c7dfe52b1ba4cd04e4c232b58478.jpg" alt="kitty" style="width:150px; height: 150px; border-style: double; border-color: #a47c3b; float: left; margin-right: 5px;">
+                hi!<br><text style="color: transparent; font-size: 7px;">.</text><br>
+                
+        </div>
+        <div class="neginsays">
+            <b>Rass:</b> Kill me.<br><br>
+            — Osamu Dazai, <i>No Longer Human</i>.
+        </div>
+        <div class="meee">
+            <br><br><br><br><br><br><br>Um??
+        </div>
+        <br><br><br><br><br><br><br><br>
 
-  <main>
-    <section id="films">
-      <h2>Films</h2>
-      <p><a href="https://youtu.be/7jpVS7jsjdM?si=92rIeSzWKo1gBZnb" target="_blank">Content (2023), dir. by rassvyet</a></p>
-    </section>
+        <div class="tile">
+          <img src="assets/tile.jpg"  alt="photo of a tile" style= "width: 95px; height: auto;">
+        </div>
 
-    <section id="poems">
-      <h2>Poems</h2>
-      <div class="post-preview">
-        <a href="poem1.html">Fire, Songs & Valour</a> <br>
-        <a href="wraith.html"> Wraith</a>
-      </div>
-    </section>
+        <div class="album">
+            <div class="albumimg">
+                <a href="https://rateyourmusic.com/release/single/boa/duvet/"><img src="https://i.pinimg.com/736x/61/a6/47/61a6470c34fb7da7fa66e1811e1b3d10.jpg" alt="Duvet, by Boa" style="width: 95.8px;"></a>
+            </div>
+            <span style="background-color: #939468; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; color: #ece4d4; width: 84px; font-size: 9.88px">
+                <i>Rass' Songs ♫♪ </i>
+            </span>
+            <text style="font-size: 3px; color: transparent">.</text><br>
+            <b>Duvet</b> By Boa.<br><text style="font-size: 10px;"><text>
+        </text></text></div>
 
-    <section id="essays">
-      <h2>Essays</h2>
-      <a href="essay1.html">Psychological Narrativization</a>
-    </section>
+        <div class="linkme">
+            <p>hey, idk what i'll put here</p>
+        </div>
+        <div class="antics">
+            <div class="anticsside">✵ What's new, Rass? <text style="font-size: 14px;">August 13th, 2025</text></div>
+            Practising HMTL! found this website i like but im trying to customize it to a point where it becomes entirely mine!<br><br>
+            <br><br>
+            
+            
+        </div>
+    </div>
+    <div class="cred">
+        <a href="https://neocities.org/site/rassvyet">rassvyet.neocities.org (2025-forever)</a><br>
+        Let's All Love Lain
+    </div>
+    <div class="marina">
+        <div class="tooltip">
+            <img src="assets/girl.png" style="width: 250px; height: 290px;">
+            <div class="tooltiptext">
+                Marina: "I don't feel good about this ... Do we really have to fight?"
+            </div></div>    
+    </div>
+        <img src="assets/cat.png" style="width: 150px; margin-left: -20px; margin-top: -85px; position: absolute;" alt="A teal teacup and saucer. The teacup reads 'drink me' on the innter rim and has art of the white rabbit from Alice in Wonderland on the front.">
+        </div>
 
-    <section id="blog">
-      <h2>Entries</h2>
-      <article class="blog-post">
-        <div class="post-preview">
- 		 <a href="lain.html"> Reflections on Lain</a>
-     
-		</div>
-      </article>
-    </section>
+<!--MUSIC-->
 
-	
+    <audio controls="controls" autoplay="autoplay" loop="" style="width: 0; height: 0; overflow: hidden;">
+        <source src="assets/laintheme.mp3" type="audio/mpeg">
+    </audio>
+    
 
-
-  </main>
-
-  <footer>
-    <p>&copy; 2025 pассвет</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-
-</html>
+</body></html>
