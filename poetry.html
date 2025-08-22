@@ -9,6 +9,7 @@
     <link href="C:\Users\Hanna\Documents\GitHub\rassvyet.github.io\assets" rel="stylesheet">    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Jacquarda+Bastarda+9&display=swap');
     </style>
 
     <title>poems of the winterland</title>
@@ -68,12 +69,38 @@
         background-size: cover;
         background-position: bottom;
     }
+
+    .fleur-de-leah-regular {
+        font-family: "Fleur De Leah", cursive;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .glow {
+        
+        color: #022235;
+        
+        animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #130ff1, 0 0 30px #4694dd, 0 0 40px #7d75f7, 0 0 40px #02011f, 0 0 50px #015892, 0 0 50px #020a30;
+    }
+    
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #033a81, 0 0 40px #4dafff, 0 0 40px #1e004eab, 0 0 40px #090722, 0 0 50px #6b6df1, 0 0 50px #000000;
+    }
+    }
+
+
+
     
     .mainframe {
         background-image: url(https://images4.imagebam.com/63/f5/c3/MESN0GI_o.png);
         width: 500px;
         height: 500px;
-        margin-top: 80px;
+        margin-top: -115px;
         padding: 10px;
         border-style: double;
         border-color: rgb(119, 126, 129);
@@ -268,7 +295,7 @@
     
 <body>
         
-        
+        <p class="glow" style="font-family: Fleur De Leah; margin-left:620px; margin-top: 0px; font-size:80px; color: rgb(207, 225, 255); ;">Poetry</p>
         <div class="mainframe">
             
             
@@ -289,8 +316,12 @@
                     A compilation of poems written over the course of my most morose moments.
                 </div> 
             </div>
-                <div class="directory">   
-        </div>
+                <div class="directory">    
+                    <audio controls autoplay loop style="width: 50px; height:auto; position: relative; border-radius: 25px; opacity: 0.0; margin-left: 60px; margin-top: 65px; transform: rotate(45deg);">
+                    <source src="assets/petite.mp3" type="audio/mpeg">
+                    </audio>
+                    
+                </div>
         
          
             <div class="sidebarright">
@@ -312,9 +343,7 @@
          
 <!--MUSIC-->
 
-    <audio controls="controls" autoplay="autoplay" loop="" style="width: 0;margin-top: -500">
-        <source src="boreas_files/yruq4w.mp3" type="audio/mpeg">
-    </audio>
+   
     
 
 
