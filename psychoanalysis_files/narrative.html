@@ -127,7 +127,9 @@ function getAllText(el) {
         background-size: auto;
         background-repeat: repeat;
         overflow: inherit;
-        margin-left: 30px;
+        margin-left: -300px;
+        margin-top: 90px;
+        
     }
     
     .all {
@@ -161,78 +163,7 @@ function getAllText(el) {
         padding: 10px;
     }
     
-    .header {
-        font-family: "Carol Gothic";
-        background-image: url(assets/forest.jpg);
-        background-size: cover;
-        
-        height: 100px;
-        margin: -10px;
-        background-position: bottom;
-        border-radius: 5px 5px px px;
-        color: #a3800d;
-        letter-spacing: 5px;
-        text-shadow: -1px 0 #352102, 0 1px #301e01, 1px 0 #462c03, 0 -1px #352101, 0 0;
-        transition: 3s;
-        border-bottom-style: double;
-        border-color: #a47c3b;
-        margin-bottom: 10px;
-    }
     
-    .header:hover {
-        color: #a47c3b;
-        text-shadow: -1px 0 #0a0a09, 0 1px #ead2b6, 1px 0 #ead2b6, 0 -1px #ead2b6, 0 0;
-        transition: 3s;
-        background-position: top;
-    }
-    
-    .sidebar {
-        width: 350px;
-        background-image: url(https://hillhouse.neocities.org/materials/backgrounds/images/riso-black.png);
-        height: 425;
-        position: absolute;
-        margin-left: -10px;
-        margin-top: -10px;
-        border-right: double;
-        color: #a47c3b;
-    }
-    
-    .desc {
-        background-color: #a3946a;
-        width: 305px;
-        padding: 10px;
-        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
-        border-style: double;
-        border-color: #a47c3b;
-        font-family: DotGothic16;
-        font-size: 12px;
-        text-align: justify;
-        color: #5e4a2c;
-        line-height: 13px;
-        position: absolute;
-        margin-top: -1px;
-    }
-    
-    .directory {
-        width: 240px;
-        height: 200px;
-        border-width: 40px;
-        border-style:solid;
-        filter: opacity(80%);
-        border-image: url("assets/zeus.png") 65 fill round;
-        padding-bottom: 1px;
-        padding-top: 20px;
-        margin-top: 100px;
-        position: absolute;
-    }
-    
-    .directory table a:hover {
-      color: rgb(83, 0, 0);
-      text-shadow: 0 0 10px #5a4040;
-      transition: all 0.7s ease;
-    }
-
-   
     
     .about {
         position: absolute;
@@ -241,6 +172,8 @@ function getAllText(el) {
         background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
         border-style: double;
         border-color: #a47c3b;
+        border-top: none;
+        border-radius: 0 0 5px 5px;;
         font-family: DotGothic16;
         color: #5e4a2c;
         margin-left: 350px;
@@ -254,24 +187,27 @@ function getAllText(el) {
         font-size: 12px;
     }
     
+
     .natureofsite {
-        background: linear-gradient(180deg, #4e3d1f, #8b8860);
-        color: #ead2b6;
-        font-size: 19px;
-        padding: 5px;
-        margin-top: -5px;
-        margin-left: -5px;
-        width: 640px; /* This is the banner/title of the box */
-        font-family: carol gothic;
+      background: linear-gradient(180deg, #4e3d1f, #8b8860);
+      color: #ead2b6;
+      font-size: 19px;
+      
+      padding: 5px;
+      margin-top: -10px;
+      margin-left: 350px;
+      width: 640px; /* same width as .about */
+      font-family: "Carol Gothic";
+      text-align: left;
+      border-style: double;
+      border-color: #a47c3b;
+      border-bottom: none;
+      border-radius: 5px 5px 0 0;
+      position: relative;
+      z-index: 2;
     }
-    
-   
-    
-    
-    
-    
-  
-    
+
+
     .cred {
         font-family: DotGothic16;
         font-size: 9px;
@@ -280,165 +216,6 @@ function getAllText(el) {
         margin-left: 510px;
         position: absolute;
         text-align: center;
-    }
-    
-    .buttons {
-        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
-        margin-left: 675px;
-        margin-top: 62px;
-        width: 98;
-        height: 95px;
-        border-style: double;
-        border-color: #a47c3b;
-        font-family: DotGothic16;
-        font-size: 11px;
-        text-align: justify;
-        color: #5e4a2c;
-        overflow-y: scroll;
-        text-align: center;
-        color: #ece4d4;
-        transition: 0.3s;
-    }
-    
-    .buttons img:hover {
-        filter: saturate(3);
-        transition: 0.3s;
-    }
-    
-    .laceright {
-        background-image: url(https://images4.imagebam.com/e4/e3/85/ME1195FY_o.png);
-        width: 20px;
-        height: 540px;
-        margin-top: 50px;
-        margin-left: 1055px;
-        position: absolute;
-    }
-    
-    .lacebottom {
-        background-image: url(https://images4.imagebam.com/e4/e3/85/ME1195FY_o.png);
-        width: 20px;
-        height: 1040px;
-        transform: rotate(90deg);
-        margin-top: 72px;
-        margin-left: 530px;
-        position: absolute;
-    }
-    
-    
- 
-    
-    .tooltip {
-        position: absolute;
-        display: inline-block;
-    }
-    
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 100px;
-        background-color: #a47c3b;
-        color: #ece4d4;
-        text-align: center;
-        border-radius: 5px;
-        font-family: DotGothic16;
-        font-size: 10px;
-        padding: 3px;
-        border-style: dashed;
-        border-width: 1px;
-        transform: rotate(0deg);
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-    }
-    
-    .rightsidebar { 
-        margin: 1em 0;
-        width: 150px;
-        position: absolute;
-        margin-left: 1090px;
-        margin-top: 100px;
-        font-family: DotGothic16;
-        font-size: 11px;
-        color: #a47c3b;
-    }
-    
-    .log {
-        font-family: Carol Gothic;
-        text-align: center;
-        font-size: 25px;
-        margin-top: -10px;
-        color: #8a754f;
-    }
-    
-    .updates {
-        background: #cebe8c;
-        overflow-y: scroll;
-        height: 100px;
-        font-size: 10px;
-        margin-top: 5px;
-        color: #5e4a2c;
-    }
-    
-    .u01 { 
-        background: url(https://images4.imagebam.com/3c/36/a5/ME10G4HF_o.png) repeat-x; 
-        height: 23px; 
-        margin: 0 23px;
-    }
-    
-    .s01 { 
-        background: url(https://images4.imagebam.com/e4/b2/31/ME10G4HG_o.png) repeat-x; 
-        height: 23px ; 
-        margin: 0 23px;
-    }
-    
-    .box-top { 
-        background-image : url(https://images4.imagebam.com/c7/64/aa/ME10G4HH_o.png), url(https://images4.imagebam.com/3a/1b/74/ME10G4HI_o.png); 
-        background-position: top left, top right; 
-        background-repeat : no-repeat, no-repeat; 
-        height: 23px;
-    }
-    
-    .box-center { 
-        background-image: url(https://images4.imagebam.com/cb/0c/9f/ME10G4HJ_o.png), url(https://images4.imagebam.com/d2/94/12/ME10G4HK_o.png); 
-        background-position: top right, top left; 
-        background-repeat : repeat-y , repeat-y;
-    }
-    
-    .box-inner { 
-        background: #cebe8c;
-        margin: 0 23px;
-    
-        
-    }
-    
-    .box-bottom { 
-        background-image: url(https://images4.imagebam.com/11/3d/c0/ME10G4HL_o.png), url(https://images4.imagebam.com/c6/6c/60/ME10G4HM_o.png); 
-        background-position : top left, top right; 
-        background-repeat: no-repeat, no-repeat; 
-        height: 23px;
-    }
-
-    .tile {
-      position:absolute;
-      width: 200px;
-      height: auto;
-      margin-left: 680px;
-      margin-top: -99px;
-      z-index: 1;
-      
-    }
-
-    .heart {
-        position: absolute;
-        margin-left: -80px;
-        margin-top: 230px;
-        z-index: 1;
-        transition: 2s;
-    }
-    
-    .heart:hover {
-        transform: rotate(720deg);
-        transition: 2s;
     }
 
     
@@ -456,43 +233,15 @@ function getAllText(el) {
 <!--HTML CONTENT-->
     
 <body>
-  
-    
-    
-
        
+    
+<body>
+        <div class="natureofsite">
+    ✵ Narrativization
+</div>
 
-        </div>
-    </div>
-    <div class="laceright"></div>
-    <div class="lacebottom"></div>
-    <div class="topbar"></div>
-    <div class="mainbg">
-        <div class="header">
-           <text style="margin-left: 550px; font-size: 70px;">Essay</text>
-        </div>
-        <div class="sidebar"></div>
-        <div class="desc">
-            <span style="background-color: #939468; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; color: #ece4d4"><i>Abstract:</i></span>
-Essay, or literary excursion, examining the benefits of using silence as stimulation, and the psychological theraputic advantages of narratavizing your life.
-        </div>
-        <div class="directory">
-          <div class="heart">
-            <img src="assets/heart.png" style="width: 50px;">
-          </div>
-           
-        </div> <!--wtf, i move this and all hell breaks loose...-->
-        
-        <div class="about">
-            <div class="natureofsite">
-                ✵<span style="font-weight: 400;">Meditations on Psychological Narrativization / Silence as Stimulation &amp; Therapy.</span>
-            </div>
-                <text style="color: transparent; font-size: 4px;">.</text>
-                <text style="font-family: 'Carol Gothic'; margin-left: 90px; color: #3f2806; font-size: 25px;"></text>
-                <table cellpadding="1" style="font-size: 11px; margin-left: 15px; color: #422904; font-family: DotGothic16; margin-top: 10px;">
-                    <tr><tbody></table>
-             
-      <p><span style="font-weight: 400;">Abstract: This essay examines the psychoanalytic benefits of narrativizing your life to renourish a sense of self, arguing that various exercises - &ldquo;past life exercises&rdquo; and such allow a person to interact with unconscious elements of their mind to identify and confront repressions and complexes that would otherwise be ignored. I further this therapeutic model by insisting on a regimen that emphasises living in &ldquo;silence&rdquo; (i.e., depriving oneself of social media, excessive music, etc) in order to stabilize the anxious state that our minds are so used to living in, in hopes to show that we can access stable, deep thought by working and existing in periods of lengthy silence throughout our days. By sitting in silence, I&rsquo;ve observed that I&rsquo;m able to access deep thinking, and subsequently stimulate my mind and thinking much more than when i am multitasking and spreading my focus over an array of tasks that actually just drain my psyche and breed passivity. In the last leg of the essay, i explain (in a somewhat conspiratorial way) that our capitalist world is effectively trying to produce docile and passive bodies that are psychically too weak to revolt on an individual and societal level; and that social media has become the predominant conditioning medium (or put simply, drug) that this is achieved within.</span></p>
+<div class="about">
+     <p><span style="font-weight: 400;">Abstract: This essay examines the psychoanalytic benefits of narrativizing your life to renourish a sense of self, arguing that various exercises - &ldquo;past life exercises&rdquo; and such allow a person to interact with unconscious elements of their mind to identify and confront repressions and complexes that would otherwise be ignored. I further this therapeutic model by insisting on a regimen that emphasises living in &ldquo;silence&rdquo; (i.e., depriving oneself of social media, excessive music, etc) in order to stabilize the anxious state that our minds are so used to living in, in hopes to show that we can access stable, deep thought by working and existing in periods of lengthy silence throughout our days. By sitting in silence, I&rsquo;ve observed that I&rsquo;m able to access deep thinking, and subsequently stimulate my mind and thinking much more than when i am multitasking and spreading my focus over an array of tasks that actually just drain my psyche and breed passivity. In the last leg of the essay, i explain (in a somewhat conspiratorial way) that our capitalist world is effectively trying to produce docile and passive bodies that are psychically too weak to revolt on an individual and societal level; and that social media has become the predominant conditioning medium (or put simply, drug) that this is achieved within.</span></p>
       <p>&nbsp;</p>
       <p><span style="font-weight: 400;">Essay Roadmap:</span></p>
       <p>&nbsp;</p>
@@ -549,26 +298,18 @@ Unfortunately, those who are in a bad head space typically get nightmares. And t
 
 Narrativizing can also be done wickedly and for your own benefit. We see this in examples of individuals who cannot carry the weight of their own guilt. Usually such persons will spend majority of the time contextualizing their bad behaviour, as a way to justify and almost necessitate their bad behaviour to begin with. 
 
-                    </tr>
-            </tbody></table>
-                
-        </div>
+</div>
+
         
-            
-        </div>
-    </div>
-    <div class="cred">
-        <a href="https://neocities.org/site/rassvyet">rassvyet.neocities.org (2025-forever)</a><br>
-        Let's All Love Lain
-    </div>
-       
+
     
+            
 
-<!--MUSIC-->
 
-    <audio controls autoplay loop style="width: 40px; height:auto; position: absolute; border-radius: 25px; opacity: 0; margin-left: 322px; margin-top: -212px;">
-    <source src="assets/tortoise.mp3" type="audio/mpeg">
-</audio>
+
+
+
+</body>
 
     
 
