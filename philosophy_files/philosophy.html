@@ -131,25 +131,33 @@
         margin-top: -1px;
     }
     
-    .directory {
+            .directory {
         width: 250px;
         height: 200px;
         border-width: 40px;
-        border-style:solid;
-        filter: opacity(60%);
+        border-style: solid;
         border-image: url("https://i.pinimg.com/736x/a7/dd/44/a7dd4419d2f350845d055f667ec26374.jpg") 45 fill round;
+
+        /* start dull, like the lamp is “off” */
+        filter: saturate(1.0) brightness(0.9);
+        opacity: 0.8;
+
         padding-top: 20px;
         margin-top: 100px;
         position: absolute;
-    }
-    
-    .directory table a:hover {
-      color: rgb(83, 0, 0);
-      text-shadow: 0 0 10px #5a4040;
-      transition: all 0.7s ease;
-    }
 
-   
+        /* smooth cinematic transition both ways */
+        transition: filter 1.2s ease-in-out, opacity 2.5s ease-in-out;
+        }
+
+        .directory:hover {
+        /* “lamp on” – slow radiant glow */
+        filter: saturate(2.0) brightness(1.1);
+        opacity: 1;
+        }
+
+    
+    
     
     .about {
         position: absolute;
@@ -279,22 +287,7 @@
         color: #a47c3b;
     }
     
-    .log {
-        font-family: Carol Gothic;
-        text-align: center;
-        font-size: 25px;
-        margin-top: -10px;
-        color: #8a754f;
-    }
-    
-    .updates {
-        background: #cebe8c;
-        overflow-y: scroll;
-        height: 100px;
-        font-size: 10px;
-        margin-top: 5px;
-        color: #5e4a2c;
-    }
+   
     
     .u01 { 
         background: url(https://images4.imagebam.com/3c/36/a5/ME10G4HF_o.png) repeat-x; 
@@ -347,8 +340,8 @@
 
     .heart {
         position: absolute;
-        margin-left: 1190px;
-        margin-top: 230px;
+        margin-left: 960px;
+        margin-top: 200px;
         z-index: 1;
         transition: 2s;
     }
@@ -380,11 +373,11 @@ iframe {
     
 <body>
   
-        <div class="all">
-             <div class="heart">
-                <img src="../assets/heart.png" style="width: 50px;">
-             </div>
+    <div class="all">
+        <div class="heart">
+            <img src="../assets/heart.png" style="width: 50px;">
         </div>
+    </div>
 
     <div class="laceright"></div>
     <div class="lacebottom"></div>
@@ -395,26 +388,27 @@ iframe {
         <div class="header">
            <text style="margin-left: 550px; font-size: 70px;">Philosophy</text>
         </div>
-
         <div class="sidebar"></div>
-            <div class="desc">
-                <span style="background-color: #939468; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; color: #ece4d4"><i>Academic Works</i></span>
+        <div class="desc">
+            <span style="background-color: #939468; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; color: #ece4d4"><i>Academic Works</i></span>
                 The selected works of my philosophical contributions at the University of Toronto.
-             </div>
-            <div class="directory">    
+        </div>      
+        <div class="directory">    
+            
+           
         </div>
-
+        
         <div class="about">
             <iframe src="philosophy_mainpage.html" frameborder="0" width="1165px" height="800" name="page"></iframe> 
         </div>
-     </div>
+    </div>
 
     <div class="cred">
         <a href="https://neocities.org/site/rassvyet">rassvyet.neocities.org (2025-forever)</a><br>
         Let's All Love Lain
     </div>
        
-    </div>
+    <div>
         <img src="../assets/cat.png" style="width: 150px; margin-left: -20px; margin-top: -85px; position: absolute;" alt="A teal teacup and saucer. The teacup reads 'drink me' on the innter rim and has art of the white rabbit from Alice in Wonderland on the front.">
     </div>
 

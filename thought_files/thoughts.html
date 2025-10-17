@@ -55,7 +55,7 @@
     
     .topbar {
         margin-left: 25px;
-        width: 1520px;
+        width: 1338px;
         height: 40px;
         background-image: url(https://hillhouse.neocities.org/materials/backgrounds/images/riso-black.png);
         background-position: center;
@@ -67,7 +67,7 @@
     
     .mainbg {
         background-image: url(https://hillhouse.neocities.org/materials/backgrounds/images/riso-black.png);
-        width: 1500px;
+        width: 1300px;
         height: 657px;
         
         margin-left: 25px;
@@ -124,10 +124,10 @@
         border-style: double;
         border-color: #a47c3b;
         font-family: DotGothic16;
-        font-size: 12px;
+        font-size: 15px;
         text-align: justify;
         color: #5e4a2c;
-        line-height: 13px;
+        line-height: 24px;
         position: absolute;
         margin-top: -1px;
     }
@@ -150,17 +150,35 @@
     }
 
 
-    .directory {
-        width: 250px;
-        height: 200px;
-        border-width: 40px;
-        border-style:solid;
-        filter: opacity(60%);
-        border-image: url("austria_erased1.png") 45 fill round;
-        padding-top: 15px;
-        margin-top: 260px;
-        position: absolute;
-    }
+  .directory {
+  width: 250px;
+  height: 200px;
+  border-width: 40px;
+  border-style: solid;
+  border-image: url("austria_erased1.png") 45 fill round;
+
+  /* lamp off — muted and shadowed blues */
+  filter: saturate(0.7) brightness(0.85) hue-rotate(10deg);
+  opacity: 0.85;
+
+  padding-top: 15px;
+  margin-top: 260px;
+  position: absolute;
+
+  transition: filter 3.5s ease-in-out, opacity 3.5s ease-in-out, box-shadow 3.5s ease-in-out;
+}
+
+.directory:hover {
+  /* lamp on — luminous blue-violet radiance */
+  filter: saturate(2.2) brightness(1.25) hue-rotate(220deg) contrast(1.05);
+  opacity: 1;
+
+  /* soft bluish halo glow */
+  box-shadow: 0 0 70px rgba(120, 150, 255, 0.45);
+}
+
+
+
     
     .directory table a:hover {
       color: rgb(83, 0, 0);
@@ -188,7 +206,7 @@
         padding: 5px;
         overflow-y: scroll;
         overflow-x: hidden;
-        font-size: 12px;
+        font-size: 14px;
         z-index: -1;
     }
     
@@ -248,17 +266,17 @@
         width: 20px;
         height: 700px;
         margin-top: 50px;
-        margin-left: 1535px;
+        margin-left: 1350px;
         position: absolute;
     }
     
     .lacebottom {
         background-image: url(https://images4.imagebam.com/e4/e3/85/ME1195FY_o.png);
         width: 20px;
-        height: 1480px;
+        height: 1290px;
         transform: rotate(90deg);
-        margin-top: 0px;
-        margin-left: 800px;
+        margin-top: 98px;
+        margin-left: 695px;
         position: absolute;
     }
     
@@ -368,7 +386,7 @@
 
     .heart {
         position: absolute;
-        margin-left: 1020px;
+        margin-left: 830px;
         margin-top: -65px;
         z-index: 1;
         transition: 2s;
@@ -422,8 +440,8 @@ iframe {
 
             </div>
             <div class="desc">
-                <span style="background-color: #939468; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; color: #ece4d4"><i>Thoughts:</i></span>
-                A compilation of reflections and meditative writings shared.
+                a compilation of some random <span style="background-color: #939468; padding-bottom: 1px; padding-top: 0.5px; padding-left: 2px; padding-right: 2px; color: #ece4d4"><i>reflections</i></span>
+                and meditative <span style="background-color: #939468; padding-bottom: 1px; padding-left: 2px; padding-top: 1px; padding-right: 2px; color: #ece4d4"><i>writings</i></span> shared.
             </div>
             
             <div class="directory">    
