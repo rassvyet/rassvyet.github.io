@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<!--METADATA-->
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>into the unknown...</title>
+    <link rel="icon" href="https://images4.imagebam.com/61/1a/eb/ME12BN85_o.png">
+        
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jacquard+24&display=swap');
+    </style>
+
+        
+    <style>
+    
+    ::-webkit-scrollbar {
+        width: 0px; 
+        background: transparent;
+        border: 5px;  
+    }
+    
+    ::selection {
+        background-color: #864e22;
+        color: #fff;
+    }
+    
+    html {
+        
+        background-color: #000311;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        font-family: "EB Garamond";
+        color: #ffbf97;
+        
+        text-align: justify;
+    }
+
+        .bg-image {
+        position: fixed;
+        inset: 0; /* shorthand for top: 0; right: 0; bottom: 0; left: 0 */
+        background-image: url(../assets/tkbg.png);
+        background-color: rgba(0, 3, 17, 0.55); /* controls opacity veil */
+        background-blend-mode: multiply; /* gives cinematic depth */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: -1; /* keeps it behind everything */
+        }
+
+
+
+    .main {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        width: 1340px;
+        margin-left: auto;
+        margin-right: auto;
+        column-gap: 50px;
+        row-gap: 83px;
+        margin-top: 50px;
+    }
+
+    .header {
+        grid-column: span 1 / span 1;
+        grid-column-start: 2;
+        background-color: #0b022cb0;
+        padding: 1px;
+        font-size: 40px;
+        text-align: center;
+        opacity: 89%;
+        border-width: 63px;
+        border-style: solid;
+        border-image: url("../assets/frame4.png") 180 fill round;
+        margin-top: -70px;
+        margin-left: 270px;
+        }
+
+    .marquee1 {
+        grid-column: span 4 / span 4;
+        grid-row-start: 2;
+        background-color: #0e0009;
+        border-style: double;
+        border-width: 5px;
+        height: 20px;
+        padding: 5px;
+        width: 900px;
+        margin-top: -70px;
+        margin-left: 250px;
+        z-index: 1;
+    }
+
+    .synopsis {
+        grid-column: span 2 / span 2;
+        grid-row-start: 3;
+        background-color: #000311;
+        border-style: double;
+        border-width: 77px;
+        overflow: scroll;
+        padding: 46px;
+        height: 470px;
+        margin-left: -14px;
+        border-image: url(../assets/diary-border.png) 180 fill round;
+    }
+
+    .pitch {
+        grid-column: span 2 / span 2;
+        grid-column-start: 3;
+        grid-row-start: 3;
+        background-color: #000311;
+        border-style: double;
+        border-width: 5px;
+        overflow: scroll;
+        padding: 20px;
+        height: 667px;
+        width: 395px;
+    }
+
+    .image {
+        grid-column: span 3 / span 3;
+        grid-row-start: 4;
+        border-width: 5px;
+        padding: 20px;
+        height: 500px;
+        width: 500px;
+        opacity: 0.85;
+        background-color: rgba(255, 77, 211, 0.384);
+        padding: 10px;
+        margin-left: 102px;
+    }
+
+    .characters {
+        grid-column-start: 4;
+        grid-row-start: 4;
+        background-color: #000311;
+        border-style: double;
+        border-width: 5px;
+        overflow: scroll;
+        padding: 20px;
+        height: 460px;
+        margin-left: -667px;
+    }
+
+    .media {
+        grid-row-start: 5;
+        background-color: #000311;
+        border-style: double;
+        border-width: 5px;
+        overflow: scroll;
+        padding: 20px;
+        height: 400px;
+        width: 170%;
+    }
+    
+    .eps {
+        grid-column: span 3 / span 3;
+        grid-row-start: 5;
+        background-color: #000311;
+        border-style: double;
+        border-width: 5px;
+        overflow: scroll;
+        padding: 20px;
+        height: 400px;
+        width: 75.2%;
+        margin-left: 150px;
+    }
+
+    .gallery {
+        grid-column: span 4 / span 4;
+        grid-row-start: 6;
+        background-color: #000311;
+        border-style: double;
+        border-width: 5px;
+        overflow: scroll;
+        padding: 20px;
+        text-align: center;
+        height: 500px;
+    }
+
+    .marquee2 {
+        grid-column: span 4 / span 4;
+        grid-row-start: 7;
+        background-color: #000311;
+        border-style: double;
+        border-width: 5px;
+        height: 20px;
+        padding: 5px;
+    }
+
+    .me {
+        grid-column: span 2 / span 2;
+        grid-column-start: 3;
+        grid-row-start: 8;
+        background-color: #000311;
+        border-style: double;
+        border-width: 5px;
+        overflow: scroll;
+        padding: 20px;
+        height: 400px;
+    }
+    
+    p {font-size: 15px;}
+        
+    h1 {font-family: "Jacquard 24"; font-weight: 100; color: #ffecdd;}
+    
+    h2 {font-family: "Jacquard 24"; font-weight: 100; color: #dd955e; text-align: center; margin: 0px; font-size: 35px;}
+    
+    h3 {font-family: "Jacquard 24"; font-weight: 100; font-size: 25px; text-align: center; border-bottom-style: double; margin: 0px; padding: 5px; margin-bottom: 10px;}
+    
+    a {color: #fc9c53;}
+    a:hover {color: #ffc494;}
+    a:visited {color: hsl(26, 100%, 81%);}
+        
+</style></head>
+    
+<!--CSS CONTENT-->
+    
+
+    
+<!--HTML CONTENT-->
+    
+<body>
+    
+<div class="main">
+    <div class="bg-image"></div>
+    <div class="header">
+        <img src="../assets/shattered_edit.png" alt="A stylized top border made of looping vines, leaves, and two strange open-eyed reptilians. At its center, contained in a circular frame, are Wirt, Greg, and Beatrice. The lines are thin and dark.">
+        <h1 style="margin-top: -320px; margin-left: 40px;"><i>“Twin, <br> Kill"</i></h1>
+    </div>
+    <div class="marquee1">
+        <marquee>"Noa, I... / I can't express to you how loved you've made me feel, / 
+your loyalty is unmatched... / it's not built for this world. I hope you'll forgive me. My hands are so thorned... look at you, all cut up."</marquee>
+    </div>
+    <div class="synopsis">
+        <h2>Synopsis</h2>
+        <p style="text-align: center;"><img src="back2back.png" style="width: 90%;" alt="An illustration of Wirt and Greg in a forest during the day, knee-deep in foliage. Greg is pointing ahead while talking to his frog, and Wirt is glancing worriedly over his shoulder."></p>
+        <p><b><i>"Twin, Kill"</i></b> is a sci-fi, feature-length script 
+written by Rassvyet. It's a story of bonding love, techno-criminal cruelty, an underground world with fantastical characters, and a girl that thinks that she can run away from pain. But her twin proves her dead wrong.  </p>
+        <p style="color: #f8d0a2; text-align: left; font-size: 20px;">After her mother's suicide, Lia remained in Toronto only in body. Feeling emotionally untethered from friends, family, and any recognizable sense of home, 
+                the city felt like a dystopia. 
+                And it was exactly that: an eternally rainy purgatory, lined with pulsing street lights and neon signs. 
+                People brushed past her with absent minds, beating the sidewalk with urgent steps going nowhere. </p>
+        <p style="color: #f8d0a2; text-align: left; font-size: 20px;"> Lectures were spent dreaming of running away, vanishing into the anonymity of a different life. One day, as she was musing in class, she notices a pair of eyes watching her attentively. 
+                This new student was unnoticeable, but he had a look in his eyes of familiar brokenness. As she befriends this boy named Alex, she halts her plans of running away. But his fragility was mistaken for understanding. 
+                One night at a party, he assaults her. The betrayal devoured her last standing hope in a life already defined by loss. 
+                Her mind splinters, her defenses calcify, and in a drunken, manic haze, she stumbles through the city toward an underground crime café, a place where illicit fantasies are transacted in digital silence. 
+                At one of the dimly lit booths, she discovers a hitman service that offers not just murder—but substitution. 
+                The interface promises a clean escape: your perfect doppelgänger commits the crime, and remains behind to take the fall. You vanish, No loose ends guaranteed. It sounds like salvation. Lia places the order.<br>
+                
+                <br>In the following week, her days and nights blurred into one, and her mind descended into despair, until she receives the text indicating her order is ready. Following the coordinates, she's led to a dilapidated motel on the edge of the city, all blood-red light and humming vacancy. Inside, a gangster with curious, gentle eyes asks her to recount her story. Perhaps out of mercy, or curiosity, or some deeper logic, he listens. And when she finishes, he disappears into the bathroom, returning with a bundle wrapped in a translucent, soaking sheet.
+
+<br><br>The body inside is Noa—her double. Unconscious, wet and shivering, Noa's pale skin is free from history - no tattoos, no piercings, no slash marks. She is Lia without the ruin. Lia before the silence. Before her grief turned her into a husk. And something in Lia fractures again; not violently, but slowly, like frost melting.
+
+<br><br>As Noa awakens, it becomes clear that her mind is blank, wiped clean of memory of her past life. She doesn’t remember, or know how to open a car door. She struggles with putting on clothing. But amidst that unawareness, she still smiles at butterflies. She moves with the disarming gentleness of someone who has never been touched by malice. Lia trains her in the art of survival, and then in the art of killing. Coldness. Silence. Focus.  
+
+<br><br>But something begins to grow between them. At first, it’s merely uncanny: they stir their tea in the same clockwise spiral, flinch at loud noises with the same instinct. Then, it becomes intimate. Lia finds herself watching Noa sleep. She begins dressing her. She stops giving orders, and begins asking questions.  
+
+<br><br>What started as a utilitarian relationship shifts into something unnameable—maternal, sisterly, romantic, perhaps all three. Noa becomes more than a clone. She becomes a companion. A mirror. A reminder of what Lia once was, and might still become.
+
+<br><br>The night of the planned assassination arrives. Noa is sent to do the job. She wears Lia’s black coat, Lia’s gloves. She walks with practiced confidence into the alley where Alex, unsuspecting—or perhaps suspicious—waits. But something goes wrong. A flicker of hesitation. A misstep. Lia, who has secretly followed her, sees it all. Worse: Alex is armed. With a double of his own.
+
+<br><br>The confrontation erupts quickly. There is no time for speeches, no dramatic pause. Just motion and blood. Lia throws herself between them and ends it. Alex collapses, steam rising from the wound in his chest as the rain falls. The deed is done. The plan, technically, complete.
+
+<br><br>But in this moment of resolution, Lia faces the choice that had always been buried beneath the logistics: Does she vanish alone, leaving Noa behind as planned? Or has the clone—this ghost of her younger self—become more than an accessory to her pain?
+
+<br><br>Noa is trembling. Lia was supposed to walk away. But something in her—something long buried—refuses to go.  
+
+<br><br>She reaches for Noa’s hand.
+
+<br><br>They flee together. </p>
+
+    <p style="text-align: center; filter: invert(10);"><img src="../assets/mothy.png" alt="An episode title card done in shapes that resemble papercut artwork due to the crude shapes and blacked-out silhouettes of the objects it contains. Its four corners are studded with a single white star each. It shows Wirt and Greg standing beneath a thick tree branch. The text taking up the left half of the image reads, 'WHEREIN, Wirt and Gregory find themfelvef LOST on HALOWE'EN night.'."></p>
+    </div>
+    <div class="pitch">
+        <h2>Initial Pitch</h2>
+        <p style="text-align: center;"><img src="../assets/blackbunch.png" alt="A storyboard header featuring stylized text that reads, 'TOME of the UNKNOWN', next to a small square icon in linocut style that depicts Wirt and Greg's silhouettes inside of a forest."></p>
+        <p>While it was conceived in early 2024, <i>"Twin, Kill"</i>'s first pitch is being put out in late 2025.
+ This page is dedicated as a visual guide for the story, when I eventually begin circulating my script to close family &amp; friends.</p>
+        <p><i>Twin Kill</i> is a story about processing lonliness and apathy. It takes curious turns through moral crossroads, with complex characters that can't be neatly placed in either the 'good' or 'evil'. 
+        These characters are intentionally <i>beyond</i> their descriptors. Friends can be flawed, and enemies can be sympathized for. But for our main character, she must come to terms with the unfair life she's had,
+to make room for the future potential happiness. </p>
+        <p>The pain that our main character feels starts to go away when her twin arrives. This twin, being a doppelganger, bears no true genetic similarity to our main character. However, through nurture, the time that the girls spend
+                together makes ripples in each of their neurologies; they become connected in uncanny ways, that is only possible through the hormone of love.</p>
+
+        <p><i>Twin Kill </i> is a multi-faceted story, with side sequences that shiver the story, that make it shed its apathetic air, turning the story into something warm, pulsing with life.</p>
+
+        <p>Currently, this story is in its final editing phase. After my dearest friends have read the script, I will make further adjustments before taking the project off-site (you know what i mean).</p>
+        <p style="text-align: center;"><img src="../assets/blackbunch.png" style="transform: rotate(180deg);" alt="A chalky, white-on-black concept drawing for the 'Tome of the Unknown' titlecard, showing the series' name inside a stylized frame. Most noticeable is the top border, which depicts a skull."></p>
+    </div>
+    <div class="image">
+        <p><img src="../assets/tk.gif" style= "width: 500px;" alt="GIF from midjourney of Lia and Noa against a tv, smoking."></p>
+    </div>
+    <div class="characters">
+        <h2>Dramatis Personae</h2>
+        <h3>Lia</h3>
+        <img src="../assets/lia.jpg" alt="Wirt in a field with his jaw dropped and eyes wide, looking shocked." style="float: left; margin-right: 10px; width: 300px;">
+        <p>Lia, a university student, is the main protagonist of <i>Twin Kill</i>. Her staple outfit is a black leather jacket, boots made to stomp with, and black eyeliner. She's either smoking, riding her motorcycle, or eyeing people suspiciously.</p>
+        <p style="text-align: center; color: #ddb78b;">"Fuck these people and this evil city. What can be said of a place that makes sins more fun than virtue? Now add weak lonely people into the mix, and that's gotham for you"</p>
+        <p>Lia is a tough girl. She was taught early on in her life to rely on no-one. When her mom abandoned her in a train station one day, she vowed to never trust a person's love again. 
+        Every friendship and relationship she had afterwards felt like a phantom embrace; she could never fully give in to it. As she approaches the end of her final year, she makes a runaway plan, thinking that she'll just follow her mom's footsteps and leave everything behind.         
+        </p>
+        <p>When Lia meets Noa, she's initially annoyed by the naivety and stupidity of her constant fawning. She feels a resentment building up within her that she thinks must be what her own mother felt towards her. But as she 
+                teaches Noa the assasin plan, Lia realizes the beauty in purity, and her protectiveness awakes within her heart. Now that she can feel again, can she bear to abandon a person who loves and depends on her? Can she repeat the pain of her past onto another soul? Is she as corrupted as she thinks she is?</p>
+
+                <h3>Noa</h3>
+        <img src="../assets/twinkill.jpg" alt="Noa looking at Lia." style="float: left; margin-right: 10px; width: 350px">
+        <p>"Noa" is the property of DPG INC., which is an underground service that provides neurologically engineered humans for purchase and hire. Her legal owner is Lia, but she was altered in a lab years ago. Her life before then is unclear, but 
+                glitches in her memory suggest that she was a psychology student who loved butterflies. In <i>Twin Kill</i>, she usually wears softer, brighter colours. When she was cognitively harvested, the technicians at DPG INC., shrunk her capacity for empathy, making her suitable for 
+                the needs of most criminals. Thus, she is wired to kill and hunt. But reminisces of a sentimental, tender girl is still present. Why this occured is a question in Twin Kill. According to the instruction manuel, Doubles 
+                may malfunction if they are not dethawed correctly. And as we see, Lia left her double unattended during those crucial first 24 hours, which may explain why we see a more 'human' double than the others depicted in <i>Twin Kill.</i></p>
+        <p style="text-align: center; color: #826c53;">"Look at those shrunken heads! They're so cute! Can we take them home? Can we, please?"</p>
+        <p>Noa is an incredibly sweet and loveable character. She sees beauty in the grotesque, fears the harmless, but protects Lia with a ferocity of a thousand tigers. Her amygdala is superwired, which gives her
+                access to strength that only occurs when our adrenaline is at peak. Bodybuilders don't stand a chance against a loyal, neuromaxxed girl.</p>
+       
+        <h3>X</h3>
+        <img src="../assets/x.png" alt="bald, gold hooped gangster leaning back in his chair." style="float: left; margin-right: 10px; width: 300px">
+        <p>X is the owner of DPG INC. He frequents all the underground crime cafes, with the aid of his 2 freakishly tall doubles (with whom he speaks an unidentified language with). He's a character neither good or evil. 
+                When Lia stumbles into the cafe in a drunken haze, he offers his services to her, with the intention of gifting her something he thinks might help her. However, the nature of the game knows no loyalty. He also provides service to her enemy in <i>Twin Kill</i>, Alex.
+        </p>
+        <p style="text-align: center; color: #826c53;">"Don't imply favouritism among my clients. I'm not for that."</p>
+        <p>X is, nonetheless a caring character for Lia. Although he'll never admit it, he watches over her during the many underground parties that take place throughout <i>Twin Kill</i>, ensuring to step in when needed.
+        He's full of curiousity, and knows when to push back on Lia's pessimism. This provides a form of irony, since his enterprise is an utterly sadistic one. Needless to say, Noa is not a fan of him, but the two 
+        provide the audience with comedy in their spiteful exchanges.</p>
+
+        <p style="text-align: center; color: #826c53;">X:    "Oh, how pleasant to see you both. Hi again Noa dear - i hope you've calmed down now and seen I'm a totally nice gentle-."<br><br>
+        Noa stares on, with a deadpan glare, stabbing the icecream in her bowl.</p>
+
+        <h3>Alex</h3>
+        <img src="alex1.png" alt="The Woodsman bending a knee in order to pick some Edelwood sticks up off the ground, mid-speech." style="float: left; margin-right: 10px; width: 230px;">
+        <p>Alex is both the victim and enemy. He befriends Lia during a party, tricks her into giving him a chance on account of being new and friendless. He tries to take advantage of her in a basement of a party,
+                not knowing that he took the last straw. He becomes the perfect target for Lia. She takes him out, she'd be leaving toronto in a better state than when she was living there. That's a fair outcome, she thinks.
+                But perhaps she underestimates the commonality of evil. In her own words, this city breeds sin. But can she plan a crime faster than a psychopath can?
+                Throughout the parties and craze of <i>Twin Kill,</i> Alex is looming around the scene. She has to stomach the bastard that took her dignity. Not for long, though. 
+          </p>
+        <p style="text-align: center; color: #826c53;">"I have a feeling like I need protection, I need to watch my back..."</p>
+        <p>As a promised motif of <i>Twin Kill, </i> no character is simply evil. Alex craves love, but can't get it. He tries to steal it, to force it out of the world, not knowing that his method 
+                doomed to only prophesize the opposite. He develops an obsession for Lia, something that she can ambiently feel. However, the danger is doubled, since Alex cannot distinguish between Noa and Lia. Let's pray they 
+        never run into eachother before the assasination date.</p>
+
+        <h3>Bjorn &amp Josefine</h3>
+        <img src="MEP8B7O_o.png" alt="The Beast with his hands raised to either side of him. He is wreathed in fog, standing in a dark wood." style="float: left; margin-right: 10px;">
+        <p>The Beast is the show's primary antagonist. He is always 
+cloaked in darkness and has a human silhouette and branch-like. His only
+ discernible features beyond that are his glowing white eyes.</p>
+        <p style="text-align: center; color: #826c53;">"No. There is only me. There is only my way. There is only the forest, and there is only surrender."</p>
+        <p>Little is known about the Beast other than that he lures 
+children deep into the woods to turn them into Edelwood trees. He enjoys
+ taunting the Woodsman with his daughter's fate and stalks Wirt and Greg
+ through the Unknown. Most residents of the land know of and fear him; 
+he spends his time wandering the wilds, singing eerie opera songs.</p>
+        <h3>Others</h3>
+        <img src="MEP8B7P_o.png" alt="Wirt, Greg, Beatrice, and Fred the horse sitting at Quincy Endicott's table. Endicott and Greg are getting along like a house on fire, but everyone else seems bored or annoyed." style="float: right; margin-left: 10px;">
+        <p>Wirt and Greg meet many more inhabitants of the Unknown, such
+ as heartbroken school teacher Ms. Langtree, eccentric quadrillionaire 
+Quincy Endicott, and the animated skeletons that inhabit Pottsfield. 
+Most of these characters are confined to their own episodes, Wirt and 
+Greg's wanderings delivering a snapshot of what life is like in the 
+Unknown.</p>
+        <img src="MEP8B7R_o.png" alt="Wirt talking to Sara at a house party. He's awkwardly explaining something to her, and she's listening with interest." style="float: left; margin-right: 10px;">
+        <p>We are also introduced to several characters from back home 
+during a flashback episode, such as Sara, a cool, nerdy girl who Wirt 
+has a crush on, and Jason Funderburker, Wirt's self-proclaimed rival. 
+These characters are wonderfully weird in their own way, but highlight 
+how bizarre the varied personalities of the Unknown are in comparison.</p>
+        <p>Each character we meet has a unique style that distinguishes 
+them from all the rest. From Margueritte Grey's ghostly glow to the 
+Tavern Keeper's rosy cheeks, everyone's personhood and manner is 
+reflected in their dress and design!</p>
+    </div>
+    <div class="media">
+        <h2>Media Guide</h2>
+        <p style="text-align: center;"><img src="MEP8B7U_o.png" alt="A colour test for Tome of the Unknown showing Greg in his sailor's uniform standing in foliage and looking at J. Bliss the frog, who is sitting on a stump, with a smile."></p>
+        <p>There's a lot of content available for both anyone who wants 
+to take their first journey into the Unknown and everyone who's 
+revisiting it. From music to books, I tried to compile everything you'll
+ need to rival even the Beast's knowledge of the Land of the In-Between!
+ This includes video, books and comics, and audio.</p>
+        <p><b>Over the Garden Wall:</b> Obviously, the first thing 
+you'll need to get your hands on is the miniseries itself. Nothing 
+compares to the experience of curling up in bed with blankets, pillows, 
+tea, and the opening chimes of <i>Into the Unknown</i> playing over laptop speakers!</p>
+        <p style="text-align: center;"><img src="MEP8B7X_o.png" alt="A page decorator from the artbook showing Wirt and Greg happily showing off the Emmy award the series won."></p>
+        <p><b>Tome of the Unknown: Harvest Melody:</b> This is the 
+show's pilot episode. It aired in 2013 and now exists as a sort of bonus
+ episode that isn't officially part of the ten mainline episodes. The 
+whole thing has been posted to Youtube by Cartoon Network, and features a
+ lot of vegetable people. You can watch it <a href="https://www.youtube.com/watch?v=X-0vZeaIrFg">here</a>!</p>
+        <p style="text-align: center;"><img src="MEP8B7Z_o.png" alt="A screencap from Tome of the Unknown showing Greg throwing his arms in the air with delight as John Crops, a vegetable man with a pumpkin for a head smiles at him." style="width: 250px;"></p>
+        <p><b>10th Anniversary Short:</b> As the title suggests, this is
+ a short video created for the show's 10th anniversary—and it's entirely
+ in stop-motion! The whole thing is up on YouTube; you can watch it <a href="https://www.youtube.com/watch?v=KkPqr2lx7t8">here</a>, alongside a short behind-the-scenes video, <a href="https://www.youtube.com/watch?v=qdh7SIm2DiA">here</a>!</p>
+        <p><img src="ME16YCCR_o.png" style="width: 250px;" alt="A still of Greg and Wirt from the short."></p>
+        <p><b>Art of Over the Garden Wall:</b> This is a truly beautiful
+ book that chronicles the creation of the show, and is a must-read for 
+any fan. It features hundreds of pieces of concept art, backgrounds, and
+ character designs, as well as notes from all sorts of crew members. The
+ book itself had a limited release and sells for well over 800 dollars 
+on eBay, but a high-resolution scan of it is available for free on the 
+Internet Archive. You can access it <a href="https://archive.org/details/the-art-of-over-the-garden-wall-2017/">here</a>!</p>
+        <p><b>The Over the Garden Wall comics series:</b> The show 
+spawned an entire series of comics published by Boom! Studios. The first
+ one was released in October of 2014, and since then, a whole slew has 
+followed. They feature different art styles and authors, but all of them
+ expound on the adventures Wirt and Greg had in the Unknown. The run has
+ been listed on the show's Fandom page, and you can see the list <a href="https://over-the-garden-wall.fandom.com/wiki/Over_the_Garden_Wall_(comics_series)">here</a>. They're often available on digital library apps, such as Hoopla.</p>
+        <p style="text-align: center;"><img src="MEP8B82_o.png" alt="A comic panel showing Wirt, Greg, and Beatrice hiding behind trees, apparently preparing to ambush a man atop a horse-drawn cart which is transporting hay." style="width: 250px;"></p>
+        <p><b>The story of Over the Garden Wall with songs:</b> This 
+fully-narrated account of the adventures the show chronicles is a 
+charmer. It features original illustrations, and is a fun flip-through 
+for anyone interested! It was uploaded to Youtube in 2017 by user 
+"Henrique Paredes Ferreira"; this is the only available record, as far 
+as I can tell. You can access it <a href="https://www.youtube.com/watch?v=Wfj1teQk5io">here</a>! The book came with a vinyl, but unfortunately, as with the artbook, copies of this work only sell for crazy amounts of money.</p>
+        <p style="text-align: center"><img src="MEP8B84_o.png" alt="A marketing image of the OtGW read-along and vinyl set. Included are the book, a box, and the vinyls."></p>
+        <p><b>Over the Garden Wall (Original Television Soundtrack):</b>
+ The series' soundtrack, which plays a tremendous role in establishing 
+the Unknown's atmosphere, was created by American folk band <i>The Blasting Company</i>.
+ It features, amongst others, the voices of country blues musician Blind
+ Boy Paxton, and opera singer Samuel Ramey (who also provides the 
+Beast's voice)! The soundtrack had its own vinyl release, featuring 
+original spread artwork and designs; you can see them on page 175 of the
+ artbook. You can listen to the album on the band's Spotify page <a href="https://open.spotify.com/album/2uuFLUwbjRiiQ89t4mgC0d">here</a>!</p>
+        <p><b>Sketches of the Unknown:</b> This is an EP put out by <i>The Blasting Company</i>
+ in 2020 that contains six previously unreleased songs created for the 
+show. Their content leads to believe that these were songs used to get 
+the right feel of the music before creating the official soundtrack, as 
+shown above; my very favourite of these is <i>The Tithing Man</i>, which hearkens back to folktales and myths of yore. You can listen to it on the band's Spotify page <a href="https://open.spotify.com/album/7uiO37uX47FJuybWnCQXpL">here</a>!</p>
+        <p style="text-align: center;"><img src="MEP8B86_o.png" alt="The album cover for Sketches of the Unknown, which is a pencil sketch of Greg's frog sitting at a piano with his back turned to the viewer. He's turned his head so the viewer can see his smile."></p>
+        <p><b>For Sara:</b> This Mondo cassette is meant to be a 
+reproduction of the cassette Wirt created for Sara in the penultimate 
+episode of the show. It features original poetry and music (created, 
+again, by <i>The Blasting Company</i>), all meant to have been created 
+by Wirt. The cassette is an absolutely charming companion to the series,
+ and was posted to Youtube in 2017 by user "Demighoul". I highly 
+recommend sitting down to listen to the 20-something minutes it runs 
+for! You can listen to it <a href="https://www.youtube.com/watch?v=t4aHhM624oI">here</a>! The cassette itself is available for purchase on Mondo's shop, <a href="https://mondoshop.com/products/over-the-garden-wall-cassette">here</a>.</p>
+        <p style="text-align: center"><img src="MEP8B88_o.png" alt="A yellow cassette labelled, 'For Sara''." style="width: 250px;"></p>
+    </div>
+    <div class="eps">
+        <h2>Episode Guide</h2>
+        <p>The following is a list of all ten episodes of <i>Over the Garden Wall</i>, as well as a brief synopsis of each</p>
+        <h3>Chapter 1: The Old Grist Mill</h3>
+        <p style="text-align: center;"><img src="MEP8B8A_o.png" alt="A screencap from episode one, showing Wirt and Greg shocked as the the Woodsman surprises them."></p>
+        <p>Wirt and Greg, lost in the Unknown, encounter the mysterious 
+Woodsman. He offers them shelter in his mill and warns them against the 
+dangers of the Beast, who stalks the land and steals children such as 
+themselves.</p>
+        <p style="text-align: center; color: #826c53;"><b>Wirt:</b> Greg! I, I think we're lost! We, w-we should've left a trail or something.<br><b>Greg:</b> I can leave a trail of candy from my pants!</p>
+        <p><b>Trivia:</b> The design of the dog that terrorizes the 
+brothers in this episode was inspired by an old illustration from Hans 
+Christian Anderson's story <i>The Tinderbox</i>.</p>
+        <h3>Chapter 2: Hard Times at the Huskin' Bee</h3>
+        <p style="text-align: center;"><img src="MEP8B8B_o.png" alt="A screencap from episode two, showing a pumpkin man standing beneath a dreary, grey sky. He's overlooking a field and holding a pole to which a white flag has been tied."></p>
+        <p>Wirt and Greg, now accompanied by the bluebird Beatrice, come
+ across the town of Pottsfield, which is populated entirely by what they
+ think are people dressed in pumpkin costumes. They run into trouble and
+ are judged by its leader, Enoch.</p>
+        <p style="text-align: center; color: #826c53;"><b>Enoch:</b> So,
+ by the order of the Pottsfield Chamber of Commerce, I find you guilty 
+of trespassing, destruction of property, disturbing the peace... and <i>murder</i>.</p>
+        <p><b>Trivia:</b> In a proposed version of the intro, Enoch 
+could be seen in human form coming to Pottsfield. The idea was that he 
+was a drifter who came to Pottsfield in order to take over the town and 
+create a death cult.</p>
+        <h3>Chapter 3: Schooltown Follies</h3>
+        <p style="text-align: center;"><img src="MEP8B8C_o.png" alt="A screencap from episode three of Greg and Ms. Langtree smiling at each other as she plays piano."></p>
+        <p>Wirt, tired of being called a pushover by Beatrice, decides 
+to act as one fully. This leads him to become a pupil at Ms. Langtree's 
+school for animals while Greg plays hooky.</p>
+        <p style="text-align: center; color: #826c53;"><b>Ms. Langtree:</b> 'A' is for the apple that he gave to me, but I found a worm inside...</p>
+        <p><b>Trivia:</b> Character designer Nick Cutter was the one to 
+insist on including a scene towards the end of the episode where Mr. 
+Langtree wipes a tear and it clings to his finger. It was meant to refer
+ to a trend in old kids' cartoons that had scared him as a child!</p>
+        <h3>Chapter 4: Songs of the Dark Lantern</h3>
+        <p style="text-align: center;"><img src="MEP8B8D_o.png" alt="A screencap from episode four showing the patronage of the tavern holding Wirt and Greg up above their heads; everyone is cheering."></p>
+        <p>Wirt, Greg, and Beatrice enter a tavern at night looking to 
+ask for directions, but in order to get them, they first have to deal 
+with the patronage's eccentricities.</p>
+        <p style="text-align: center; color: #826c53;"><b>Wirt:</b> My 
+name is Wirt and his name is Greg / We're related 'cuz my mom remarried 
+and then gave birth to him with my stepdad... / We're not from around 
+here / Can you all give me some directions today? / So we can be on our /
+ Wa-a-a-a-y?</p>
+        <p><b>Trivia:</b> The Edelwood tree seen in this episode is 
+supposed to represent the final resting place of the people inside the 
+Dark Tavern. Originally, it was supposed to mark the grave of Civil War 
+soldiers who had fallen asleep under it.</p>
+        <h3>Chapter 5: Mad Love</h3>
+        <p style="text-align: center;"><img src="MEP8B8G_o.png" alt="A screencap from episode five showing Greg, Endicott, and Fred the horse standing in Endicott's greenhouse."></p>
+        <p>Wirt, Greg, and Beatrice, in the pursuit of change to ride a 
+ferry, must help the wealthy but slightly loony Quincy Endicott solve 
+the mystery of a beautiful yet terrifying ghost that has been haunting 
+his massive estate.</p>
+        <p style="text-align: center; color: #826c53;"><b>Endicott:</b> Yes, tea! That's my trade! 'Quincy Endicott's Health Tea'.<br><b>Greg:</b> Your tea sounds good.<br><b>Endicott:</b> Ugh! Never touch the stuff myself.</p>
+        <p><b>Trivia</b>: Because the Unknown is informed by Wirt's 
+interests, Endicott, too, is a character from Wirt's real life. In Ep. 
+9, you can see a tombstone bearing Endicott's name!</p>
+        <h3>Chapter 6: Lullaby in Frogland</h3>
+        <p style="text-align: center;"><img src="MEP8B8K_o.png" alt="A screencap from episode six of Wirt and Greg playing with the band aboard the ship. Greg is 'disguised' as a drum."></p>
+        <p>Now aboard the ferry, Wirt, Greg, and Beatrice have a chance 
+to relax. However, once they disembark and secretly trail Beatrice to 
+Adelaide's house, Wirt and Greg discover that Beatrice hasn't been 
+entirely truthful with them.</p>
+        <p style="text-align: center; color: #826c53;"><b>Wirt:</b> What's wrong with George Washington being naked?</p>
+        <p><b>Trivia:</b>Writer Amalis Levari was the one who provided 
+the idea for the scissors Adelaide holds over Beatrice's head. They're 
+inspired by a real pair of scissors Levari's mother showed her, and they
+ pay homage to how her mother was the one to teach her textile arts.</p>
+        <h3>Chapter 7: The Ringing of the Bell</h3>
+        <p style="text-align: center"><img src="MEP8B8M_o.png" alt="A screencap from episode seven showing Wirt and Greg shushing each other and covered in turtles."></p>
+        <p>Stung by Beatrice's betrayal, Wirt and Greg seek shelter in 
+what they assume to be an abandoned cottage. Things get complicated when
+ they meet its residents: Lorna, and her Auntie Whispers.</p>
+        <p style="text-align: center; color: #826c53;"><b>Woodsman:</b> 
+Stop! Listen! The Beast knows your presence, ready to claim you as part 
+of his dark forest, but only if you give up! Keep hearty in both body 
+and spirit and you shall be safe from him. Fall ill or lose hope and 
+your life shall pass into his crooked hands. Children, please heed my 
+warning! Boys, beware the Beast!</p>
+        <p><b>Trivia:</b> The mystery of the black turtles was one the 
+show writers never intended to solve, but it was clearly hinted that 
+they represented some form of evil to the Unknown. Auntie Whispers 
+serves as a sort of sin eater to counter Adelaide, but the devouring of 
+the turtles has clearly had an effect on her.</p>
+        <h3>Chapter 8: Babes in the Wood</h3>
+        <p style="text-align: center;"><img src="MEP8B8N_o.png" alt="A screencap from episode eight that shows Greg singing along with a host of colourful creatures such as winged animal heads and child angels."></p>
+        <p>Exhausted, Wirt has a one-sided argument with Greg before the
+ pair fall asleep beneath a tree. While sleeping, Greg has a strange 
+dream at the end of which he finds out Wirt cannot leave the Unknown 
+since the Beast has laid claim to him.</p>
+        <p style="text-align: center; color: #826c53;"><b>Wirt:</b> I don't know much of anything anymore.<br><b>Greg:</b> Oh. Did you know that dinosaurs had big ears but everyone forgot 'cuz dinosaur ears don't have bones?</p>
+        <p><b>Trivia</b>: In the background of Greg's dream, you can see a little gnome of an old man, dressed like Wirt and holding a lantern.</p>
+        <h3>Chapter 9: Into the Unknown</h3>
+        <p style="text-align: center;"><img src="MEP8B8Q_o.png" alt="A screencap from episode nine showing Wirt after he's put on his signature outfit. He's looking in the mirror with a fan on to make his cape blow, and he's throwing his arms in the air."></p>
+        <p>It's Halloween, and Wirt has finished recording a cassette 
+for Sara, his crush. Greg decides to help Wirt deliver it to her when 
+Wirt backs out, but this has unintended consequences for the pair.</p>
+        <p style="text-align: center; color: #826c53;"><b>Greg:</b> Thank you, Old Lady Daniels!<br><b>Mrs. Daniels:</b> Goodbye, Gregory. And please don't call me 'old lady'.<br><b>Greg:</b> Yes, sir, young man!</p>
+        <p><b>Trivia</b>: Patrick McHale wanted all of the kids in the 
+background to look like they were wearing homemade costumes because he 
+likes the authenticity this lends. He dislikes storebought costumes 
+because they look artificial and nothing like the character being 
+represented.</p>
+        <h3>Chapter 10: The Unknown</h3>
+        <p style="text-align: center;"><img src="MEP8B8R_o.png" alt="A screencap from episode ten of the Beast speaking to the Woodsman, who looks troubled, from behind."></p>
+        <p>Wirt and Beatrice hunt down Greg in the middle of a 
+snowstorm, and are horrified to find the Beast seems to have taken him. 
+The pair must make one last stand against their otherworldly pursuer, 
+lest they lose Greg forever.</p>
+        <p><b>Beatrice's Mother:</b> Now, eat your dirt!<br>[The whole family laughs genially.]</p>
+        <p> <b>Trivia</b>: Patrick McHale wanted this episode to feel 
+like an opera because of how prominent the Beast is in it. The 
+backgrounds and lighting are all meant to emulate the feeling of a 
+stage, and the team toyed with the idea of having the sounds of an 
+orchestra warming up playing in the background.</p>
+    </div>
+    <div class="gallery">
+        <h2>Art Gallery</h2>
+        <p style="text-align: justify;">It's impossible to stress enough how lovely <i>Over the Garden Wall</i>'s
+ art is. I love zooming in on concept illustrations and backgrounds 
+featured in the artbook because there's so many little details that pop 
+out and really show how much love and care went into the making of this 
+show. I've put together some of my favourite pieces in this 
+mini-gallery. The list is mostly chronological.</p>
+        <img src="MEP8B93_o.png" alt="A painting of what's assumed to be Pottsfield in the distance, depicted at dawn or dusk.">
+        <p>The colours in this picture are so lovely... I want to live in it forever!</p>
+        <img src="MEP8B97_o.png" alt="A digital painting of the inside of a blackberry bush.">
+        <p>This is the blackberry bush Beatrice gets 'caught' in in Ep. 2.</p>
+        <img src="MEP8B9A_o.png" alt="The Woodsman smiling eerily out of a dark wood, axe hefted.">
+        <p>The original design of the Woodsman—a nightmarish face in the dark.</p>
+        <img src="MEP8B9C_o.png" alt="A pencil illustration of the Woodsman standing in a sunny wood and smiling.">
+        <p>I love the colours and the trees in this illustration. Hi, Mr. Woodsman!</p>
+        <img src="MEP8B9E_o.png" alt="Pencil sketches of the Beast's original design, showing him as a furry, bipedal, horned devil, swathed in a raggedy cloak and holding a sceptre or staff.">
+        <p>I so adore the Beast we see in the show, but the concept sketches are amazing, too.</p>
+        <img src="MEP8B9I_o.png" alt="Two sketches on a yellow sticky note. The first shows Greg sitting under a tree as Greg plays happily next to him. The second is a zoom-in on Wirt, eyes closed, looking weary. The text beneath him reads, '(RAIN) (Greg laughing)'">
+        <p>These sketches makes me feel all of Wirt's loneliness. It's like we're getting a glimpse into something we weren't meant to see.</p>
+        <img src="MEP8B9L_o.png" alt="A pencil sketch of the inside of a forest, filled with detailed trees.">
+        <p>There's several landscapes like this one in the artbook, and they all take my breath away.</p>
+        <img src="MEP8B9N_o.png" alt="The red silhouettes of Wirt and Greg in a rich and detailed forest.">
+        <p>Something about the red silhouettes makes a shiver go up my spine.</p>
+        <img src="MEP8B9P_o.png" alt="A digital illustration of an apparently abandoned house in a clearing.">
+        <p>This house raises so many questions: Who lives here? Are they still there? Why is the side door open?</p>
+        <img src="MEP8B9R_o.png" alt="A digital concept for the Edelwood trees, depicting them as bulbous, twisted green growths.">
+        <p>This version of the Edelwood is so disgusting—I love it!</p>
+        <img src="MEP8BA2_o.png" alt="A painting of the grist mill, wreathed in mist. We can see a waterfall behind it.">
+        <p>This art elicits such a feeling of voyeurism.</p>
+         <img src="MEP8BA4_o.png" alt="A sketch of a chopped-down Edelwood, which has a face in it.">
+        <p>The Edelwoods as a whole are such an eerie concept.</p>
+        <img src="MEP8BA5_o.png" alt="A digital illustration of five pumpkin people leering at the viewer.">
+        <p>This group of Pottsfielders is so goofy. I love their little haunted faces.</p>
+        <img src="MEP8BA6_o.png" alt="A painting of the gilded gates to Endicott's manor.">
+        <p>All of the art done for Mad Love is so rich and detailed, but I like this one the best. There's so much to see!</p>
+         <img src="MEP8BA8_o.png" alt="Adelaide's bedchamber, a cozy room filled with strings of yarn.">
+        <p>Despite the horror of who Adelaide is and what she does, I love her room—it feels so cozy.</p>
+        <img src="MEP8BAD_o.png" alt="Wirt's silhouette on an iced-over lake, framed by trees.">
+        <p>Again, the art that shows the character's silhouettes in red is all so horrifying to me.</p>
+        <img src="MEP8BAF_o.png" alt="The stark figure of a tree with a knot in its center, in the middle of a snowy clearing.">
+        <p>The stark figure of this tree is so evocative. The scene feels terribly empty and cold.</p>
+        <img src="MEP8BAH_o.png" alt="Wirt's desk, which is littered with cassettes, papers and crumpled up paper balls, and a train running on tracks.">
+        <p>The clutter of Wirt's desk is rendered so wonderfully here.</p>
+        <img src="MEP8BAI_o.png" alt="The interiour of a dimly lit living room, filled with armchairs, lamps, and paintings.">
+        <p>As with Adelaide's room, this room from the party house is so comfortable-looking.</p>
+        <img src="MEP8BAJ_o.png" alt="A pencil sketch of Wirt, back turned to the viewer, shoulders haunched as he walks.">
+        <p>This one makes me emotional; in saving Greg, Wirt finally gets to be the romantic hero he's always wanted to be.</p>
+        <img src="MEP8BAM_o.png" alt="A snowy, moonlit clearing interrupted only by a treestump.">
+        <p>This painting is so still, and perfectly captures the feel a snowy evening.</p>
+        <img src="MEP8BAP_o.png" alt="Thumbnails for the confrontation between the Beast and the Woodsman in the final episode.">
+        <p>This screenshot does these thumbnails no justice; see all of them on pg. 166 of the artbook.</p>
+        <img src="MEP8BAR_o.png" alt="The Beast recoiling in horror as he's bathed in light, finally revealing his true form; he's pocked with holes and twisted faces.">
+        <p>This shot of the Beast revealed at last is so amazing, in everything from his form to his expression.</p>
+        <img src="MEP8BAS_o.png" alt="A pencil sketch of Greg on the back of a giant goose, hugging its neck happily.">
+        <p>I love the frog here.</p>
+        <img src="MEP8BAT_o.png" alt="A crude thumbnail of Greg pointing, horrified as he shouts, 'GORILLA!!'">
+        <p>GORILLA!!</p>
+        <img src="MEP8BAV_o.png" alt="A crude series of thumbnails showing Wirt and Greg walking in Schooltown Follies, during the scene where they march off into the woods without a plan.">
+        <p>They are so small here...</p>
+    </div>
+    <div class="marquee2">
+        <marquee><i>"... Somewhere, lost in the clouded annals of 
+history, lies a place that few have seen. A mysterious place, called the
+ Unknown; where long-forgotten stories are revealed to those... who 
+travel through the wood... ."</i></marquee>
+    </div>
+    <div class="me">
+        <h2><i>Over the Garden Wall</i> and Me!</h2>
+        <p>Obviously, I made this page because (surprise, surprise!) <i>Over the Garden Wall</i> means a whole lot to me. I first watched the show when I was in Sec. 8, and it was basically love at first sight.</p>
+        <p style="text-align: center;"><img src="MEP8BAY_o.png" alt="A pencil sketch concept art of Wirt and Greg, drawn mostely as crude shapes, trekking through the forest."></p>
+        <p>I can't really explain the weird degree of comfort I get from
+ getting lost in the quiet pastoral towns, deceptively wonderful winter 
+wonderlands, and dense forestation of the Unknown, but know it's a lot! 
+Every time I rewatch this show, I notice something new, and it always 
+surprises me just how much such a short show was able to pack in.</p>
+        <p>My favourite episode is probably 'Songs of the Dark Lantern' 
+by a hair. I love the varied personalities we're introduced to, the 
+silly songs, and the confrontation with the Woodsman. My favourite 
+character is eiter Wirt, the Woodsman, Beatrice, or Greg, but that's 
+basically the entire main cast so it's a moot point. My favourite songs 
+off the soundtrack are 'Patient is the Night', 'Send Me a Peach', 'A 
+Courting Song', 'Tome of the Unknown', and 'Black Train/End Credits'!</p>
+        <p style="text-align: center;"><img src="MEP8BB2_o.png" alt="A pencil sketch concept art of the Beast, showing him as a furred creature with a man's stature but the vague silhouette of a devil. He is wreathed in a raggedy cape and is holding a staff in one thin hand. His eyes are round white circles, and his front teeth are long and thin."></p>
+        <p>I love watching it with my friends or with my siblings, or 
+just by myself. I love listening to Ms. Langtree bemoaning the loss of 
+her beloved Jimmy, and I love the weird rotoscope-y animation of the 
+Highwayman's song. I love the Woodsman and his tragedy, and I always 
+sniffle a little when Anna, his daughter, returns home in the epilogue. I
+ love Enoch and his contemplative voice, and I love the sprawling 
+expanse of the joint Endicott-Grey mansion. I always look forwards to 
+getting to rewatch it when Fall rolls around.</p>
+        <p style="text-align: center;"><img src="MEP8BB5_o.png" alt="A pencil sketch of Greg running up to an Edelwood tree captioned, 'Greg: We found the ugliest tree in the world!'."></p>
+        <p>All that to say, I hope you liked reading through this page 
+almost as much as I liked spending hours making it, and I hope it's 
+inspired you to watch the show if you haven't, and made you think about 
+it if you have!<br></p>
+        <p style="text-align: center; color: #826c53;">That's goodbye for now...<br><br>With much love,<br>Tehsin!</p>
+        <p style="text-align: center;"><img src="MEP8BB9_o.png" alt="A pencil sketch on a sticky note showing Wirt standing on a grassy shore, looking at the roiling sea ahead. There are wind lines in the sky, and he appears to be looking at a simple sailboat, aboard which the silhouette of a figure is visible. It is captioned, in cursive: 'goodbye...'."></p>
+    </div>
+    <img src="MEP8BAW_o.png" alt="A transparent image of Wirt, Greg, and Beatrice. Greg is holding his frog under his arm and has taken Wirt's hand in his free hand. He's running happily, and Wirt is looking down at him, confused. Beatrice is hovering between the two." style="position: absolute; margin-top: 2550px;">
+</div>
+    
+    
+    
+<!--MUSIC-->
+
+    <audio controls="controls" autoplay="autoplay" loop="" style="width: 0;">
+        <source src="g3x4ty.mp3" type="audio/mpeg">
+    </audio>
+    
+
+
+</body></html>
