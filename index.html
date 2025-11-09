@@ -563,9 +563,9 @@ function newColour() {
         border-style: double;
         border-color: #a47c3b;
         font-family: DotGothic16;
-        font-size: 9px;
+        font-size: 14px;
         padding: 5px;
-        text-align: justify;
+        text-align: left;
         color: #5e4a2c;
         position: absolute;
         
@@ -772,6 +772,33 @@ function newColour() {
    position: absolute; 
    box-shadow: whitesmoke;
 }
+
+   .marquee1 {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background-color: #20010c00;
+  color: #5f3e09a6; /* ← change this to whatever color you want */
+  font-family: "Carol Gothic", monospace;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  padding: 5px 0;
+  position: relative;
+  margin-top:2px;
+}
+
+    .marquee1 span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollText1 45s linear infinite;
+}
+
+@keyframes scrollText1 {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
     
 </style></head>
     
@@ -792,9 +819,15 @@ function newColour() {
     </div>
     <div class="laceright"></div>
     <div class="lacebottom"></div>
-    <div class="topbar"></div>
+    <div class="topbar">
+        <div class="marquee1">
+        <span>"DEAREST TRAVELLER, I THANK YOU FOR VISITING MY QUARTERS. YOUR JOURNEY MUST BE TIRING. PLEASE, MAKE YOURSELF AT HOME. VISIT THE LIBRARY IF YOU WOULD LIKE A READ, AND 
+            BE SURE TO STAY OUT OF THE UNCONSTRUCTED PARTS...THEY ARE NOT SAFE, NOT AT THIS HOUR. BE SAFE, TRAVELLER."</span>
+        </div>
+    </div>
+    
+    
     <div class="mainbg">
-        
         <div class="header">
            <text style="margin-left: 550px; font-size: 70px;">Rassvyet</text>
            
@@ -802,7 +835,7 @@ function newColour() {
         <div class="sidebar"></div>
         <div class="desc">
             Hello &amp; welcome, dear visitor. Come in, do not be afraid... this is  <span style="background-color: #939468; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; color: #ece4d4"><i>Rass' bunker</i></span>:
-a lavish junkyard of old relics, a rabbit hole that leads to all things fundamentally unsound, and a quiet haven for all to lament in somber hues.
+a lavish junkyard of old relics, a rabbit hole that leads to all things fundamentally unsound, and a quiet resting haven for all to lament in somber tones.
         </div>
         <div class="directory">
             <text style="font-family: 'Carol Gothic'; margin-left: 90px; color: #5e4a2c; font-size: 25px;"><u>Directory</u></text>
@@ -828,7 +861,7 @@ a lavish junkyard of old relics, a rabbit hole that leads to all things fundamen
         
         <div class="about">
             <div class="natureofsite">
-                ✵ Hear Ye, Hear Ye - October News!
+                ✵ Hear Ye, Hear Ye - November News!
             </div>
                 <text style="color: transparent; font-size: 4px;">.</text><br>
                 <img src="assets/finger.png" alt="kitty" style="width:100px; border-style: double; border-color: #a47c3b; float: right; margin-right: 5px;">
@@ -844,11 +877,11 @@ a lavish junkyard of old relics, a rabbit hole that leads to all things fundamen
                 
         </div>
         <div class="neginsays">
-            <b>Website Credits: </b>https://fairygore.neocities.org/ <br>https://dollarchive.neocities.org/<br>
+            <b>Website Credits: </b>https://fairygore.neocities.org/ <br>https://dollarchive.neocities.org/<br> Please note, this website functions <i>bestly</i> on Firefox.
         </div>
 
         <div class="meee">
-            <br><br><br><br><br><br><br>Um??
+            <br><br><br><br><br><br><br>(Me)
         </div>
 
         <br><br><br><br><br><br><br><br>
@@ -875,7 +908,7 @@ a lavish junkyard of old relics, a rabbit hole that leads to all things fundamen
         </text></text></div>
 
         <div class="linkme">
-            <p><i>for music: click the cat's banjo! Will work on all pages.</i></p>
+            <p><i>✦✦✦✦✦✦✦✦ Sign my <a href="https://rassvyet.atabook.org/">Guestbook</a>!✦✦✦✦✦✦✦✦</i></p>
         </div>
         <div class="antics">
             <div class="anticsside">✵ What's new, Rass? <text style="font-size: 14px;">November 4th, 2025</text></div>
@@ -883,9 +916,9 @@ a lavish junkyard of old relics, a rabbit hole that leads to all things fundamen
 forgive my dim mood - i'm not a fan of November. much rather i'd retell some of the memories of my trip up north into the wilderness, 
 where me and a young woodwose enjoyed our tryst. one such memory occurred at 11:00 PM at night, where our natureman suggested that we walk out
  to the dock to stargaze. i agreed. so there we layed down supine, cold and utterly frozen spined, listless and shivering too, but looking upwards
-  with eyes anew, for the cosmos had proudly bared her many auroral feathers. my companion, under a sort of compulsion spell, asked me every 145 
-  seconds or so whether i was cold. i negated his claim. he pointed out that my shivers had shivers (which was true). but i wittingly turned our 
-  attention back upwards, because if i were to crystalize, i'd want my last impression to be that of wondrous gaze, not an envious side-glance at my 
+  with eyes anew, for the cosmos had proudly bared her many auroral feathers. my companion, under a sort of compulsion spell, had asked me every 145 
+  seconds or so whether i was cold. i negated his claim. he even pointed out that my shivers had shivers (which was true). but i wittingly turned our 
+  attention back upwards, because if i were to crystalize at any moment, i'd want my last impression to be that of wondrous gaze, not an envious side-glance at my 
   much warmer, properly coated friend. alas, our cabinroom had a heated bed. so when it was time to return to the quarters, i was snug as a bug before
    the boy even stood up to his feet.
             <br><br>
