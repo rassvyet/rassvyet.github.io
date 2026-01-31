@@ -1,0 +1,62 @@
+
+<html>
+
+<!--metadata-->
+<meta charset="utf-8" />
+<head>
+<title>WRONG TURN</title>
+<link rel="icon" href="https://images4.imagebam.com/61/1a/eb/ME12BN85_o.png">
+
+</head>
+
+    
+<!--css content-->
+<style>
+html {
+background-image: url(https://images4.imagebam.com/05/01/7a/MEP8AG9_o.png);
+background-repeat:no-repeat;
+background-size: cover;
+font-family:serif;
+color:#d1cac0;
+font-size: 16px;}
+
+a {
+  color:#b18c85;}
+
+</style>
+
+<!--elements-->
+<body>
+    
+<audio autoplay loop id="mars">
+<source src="https://cdn.discordapp.com/attachments/1094375430959677571/1094426890359545907/Rebecca_Foon_-_White_Throated_Sparrow.mp3"></audio>
+
+<div id="container">
+<div id="header">
+<div style="height:90px;">
+<div style="padding:10px;width:375px;">
+<text style="color:#c48e84; letter-spacing: 5px; font-size: 40px;">FₐᵢᵣYGₒᵣₑ</text>
+<div style="border-top:0.5px; padding:5px; margin:3px; background:#938b7f">
+<text style="color:#3b3226; font-size: 15px;">
+<marquee><i>"Is it just me, or do the trees seem to press in closer than before? Does the moon always appear so distant, the stars, so faint? I feel dizzy ... How long have I been walking?"</i></marquee>
+</div>
+</div>
+
+<div style="width:400px; padding:10px;">
+<text style="color:#b18c85; font-size:22px; font-weight:bold;">HALT!</text>
+<table>
+<tbody>
+<tr>
+<td>It seems the path you tread leads nowhere ... and no one likes to be out in these woods after dark.</p><br>Are you sure you wouldn't like to turn around and <b><a href="https://fairygore.neocities.org">try again</a></b>?</td>
+<td><img src="https://thumbs4.imagebam.com/47/08/ca/MEP8AGA_t.png" alt="A wooden-style sculpture of an anatomically correct human heart." style="width:200px;"></td>
+</tr>
+</tbody>
+</table>
+
+  
+
+
+
+</body>
+
+</html>
