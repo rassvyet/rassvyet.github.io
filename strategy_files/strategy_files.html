@@ -185,57 +185,6 @@
         left: 468px;
     }
 
-    .updates {
-        position: absolute;
-        background-color: #8f7b54;
-        height: 100px;
-        width: 180px;
-        top: 285px;
-        left: 877.5px;
-        padding-left: 10px;
-        border-top-style:ridge;
-        border-top-color: #faebd7;
-        border-top-width: 2px;
-        margin-top: 8px;
-        padding-right: 8px;
-        line-height: 10px;
-        overflow-y: scroll;
-    }
-    
-    .updates h3 {
-        color: #000;
-        font-size: 14px;
-    }
-    
-    .updates h2 {
-        color: #f5f5dc;
-        font-size: 17px;
-        font-style: italic;
-        text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000, 0 0;
-        padding-bottom: 5px;
-    }
-    
-    .updates p {
-        font-family: 'Inconsolata', monospace;
-        font-size: 12px;
-        border-left: 2px solid #969696;
-        padding-left: 5px;
-        margin-left: 15px;
-    }
-    
-    .updatetab {
-        position: absolute;
-        background-color: #8f7b54;
-        height: 30px;
-        width: 198px;
-        top: 255px;
-        left: 877.5px;
-        border-radius: 8px 8px 0 0;
-        text-align: center;
-        padding-top: 10px;
-        color: #f5f5dc;
-        font-size: 18px;
-    }
     
     .maintextbg {
         height: 238px;
@@ -269,11 +218,6 @@
         margin-right: 10px;
     }
     
-    .headerpin {
-        position: absolute;
-        top: 90px;
-        left: 1060px;
-    }
 
     
     
@@ -283,28 +227,6 @@
     
 
     
-    .sbbg {
-        position: absolute;
-        left: 99px;
-        top: 65px;
-    }
-    
-    .directory {
-        font-family: "Carol Gothic";
-        font-size: 35px;
-        color: #492900;
-        letter-spacing: 3px;
-        position: absolute;
-        left: 183px;
-        top: 125px;
-    }
-    
-    .links {
-        position: absolute;
-        left: 178px;
-        top: 172px;
-        color:#000;
-    }
     
     .sb2bg {
         width: 237px;
@@ -344,16 +266,6 @@
         padding-bottom: 5px;
     }
     
-    .statusupdate {
-        text-align: center;
-    }
-    
-    .map {
-        position: absolute;
-        top: 608px;
-        left: 425px;
-    }
-
     
     .spacetaker {
         position: absolute;
@@ -406,58 +318,39 @@
 
 
 
- iframe {
-        width: 1135px;
-        height: 799;
-        margin-left: -22.5px;
-        margin-top: 40px;
-        /*overflow:*/
+   .mainbg {
+        background-color: hsla(320, 72%, 18%, 0.129);
+        border-style: solid;
+        border-width: 2px;
+        border-color: #c18557; 
+        padding: 15px;
+        padding-bottom: 20px;
+        position: absolute;
+        width: 774px;
+        height: 466px;
+        top: 217px;
+        left: -121px;
+        overflow-y: scroll;
+    }
+
+      .maintext {
+        position: absolute;
+        font-family: 'Courier New', Courier, monospace;
+        width: 735px;
+        padding: 10px;
+        color: #493f22be;
+        text-align: justify;
+        font-size: 17px;
+        margin-top: 30px;
     }
 
 
-.bottombar {
-        margin-left: -6px;
-        margin-top:-849px;
-        width: 1125px;
-        height: 44px;
-        background-image: url(assets/magrain.jpg);
-        background-color: #9e848d;
-        background-position: top right;
-        opacity: 0.8;
-        border-radius: 0px 20px 0px 20px;
-        background-size: 140%;
-        border-style: double;
-        border-color: #d3a761;
-        filter: contrast(1.1);
+.headerpin {
+        position: absolute;
+        top: 24px;
+        left: 34px;
     }
     
-      .marquee1 {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  background-color: #e9afc300;
-  color: #ffffffe5; /* ← change this to whatever color you want */
-  font-family: "Carol Gothic", monospace;
-  font-size: 20px;
-  letter-spacing: 2px;
-  text-transform: lowercase;
-  padding: 5px 0;
-  position: relative;
-  margin-top:3px;
-}
-
-    .marquee1 span {
-  display: inline-block;
-  padding-left: 100%;
-  animation: scrollText1 45s linear infinite;
-}
-
-@keyframes scrollText1 {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
-}
-
     
 </style></head>
     
@@ -475,11 +368,12 @@
     
 
     
-    <div>
-        <iframe src="strategy_mainpage.html" frameborder="0" width="1135px" height="800" name="page"></iframe> 
-    </div>
+ 
 
-    
+    <div class="headerpin">
+        <div id="saturate">  <a href="https://rassvyet.github.io/strategy_files/strategy_bone.html">Back</a> 
+        </div>
+    </div>
     
    
     <div class="fairygorebg">
@@ -498,71 +392,45 @@
             Screenwriter  <br>
 
         </div>
+
+
+
+
+
+        <div class="mainbg">
+        
+
+        <div class="maintext"> <br><br><br>
+
+            <br><br>
+            ☞ <a href="NF_LLL_BOOK.pdf" target="_blank">Lululemon </a><br><br>
+            ☞ <a href="NF_NSPRSO_BOOK.pdf" target="_blank">Nespresso </a><br><br>
+            
+            ☞ <a href="NF_SPTFY_BOOK.pdf" target="_blank">Spotify</a><br><br>
+
+
+
+
+        </div>
     </div>
     
   
 
    
-    <!--<div class="headerpin">
-        <div id="saturate">
-            <img src="../assets/butterfly2.png" style="width:170px; margin-left: -39px; margin-top: 95; transform: scaleX(-1);" alt="A transparent image of Dayan, the WachiField cat, wearing an apron and holding out a tray of mouse-shaped buns with a charming smile.">
-        </div>
-    </div> -->
-    
+ 
     
 
-    <div class="sbbg">
-            <img src="directorybg.png" style="height: 300; width:300px" alt="A brown lace doily border."> 
-    </div>
-    
-    <div class="directory">
-        Directory
-    </div>
+   
    
 
 
-    <div class="links">
-        <table cellpadding="5">
-            <tbody><tr>
-                <td><a href="strategy_mainpage.html" target="page">୨୧ About me!</a></td>
-                
-            </tr>
-            <tr>
-                <td><a href="resumepage.html" target="page"">୨୧ Work Experience</a></td>
-                
-            </tr>
-            <tr>
-                <td><a href="strategybooks.html" target="page">୨୧ Strategy Books</a></td>
-                
-            </tr>
-            <tr>
-                <td><a href="contactpage.html" target="page">୨୧ Contact</a></td>
-                
-            </tr>
-        </tbody></table>
-    </div>
-    
-    
+   
     
     
     
     <div class="spacetaker"></div>
 
- <div class="bottombar">
-        <div class="marquee1">
-        <span>This website was hand-coded with love. every pixel, every letter......... 
-“I never wish to be easily defined. I’d rather float over other people’s minds as something strictly fluid and non-perceivable; more like a transparent, paradoxically iridescent creature rather than an actual person.” - Franz Kafka
-
-        </span>
-        </div>
-    </div>  
-    
-<!--MUSIC-->
-    
-    <audio autoplay="autoplay" loop="">
-        <source src="Doctor_Turtle_-_His_Last_Share_Of_The_Stars.mp3">
-    </audio>
-
+ 
 
 
 </body></html>
