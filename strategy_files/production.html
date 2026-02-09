@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negin Farhadi — Festival Production & Event Operations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1a1a1a;
+            --secondary-dark: #2d2d2d;
+            --accent-gold: #c9a961;
+            --accent-muted: #8b7d6b;
+            --text-light: #f5f5f5;
+            --text-mid: #d4d4d4;
+            --border-subtle: #3d3d3d;
+            --section-spacing: 4rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+            color: var(--text-mid);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated background grain */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(201, 169, 97, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: var(--section-spacing);
+            position: relative;
+            opacity: 0;
+            animation: fadeInDown 1s ease-out 0.2s forwards;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--text-light);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-mid);
+            margin-top: 1.5rem;
+        }
+
+        .contact-info a {
+            color: var(--text-mid);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .contact-info a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+
+        .contact-info a:hover::after {
+            width: 100%;
+        }
+
+        .contact-info span {
+            position: relative;
+        }
+
+        .contact-info span:not(:last-child)::after {
+            content: '•';
+            position: absolute;
+            right: -1.2rem;
+            color: var(--accent-muted);
+        }
+
+        /* Profile Section */
+        .profile {
+            margin-bottom: var(--section-spacing);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+
+        .profile p {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-mid);
+        }
+
+        /* Section Headers */
+        .section {
+            margin-bottom: var(--section-spacing);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.7s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+        .section:nth-child(6) { animation-delay: 0.9s; }
+        .section:nth-child(7) { animation-delay: 1s; }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 1px;
+            background: var(--accent-gold);
+        }
+
+        /* Experience Items */
+        .experience-item {
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 3px;
+            height: calc(100% - 0.5rem);
+            background: linear-gradient(180deg, var(--accent-gold), transparent);
+        }
+
+        .job-header {
+            margin-bottom: 1rem;
+        }
+
+        .organization {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .job-title {
+            font-size: 1.05rem;
+            color: var(--accent-muted);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: var(--text-mid);
+            opacity: 0.8;
+        }
+
+        .responsibilities {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .responsibilities li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-mid);
+        }
+
+        .responsibilities li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: 300;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-item {
+            background: rgba(45, 45, 45, 0.3);
+            padding: 1.2rem 1.5rem;
+            border-radius: 2px;
+            border-left: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-item:hover {
+            background: rgba(45, 45, 45, 0.5);
+            transform: translateX(5px);
+        }
+
+        /* Education & Languages */
+        .info-block {
+            margin-bottom: 2rem;
+        }
+
+        .info-block h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .info-block p {
+            color: var(--text-mid);
+            line-height: 1.8;
+        }
+
+        .languages-list {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .languages-list li {
+            color: var(--text-mid);
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .languages-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 0.6rem;
+            top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--accent-muted);
+            font-size: 0.9rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.2s forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            :root {
+                --section-spacing: 3rem;
+            }
+
+            .container {
+                padding: 4rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .contact-info span:not(:last-child)::after {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .languages-list {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .grain,
+            body::before {
+                display: none;
+            }
+
+            .section,
+            header,
+            .profile,
+            footer {
+                opacity: 1;
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    <div class="container">
+        <header>
+            <h1>Negin Farhadi</h1>
+            <p class="subtitle">Festival Production & Event Operations</p>
+            <div class="contact-info">
+                <span>Toronto, ON</span>
+                <span><a href="mailto:rassvyeta@gmail.com">rassvyeta@gmail.com</a></span>
+                <span><a href="tel:+16478914630">+1 647-891-4630</a></span>
+            </div>
+        </header>
+
+        <section class="profile">
+            <p>Production and event operations professional with hands-on experience across two international film festivals and one local festival, supporting live screenings, talent-facing events, and high-traffic venues. Known for clear communication, discretion, rapid situational assessment, and calm decision-making in dynamic, public-facing environments. Strong liaison experience with production teams, venue management, security, volunteers, and external stakeholders. Cinephile with a deep commitment to festival culture and live cinema exhibition.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Festival & Event Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="organization">Toronto International Film Festival (TIFF) — Scotiabank Theatre</h3>
+                    <p class="job-title">Front-of-House & Site Operations Support</p>
+                    <p class="location">Toronto, ON</p>
+                </div>
+                <ul class="responsibilities">
+                    <li>Supported live festival operations at a major venue, coordinating closely with venue management, security teams, volunteers, and festival staff to ensure smooth audience flow and orderly screenings.</li>
+                    <li>Managed talent entry and exit logistics, prioritizing discretion, comfort, and safety while maintaining audience order during high-traffic periods.</li>
+                    <li>Acted as an on-site decision-maker in the absence of immediate supervision, independently identifying and resolving crowd congestion risks.</li>
+                    <li>Successfully implemented temporary buffer zones and line holds to protect principal talent during venue exits, preventing escalation and maintaining a calm environment until formal escort resumed.</li>
+                    <li>Assisted with training and guiding front-of-house attendants and volunteers on communication standards, escalation protocols, and crowd-flow management.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="organization">Santa Barbara International Film Festival (SBIFF)</h3>
+                    <p class="job-title">Production Operations & Security Support (Contract)</p>
+                    <p class="location">Santa Barbara, CA</p>
+                </div>
+                <ul class="responsibilities">
+                    <li>Supported production management and operations teams during a large-scale international film festival with high-profile guests and talent.</li>
+                    <li>Coordinated communication between production, security, and venue teams to facilitate smooth talent movement and event logistics.</li>
+                    <li>Assisted with administrative and logistical tasks, including scheduling coordination, documentation support, and on-site problem-solving during peak traffic periods.</li>
+                    <li>Adapted quickly to evolving operational needs in fast-paced environments, contributing to seamless event execution.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="organization">ReelWorld Film Festival</h3>
+                    <p class="job-title">Talent Wrangler / Event Support</p>
+                    <p class="location">Toronto, ON</p>
+                </div>
+                <ul class="responsibilities">
+                    <li>Provided talent-facing support at a local film festival, assisting filmmakers and guests with navigation, scheduling, and venue logistics.</li>
+                    <li>Acted as a liaison between talent, programming staff, and venue personnel to ensure clear communication and smooth transitions between events.</li>
+                    <li>Maintained professionalism and sensitivity when working with artists in high-stress or emotionally charged contexts.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Additional Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="organization">Z.S.I.</h3>
+                    <p class="job-title">Administrative Assistant to Manager</p>
+                    <p class="location">Toronto, ON</p>
+                </div>
+                <ul class="responsibilities">
+                    <li>Provided administrative and operational support to management, including scheduling, correspondence, documentation, and internal coordination.</li>
+                    <li>Supported communication between management, security personnel, and clients, reinforcing organizational efficiency and professionalism.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="organization">SKIN & BONES Film Company Inc.</h3>
+                    <p class="job-title">Producer's Assistant</p>
+                    <p class="location">Toronto, ON</p>
+                </div>
+                <ul class="responsibilities">
+                    <li>Assisted production coordination and operations during pre-production and development phases.</li>
+                    <li>Managed production documentation, contact databases, and location materials to streamline internal workflows.</li>
+                    <li>Supported scheduling, logistics, and interdepartmental communication for production teams.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Festival & live event operations</div>
+                <div class="skill-item">Site coordination & crowd flow management</div>
+                <div class="skill-item">Talent logistics & artist-facing support</div>
+                <div class="skill-item">Cross-department liaison (production, venues, security, volunteers)</div>
+                <div class="skill-item">Real-time problem-solving & crisis response</div>
+                <div class="skill-item">Professional communication & discretion</div>
+                <div class="skill-item">Administrative & organizational support</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="info-block">
+                <h3>University of Toronto</h3>
+                <p>Honours Bachelor of Arts — Philosophy Specialist</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <ul class="languages-list">
+                <li>English (fluent)</li>
+                <li>Farsi (fluent)</li>
+                <li>Danish (conversational)</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>© 2026 Negin Farhadi. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
