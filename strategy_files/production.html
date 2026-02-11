@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Negin Farhadi — Festival Production & Event Operations</title>
+    <title>Negin Farhadi — Toronto-based strategist & screenwriter</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -154,22 +154,6 @@
             color: var(--accent-muted);
         }
 
-        /* Profile Section */
-        .profile {
-            margin-bottom: var(--section-spacing);
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.4s forwards;
-        }
-
-        .profile p {
-            text-align: center;
-            max-width: 750px;
-            margin: 0 auto;
-            font-size: 1.05rem;
-            line-height: 1.9;
-            color: var(--text-mid);
-        }
-
         /* Section Headers */
         .section {
             margin-bottom: var(--section-spacing);
@@ -177,11 +161,11 @@
             animation: fadeInUp 1s ease-out forwards;
         }
 
-        .section:nth-child(3) { animation-delay: 0.6s; }
-        .section:nth-child(4) { animation-delay: 0.7s; }
-        .section:nth-child(5) { animation-delay: 0.8s; }
-        .section:nth-child(6) { animation-delay: 0.9s; }
-        .section:nth-child(7) { animation-delay: 1s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.5s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.7s; }
+        .section:nth-child(6) { animation-delay: 0.8s; }
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
@@ -242,7 +226,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .location {
+        .date-location {
             font-size: 0.9rem;
             color: var(--text-mid);
             opacity: 0.8;
@@ -262,36 +246,20 @@
         }
 
         .responsibilities li::before {
-            content: '—';
+            content: '•';
             position: absolute;
             left: 0;
             color: var(--accent-gold);
             font-weight: 300;
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        /* Skills */
+        .skills-text {
+            line-height: 1.9;
+            color: var(--text-mid);
         }
 
-        .skill-item {
-            background: rgba(45, 45, 45, 0.3);
-            padding: 1.2rem 1.5rem;
-            border-radius: 2px;
-            border-left: 2px solid var(--accent-gold);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .skill-item:hover {
-            background: rgba(45, 45, 45, 0.5);
-            transform: translateX(5px);
-        }
-
-        /* Education & Languages */
+        /* Education */
         .info-block {
             margin-bottom: 2rem;
         }
@@ -309,29 +277,6 @@
             line-height: 1.8;
         }
 
-        .languages-list {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .languages-list li {
-            color: var(--text-mid);
-            position: relative;
-            padding-left: 1.2rem;
-        }
-
-        .languages-list li::before {
-            content: '◆';
-            position: absolute;
-            left: 0;
-            color: var(--accent-gold);
-            font-size: 0.6rem;
-            top: 0.5rem;
-        }
-
         /* Footer */
         footer {
             text-align: center;
@@ -341,7 +286,7 @@
             color: var(--accent-muted);
             font-size: 0.9rem;
             opacity: 0;
-            animation: fadeIn 1s ease-out 1.2s forwards;
+            animation: fadeIn 1s ease-out 1s forwards;
         }
 
         /* Animations */
@@ -406,15 +351,6 @@
             .section-title {
                 font-size: 1.5rem;
             }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .languages-list {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
         }
 
         /* Print Styles */
@@ -431,7 +367,6 @@
 
             .section,
             header,
-            .profile,
             footer {
                 opacity: 1;
                 animation: none;
@@ -444,55 +379,43 @@
     <div class="container">
         <header>
             <h1>Negin Farhadi</h1>
-            <p class="subtitle">Festival Production & Event Operations</p>
+            <p class="subtitle">Toronto-based strategist & screenwriter</p>
             <div class="contact-info">
-                <span>Toronto, ON</span>
-                <span><a href="mailto:rassvyeta@gmail.com">rassvyeta@gmail.com</a></span>
                 <span><a href="tel:+16478914630">+1 647-891-4630</a></span>
+                <span><a href="mailto:rassvyeta@gmail.com">rassvyeta@gmail.com</a></span>
             </div>
         </header>
 
-        <section class="profile">
-            <p>Production and event operations professional with hands-on experience across two international film festivals and one local festival, supporting live screenings, talent-facing events, and high-traffic venues. Known for clear communication, discretion, rapid situational assessment, and calm decision-making in dynamic, public-facing environments. Strong liaison experience with production teams, venue management, security, volunteers, and external stakeholders. Cinephile with a deep commitment to festival culture and live cinema exhibition.</p>
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="info-block">
+                <h3>University of Toronto</h3>
+                <p>Honours Bachelor of Arts, Philosophy Specialist</p>
+            </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">Festival & Event Experience</h2>
+            <h2 class="section-title">Experience</h2>
             
             <div class="experience-item">
                 <div class="job-header">
-                    <h3 class="organization">Toronto International Film Festival (TIFF) — Scotiabank Theatre</h3>
-                    <p class="job-title">Front-of-House & Site Operations Support</p>
-                    <p class="location">Toronto, ON</p>
+                    <h3 class="organization">Z.S.I</h3>
+                    <p class="job-title">Administrative Assistant to Manager & Operations Consultant</p>
+                    <p class="date-location">October 2025 - present</p>
                 </div>
                 <ul class="responsibilities">
-                    <li>Supported live festival operations at a major venue, coordinating closely with venue management, security teams, volunteers, and festival staff to ensure smooth audience flow and orderly screenings.</li>
-                    <li>Managed talent entry and exit logistics, prioritizing discretion, comfort, and safety while maintaining audience order during high-traffic periods.</li>
-                    <li>Acted as an on-site decision-maker in the absence of immediate supervision, independently identifying and resolving crowd congestion risks.</li>
-                    <li>Successfully implemented temporary buffer zones and line holds to protect principal talent during venue exits, preventing escalation and maintaining a calm environment until formal escort resumed.</li>
-                    <li>Assisted with training and guiding front-of-house attendants and volunteers on communication standards, escalation protocols, and crowd-flow management.</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="job-header">
-                    <h3 class="organization">Santa Barbara International Film Festival (SBIFF)</h3>
-                    <p class="job-title">Production Operations & Security Support (Contract)</p>
-                    <p class="location">Santa Barbara, CA</p>
-                </div>
-                <ul class="responsibilities">
-                    <li>Supported production management and operations teams during a large-scale international film festival with high-profile guests and talent.</li>
-                    <li>Coordinated communication between production, security, and venue teams to facilitate smooth talent movement and event logistics.</li>
-                    <li>Assisted with administrative and logistical tasks, including scheduling coordination, documentation support, and on-site problem-solving during peak traffic periods.</li>
-                    <li>Adapted quickly to evolving operational needs in fast-paced environments, contributing to seamless event execution.</li>
+                    <li>Providing administrative support to the Operations Manager, including scheduling, correspondence, documentation, and coordinating communication between management, security personnel, and clients.</li>
+                    <li>Contributing to business development strategy, including advertising recommendations, event planning, and identifying potential partners and contractors for security operations.</li>
+                    <li>Consulting on event operations and production coordination for film, television, and music industry clients, leveraging deep understanding of venue logistics, talent management, and multi-stakeholder liaison.</li>
+                    <li>Advising on protocol and workflow optimization for high-profile events, drawing on extensive experience coordinating between production teams, security, venue management, and talent representatives.</li>
                 </ul>
             </div>
 
             <div class="experience-item">
                 <div class="job-header">
                     <h3 class="organization">ReelWorld Film Festival</h3>
-                    <p class="job-title">Talent Wrangler / Event Support</p>
-                    <p class="location">Toronto, ON</p>
+                    <p class="job-title">Talent Wrangler</p>
+                    <p class="date-location">October 2025</p>
                 </div>
                 <ul class="responsibilities">
                     <li>Provided talent-facing support at a local film festival, assisting filmmakers and guests with navigation, scheduling, and venue logistics.</li>
@@ -500,65 +423,108 @@
                     <li>Maintained professionalism and sensitivity when working with artists in high-stress or emotionally charged contexts.</li>
                 </ul>
             </div>
-        </section>
 
-        <section class="section">
-            <h2 class="section-title">Additional Professional Experience</h2>
-            
             <div class="experience-item">
                 <div class="job-header">
-                    <h3 class="organization">Z.S.I.</h3>
-                    <p class="job-title">Administrative Assistant to Manager</p>
-                    <p class="location">Toronto, ON</p>
+                    <h3 class="organization">Toronto International Film Festival (TIFF)</h3>
+                    <p class="job-title">Front-of-House & Event Operations Support — Scotiabank Theatre</p>
+                    <p class="date-location">August - September 2025</p>
                 </div>
                 <ul class="responsibilities">
-                    <li>Provided administrative and operational support to management, including scheduling, correspondence, documentation, and internal coordination.</li>
-                    <li>Supported communication between management, security personnel, and clients, reinforcing organizational efficiency and professionalism.</li>
+                    <li>Coordinated talent entry and exit logistics in collaboration with venue liaisons, security teams, volunteers, and festival operations to prevent congestion and ensure smooth audience flow.</li>
+                    <li>Acted as on-site point of judgment during live events, independently identifying and resolving bottlenecks affecting talent movement and crowd safety.</li>
+                    <li>Implemented temporary buffer zones and line holds to protect talent comfort and privacy while maintaining audience order during high-traffic screenings.</li>
+                    <li>Trained and guided front-of-house attendants and volunteers on crowd flow, escalation protocols, and communication standards.</li>
+                    <li>Maintained professionalism and discretion in public-facing situations involving high-profile guests and emotionally sensitive talent.</li>
                 </ul>
             </div>
 
             <div class="experience-item">
                 <div class="job-header">
                     <h3 class="organization">SKIN & BONES Film Company Inc.</h3>
-                    <p class="job-title">Producer's Assistant</p>
-                    <p class="location">Toronto, ON</p>
+                    <p class="job-title">Producer's Assistant | Therabody</p>
+                    <p class="date-location">July 2025</p>
                 </div>
                 <ul class="responsibilities">
-                    <li>Assisted production coordination and operations during pre-production and development phases.</li>
-                    <li>Managed production documentation, contact databases, and location materials to streamline internal workflows.</li>
-                    <li>Supported scheduling, logistics, and interdepartmental communication for production teams.</li>
+                    <li>Drafted and coordinated business visitor letters for international directors traveling from the U.S. to Canada, ensuring compliance with cross-border production requirements.</li>
+                    <li>Organized and managed location scout images, files, and production documentation to streamline team access and maintain efficient pre-production workflows.</li>
+                    <li>Assisted the Production Coordinator with diverse logistical and administrative tasks, including hotel bookings, contact database management, call sheet preparation, and crew scheduling.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="organization">Santa Barbara International Film Festival</h3>
+                    <p class="job-title">Security Detail & Production Operations Support | Contract via ZSI Security</p>
+                    <p class="date-location">January - February 2025</p>
+                </div>
+                <ul class="responsibilities">
+                    <li>Managed the high-security vehicle checkpoint for talent and VIPs, verifying credentials, liaising with red carpet and production teams, and ensuring the seamless arrival of guests.</li>
+                    <li>Designed an alternative perimeter control strategy using volunteers amidst staffing and barricade shortages, maintaining secure ingress and egress zones.</li>
+                    <li>Escorted high-profile talent, A-list clients, and industry professionals, ensuring their timely and secure movement through festival venues and events.</li>
+                    <li>Provided operational assistance to festival Production Management as needed, contributing to on-site problem-solving and logistical coordination during high-traffic periods.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="organization">Ibuki Films Inc.</h3>
+                    <p class="job-title">Producer's Assistant | Director X</p>
+                    <p class="date-location">January 2025</p>
+                </div>
+                <ul class="responsibilities">
+                    <li>Assisted the production team on a commercial shoot, serving as a runner and primary stand-in for the producer's assistant.</li>
+                    <li>Coordinated on-set logistics, including talent wrangling, equipment runs, and client service support.</li>
+                    <li>Ensured efficient communication between production departments in a fast-paced, high-pressure environment.</li>
+                    <li>Provided administrative and operational support to production leadership, contributing to the smooth execution of a large-scale shoot.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="organization">Ibuki Films Inc.</h3>
+                    <p class="job-title">Production Assistant | ASUS commercial</p>
+                    <p class="date-location">December 2024</p>
+                </div>
+                <ul class="responsibilities">
+                    <li>Assisted the production team on a commercial shoot for ASUS Canada, supporting pre-production setup, on-set operations, and post-wrap breakdown.</li>
+                    <li>Managed craft station setup and maintenance, ensuring crew access to refreshments and maintaining cleanliness standards.</li>
+                    <li>Monitored and assisted with location cleanliness, noise control, and continuity.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="organization">Film Director</h3>
+                    <p class="job-title">Writer, Director for film "Content" (2023) | University of Toronto</p>
+                    <p class="date-location">December 2023</p>
+                </div>
+                <ul class="responsibilities">
+                    <li>Wrote and directed a short film, sourcing locations, casting talent, coordinating crew schedules, managing production budgets, and running post-production feedback loops with editors and designers.</li>
+                    <li>Briefed collaborators with clear creative direction while maintaining strong working relationships under pressure and ensuring deliverables matched creative intent through rigorous quality control.</li>
+                    <li>Developed production coordination skills by anticipating needs, communicating clearly across departments, and solving problems proactively before escalation.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="organization">Niicii</h3>
+                    <p class="job-title">Founder & Product Lead | University of Toronto</p>
+                    <p class="date-location">2020 - 2023</p>
+                </div>
+                <ul class="responsibilities">
+                    <li>Founded and led development of Niicii, a social application designed to increase meaningful interest-based connections; identified market gap through user research and behavioural analysis, translating insights into product requirements and feature roadmaps.</li>
+                    <li>Conducted structured user research (interviews, surveys, behavioural mapping) to validate hypotheses and refine MVP; iterated on product design based on feedback loops and early usability testing.</li>
+                    <li>Designed wireframes and functional specifications, recruited and coordinated a small team of engineers, and managed cross-functional collaboration across product, technical, and presentation workflows.</li>
+                    <li>Taught myself programming fundamentals (Python, basic SQL concepts) to support data analysis, prototype development, and effective communication with technical contributors.</li>
+                    <li>Pitched product at startup competitions and hackathons, developing data-backed presentations that articulated user pain points, market positioning, and scalable growth opportunities.</li>
                 </ul>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">Core Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">Festival & live event operations</div>
-                <div class="skill-item">Site coordination & crowd flow management</div>
-                <div class="skill-item">Talent logistics & artist-facing support</div>
-                <div class="skill-item">Cross-department liaison (production, venues, security, volunteers)</div>
-                <div class="skill-item">Real-time problem-solving & crisis response</div>
-                <div class="skill-item">Professional communication & discretion</div>
-                <div class="skill-item">Administrative & organizational support</div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Education</h2>
-            <div class="info-block">
-                <h3>University of Toronto</h3>
-                <p>Honours Bachelor of Arts — Philosophy Specialist</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Languages</h2>
-            <ul class="languages-list">
-                <li>English (fluent)</li>
-                <li>Farsi (fluent)</li>
-                <li>Danish (conversational)</li>
-            </ul>
+            <h2 class="section-title">Skills</h2>
+            <p class="skills-text">Production coordination & creative operations • Event logistics & venue management • Multi-stakeholder liaison (production, talent, security, clients) • Strategic planning & business development • Crisis response & conflict management • Front-end coding & web development (HTML, CSS, JavaScript) • Data analysis & technical communication (Python, SQL) • Professional writing & communications • Film, television, and music industry operations • Crowd control & volunteer coordination • Multilingual communication (English, Farsi, Danish)</p>
         </section>
 
         <footer>
