@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIICII — Connect Through What You Know</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f14;
+    --surface: #161820;
+    --surface2: #1e2029;
+    --border: #2a2d3a;
+    --accent: #5b8dee;
+    --accent2: #ee5b8d;
+    --accent3: #5beead;
+    --accent4: #f0c040;
+    --text: #e8eaf0;
+    --text-dim: #7a7f99;
+    --text-faint: #3d4160;
+    --tag-bg: #1e2340;
+    --tag-text: #8aacf5;
+    --seed: #ee8d5b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    font-size: 14px;
+  }
+
+  /* ── TOP NAV ── */
+  .topnav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 20px;
+    height: 52px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    white-space: nowrap;
+    margin-right: 8px;
+  }
+
+  .logo span { color: var(--accent2); }
+
+  .search-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0 12px;
+    gap: 8px;
+    max-width: 700px;
+    transition: border-color 0.2s;
+  }
+  .search-wrap:focus-within { border-color: var(--accent); }
+
+  .search-wrap input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    width: 100%;
+    padding: 8px 0;
+  }
+  .search-wrap input::placeholder { color: var(--text-faint); }
+
+  .search-tags {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .stag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .stag .remove { color: var(--text-dim); font-size: 10px; }
+  .stag .remove:hover { color: var(--accent2); }
+
+  .nav-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+  .nav-btn:hover { opacity: 0.85; }
+  .nav-btn.outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .nav-btn.outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── FILTER BAR ── */
+  .filterbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    overflow-x: auto;
+  }
+  .filterbar::-webkit-scrollbar { display: none; }
+
+  .fchip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 12px;
+    color: var(--text-dim);
+    white-space: nowrap;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    transition: all 0.15s;
+  }
+  .fchip:hover, .fchip.active { border-color: var(--accent); color: var(--accent); background: #1a2040; }
+  .fchip .arrow { font-size: 9px; }
+
+  /* ── MAIN LAYOUT ── */
+  .main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── LEFT SIDEBAR ── */
+  .sidebar-left {
+    width: 56px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    gap: 4px;
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+  .sidebar-left::-webkit-scrollbar { display: none; }
+
+  .server-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: 2px solid transparent;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .server-icon:hover { border-radius: 14px; }
+  .server-icon.active { border-color: var(--accent); border-radius: 14px; }
+  .server-icon .tooltip {
+    position: absolute;
+    left: 54px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 100;
+  }
+  .server-icon:hover .tooltip { opacity: 1; }
+
+  .sidebar-divider {
+    width: 30px;
+    height: 1px;
+    background: var(--border);
+    margin: 4px 0;
+  }
+
+  .add-server {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 2px dashed var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-dim);
+    font-size: 18px;
+    transition: all 0.15s;
+  }
+  .add-server:hover { border-color: var(--accent); color: var(--accent); border-radius: 14px; }
+
+  /* ── SERVER PANEL ── */
+  .server-panel {
+    width: 200px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .server-name {
+    padding: 14px 14px 10px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .server-name .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent3);
+  }
+
+  .channel-section {
+    padding: 10px 8px 4px;
+    font-size: 10px;
+    font-family: 'Space Mono', monospace;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .channel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin: 1px 6px;
+    cursor: pointer;
+    color: var(--text-dim);
+    font-size: 13px;
+    transition: all 0.12s;
+  }
+  .channel:hover { background: var(--surface2); color: var(--text); }
+  .channel.active { background: #1e2340; color: var(--accent); }
+  .channel .hash { color: var(--text-faint); font-family: 'Space Mono', monospace; }
+  .channel .badge {
+    margin-left: auto;
+    background: var(--accent2);
+    color: #fff;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+
+  /* ── FEED ── */
+  .feed {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .feed::-webkit-scrollbar { width: 4px; }
+  .feed::-webkit-scrollbar-track { background: transparent; }
+  .feed::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  /* ── POST CARD ── */
+  .post {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    gap: 12px;
+    transition: border-color 0.15s;
+  }
+  .post:hover { border-color: #3a3f5a; }
+
+  .post-vote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 24px;
+  }
+
+  .vote-btn {
+    background: none;
+    border: none;
+    color: var(--text-faint);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 2px;
+    transition: color 0.12s;
+  }
+  .vote-btn:hover { color: var(--accent); }
+  .vote-count {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .post-body { flex: 1; min-width: 0; }
+
+  .post-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .username {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  .tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: opacity 0.12s;
+  }
+  .tag:hover { opacity: 0.75; }
+
+  .tag-uni { background: #1a2840; color: #5b9dee; }
+  .tag-sub { background: #1e1a30; color: #9b7ef0; }
+  .tag-prof { background: #1a2a20; color: #5bde8d; }
+  .tag-interest { background: #2a1e20; color: #ee7b7b; }
+  .tag-expand {
+    background: none;
+    color: var(--text-faint);
+    font-size: 10px;
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+  }
+
+  .post-text {
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+  }
+
+  .post-ftags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .ftag {
+    font-size: 11px;
+    color: var(--text-dim);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: 'Space Mono', monospace;
+    cursor: pointer;
+  }
+  .ftag:hover { border-color: var(--accent); color: var(--accent); }
+
+  .post-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .action-btn {
+    background: none;
+    border: none;
+    color: var(--text-faint);
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.12s;
+  }
+  .action-btn:hover { background: var(--surface2); color: var(--text); }
+
+  .seed-btn {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--seed);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    transition: all 0.15s;
+  }
+  .seed-btn:hover { border-color: var(--seed); background: #251a10; }
+  .seed-badge {
+    background: var(--seed);
+    color: #fff;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-weight: 700;
+  }
+
+  /* ── REPLY ── */
+  .replies {
+    margin-top: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .reply {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .reply-line {
+    width: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    align-self: stretch;
+    margin-left: 11px;
+  }
+
+  .reply-content { flex: 1; }
+  .reply-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 3px;
+    font-size: 12px;
+  }
+  .reply-text {
+    color: var(--text-dim);
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  .reply-mention {
+    color: var(--accent);
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+  }
+
+  .show-more {
+    font-size: 11px;
+    color: var(--text-faint);
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    padding-left: 4px;
+  }
+  .show-more:hover { color: var(--accent); }
+
+  /* Reply input */
+  .reply-input-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 8px;
+  }
+  .reply-input {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 6px 10px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .reply-input:focus { border-color: var(--accent); }
+  .reply-input::placeholder { color: var(--text-faint); }
+
+  .send-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: 'Space Mono', monospace;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .send-btn:hover { opacity: 0.85; }
+
+  /* ── RIGHT SIDEBAR ── */
+  .sidebar-right {
+    width: 240px;
+    background: var(--surface);
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+  .sidebar-right::-webkit-scrollbar { display: none; }
+
+  .rside-section {
+    border-bottom: 1px solid var(--border);
+    padding: 14px;
+  }
+
+  .rside-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-faint);
+    margin-bottom: 10px;
+  }
+
+  .user-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .user-avatar-lg {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .user-handle {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+  }
+  .user-status {
+    font-size: 11px;
+    color: var(--accent3);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .user-status::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent3);
+    display: inline-block;
+  }
+
+  .roles-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
+
+  .role-chip {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: opacity 0.12s;
+  }
+  .role-chip:hover { opacity: 0.7; }
+
+  .rank-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+  .rank-name {
+    font-family: 'Space Mono', monospace;
+    color: var(--text-dim);
+    font-size: 11px;
+  }
+  .rank-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+  }
+  .rank-bar {
+    height: 3px;
+    background: var(--surface2);
+    border-radius: 3px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .rank-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  /* ── PROFILE MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: 400px;
+    max-width: 95vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 24px;
+    animation: modalIn 0.2s ease;
+  }
+
+  @keyframes modalIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .modal-avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .modal-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .modal-handle {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .modal-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .modal-close:hover { color: var(--text); }
+
+  .modal-section { margin-bottom: 16px; }
+  .modal-section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-faint);
+    margin-bottom: 8px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .post {
+    animation: fadeIn 0.3s ease backwards;
+  }
+
+  .post:nth-child(1) { animation-delay: 0.05s; }
+  .post:nth-child(2) { animation-delay: 0.1s; }
+  .post:nth-child(3) { animation-delay: 0.15s; }
+  .post:nth-child(4) { animation-delay: 0.2s; }
+
+  /* ── NOTIFICATION TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--surface2);
+    border: 1px solid var(--accent3);
+    color: var(--accent3);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: 'Space Mono', monospace;
+    z-index: 2000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.25s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<div class="topnav">
+  <div class="logo">NII<span>C</span>II</div>
+
+  <div class="search-wrap">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-faint);flex-shrink:0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <div class="search-tags" id="searchTags"></div>
+    <input id="searchInput" placeholder="search by [university] [subject] [interest] [skill]..." onkeydown="handleSearch(event)">
+  </div>
+
+  <button class="nav-btn outline" onclick="showToast('Feature coming soon!')">Anon Mode</button>
+  <button class="nav-btn" onclick="openProfile('self')">@paccbet#3026</button>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filterbar">
+  <div class="fchip active" onclick="setFilter(this, 'server', 'S/UOFT')">SERVER — S/UOFT ▾</div>
+  <div class="fchip" onclick="setFilter(this, 'display', 'TOP')">DISPLAY BY — TOP ▾</div>
+  <div class="fchip" onclick="setFilter(this, 'role', 'UTSC')">APPLY ROLES — [UTSC] ▾</div>
+  <div class="fchip" onclick="setFilter(this, 'role2', 'PHLB55')">APPLY 2ND ROLE — [PHLB55] ▾</div>
+  <div class="fchip" onclick="setFilter(this, 'keyword', 'EXAM')">APPLY KEYWORDS — [EXAM] ▾</div>
+  <div class="fchip" onclick="showToast('Showing 6 categories')">DISPLAY CATEGORIES [6] ▾</div>
+  <div class="fchip" onclick="renderPosts()">FILTER OUT | SEARCH!</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT ICON BAR -->
+  <div class="sidebar-left">
+    <div class="server-icon active" style="background:#1a2840" onclick="selectServer(this, 'uoft')">
+      <span style="color:#5b9dee">UofT</span>
+      <div class="tooltip">University of Toronto</div>
+    </div>
+    <div class="server-icon" style="background:#1e1a30" onclick="selectServer(this, 'utsc')">
+      <span style="color:#9b7ef0">UTSC</span>
+      <div class="tooltip">U of T Scarborough</div>
+    </div>
+    <div class="server-icon" style="background:#1a2a20" onclick="selectServer(this, 'mcmaster')">
+      <span style="color:#5bde8d">McMa</span>
+      <div class="tooltip">McMaster University</div>
+    </div>
+    <div class="server-icon" style="background:#2a1e20" onclick="selectServer(this, 'waterloo')">
+      <span style="color:#ee7b7b">UW</span>
+      <div class="tooltip">University of Waterloo</div>
+    </div>
+    <div class="server-icon" style="background:#2a2a1a" onclick="selectServer(this, 'queens')">
+      <span style="color:#f0c040">Queen</span>
+      <div class="tooltip">Queen's University</div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="server-icon" style="background:#1e2a2a" onclick="selectServer(this, 'ryerson')">
+      <span style="color:#5beead">TMU</span>
+      <div class="tooltip">Toronto Metropolitan</div>
+    </div>
+    <div class="server-icon" style="background:#2a1a2a" onclick="selectServer(this, 'york')">
+      <span style="color:#dd7ef0">York</span>
+      <div class="tooltip">York University</div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="add-server" onclick="showToast('Join a university server!')">+</div>
+  </div>
+
+  <!-- SERVER PANEL -->
+  <div class="server-panel">
+    <div class="server-name">
+      <span id="serverTitle">S/UOFT</span>
+      <div class="dot"></div>
+    </div>
+
+    <div class="channel-section">📢 Announcements</div>
+    <div class="channel" onclick="switchChannel(this, 'general')"><span class="hash">#</span>general</div>
+    <div class="channel active" onclick="switchChannel(this, 'main-feed')"><span class="hash">#</span>main-feed <span class="badge">12</span></div>
+
+    <div class="channel-section">📚 Courses</div>
+    <div class="channel" onclick="switchChannel(this, 'phlb55')"><span class="hash">#</span>phlb55-ethics</div>
+    <div class="channel" onclick="switchChannel(this, 'csc207')"><span class="hash">#</span>csc207-software</div>
+    <div class="channel" onclick="switchChannel(this, 'mat411')"><span class="hash">#</span>mat411-algebra</div>
+    <div class="channel" onclick="switchChannel(this, 'eco100')"><span class="hash">#</span>eco100-intro</div>
+
+    <div class="channel-section">🎮 Interests</div>
+    <div class="channel" onclick="switchChannel(this, 'gaming')"><span class="hash">#</span>gaming-gg</div>
+    <div class="channel" onclick="switchChannel(this, 'sports')"><span class="hash">#</span>sports <span class="badge">3</span></div>
+    <div class="channel" onclick="switchChannel(this, 'cs-projects')"><span class="hash">#</span>cs-projects</div>
+
+    <div class="channel-section">💬 Social</div>
+    <div class="channel" onclick="switchChannel(this, 'memes')"><span class="hash">#</span>memes</div>
+    <div class="channel" onclick="switchChannel(this, 'events')"><span class="hash">#</span>campus-events</div>
+  </div>
+
+  <!-- FEED -->
+  <div class="feed" id="feed"></div>
+
+  <!-- RIGHT SIDEBAR -->
+  <div class="sidebar-right">
+    <div class="rside-section">
+      <div class="rside-title">User Info</div>
+      <div class="user-card">
+        <div class="user-avatar-lg" style="background:#1a2840;color:#5b9dee">P</div>
+        <div>
+          <div class="user-handle">= @paccbet#3026</div>
+          <div class="user-status">online</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rside-section">
+      <div class="rside-title">Roles</div>
+      <div class="roles-wrap" id="myRoles">
+        <div class="role-chip" style="color:#5b9dee;border-color:#1a2840">r/UTSC</div>
+        <div class="role-chip" style="color:#9b7ef0;border-color:#1e1a30">r/PHLB55</div>
+        <div class="role-chip" style="color:#5bde8d;border-color:#1a2a20">r/PHILOSOPHY</div>
+        <div class="role-chip" style="color:#f0c040;border-color:#2a2a1a">r/UOFT</div>
+        <div class="role-chip" style="color:#ee7b7b;border-color:#2a1e20" onclick="showToast('display [5] more roles')">+5 more ↗</div>
+      </div>
+    </div>
+
+    <div class="rside-section">
+      <div class="rside-title">Ranks</div>
+      <div class="rank-row">
+        <div class="rank-name">r/UTSC</div>
+        <div class="rank-val">[rank 1] = [200 XP]</div>
+      </div>
+      <div class="rank-bar"><div class="rank-fill" style="width:40%"></div></div>
+      <div class="rank-row">
+        <div class="rank-name">r/PHLB55</div>
+        <div class="rank-val">[rank 0] = [4 XP]</div>
+      </div>
+      <div class="rank-bar"><div class="rank-fill" style="width:5%;background:linear-gradient(90deg,var(--accent2),var(--accent))"></div></div>
+      <div class="rank-row">
+        <div class="rank-name">r/TENNIS</div>
+        <div class="rank-val">[rank 3] = [580 XP]</div>
+      </div>
+      <div class="rank-bar"><div class="rank-fill" style="width:72%;background:linear-gradient(90deg,var(--accent3),var(--accent))"></div></div>
+      <div class="role-chip" style="color:var(--text-dim);border-color:var(--border);cursor:pointer;margin-top:4px" onclick="showToast('Displaying all ranks...')">display [5] more ↗</div>
+    </div>
+
+    <div class="rside-section">
+      <div class="rside-title">Posts</div>
+      <div style="color:var(--text-faint);font-size:12px;font-family:'Space Mono',monospace">12 posts this month</div>
+      <div style="color:var(--text-faint);font-size:12px;font-family:'Space Mono',monospace;margin-top:4px">48 replies given</div>
+    </div>
+
+    <div class="rside-section">
+      <div class="rside-title">Seed Posts</div>
+      <div style="color:var(--text-faint);font-size:12px;margin-bottom:8px">Posts you've offered seeds for:</div>
+      <div style="color:var(--text-dim);font-size:12px;font-family:'Space Mono',monospace">[empty]</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <div class="modal-avatar" id="modalAvatar"></div>
+      <div>
+        <div class="modal-name" id="modalName"></div>
+        <div class="modal-handle" id="modalHandle"></div>
+      </div>
+      <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('open')">✕</button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── DATA ──
+const users = {
+  'paccbet#2132': {
+    name: 'Paccbet', handle: '@paccbet#2132',
+    color: '#5b9dee', bg: '#1a2840', initial: 'P',
+    uni: 'UTSC', roles: ['UTSC','PHILOSOPHY','UOFT','PHLB55','R6','MINECRAFT'],
+    bio: 'Philosophy student at UTSC. Into ethics, gaming, and tennis.',
+    ranks: [['r/UTSC', '340 XP', 55],['r/PHILOSOPHY','120 XP',20],['r/MINECRAFT','800 XP',90]]
+  },
+  'ReListCommand#5422': {
+    name: 'ReListCommand', handle: '@ReListCommand#5422',
+    color: '#9b7ef0', bg: '#1e1a30', initial: 'R',
+    uni: 'UTSC', roles: ['UTSC','COMPUTER SCIENCE','CSA21','UOFT'],
+    bio: 'CS student, into gaming clubs and t/rainbow6.',
+    ranks: [['r/UTSC','200 XP',30],['r/CS','450 XP',70]]
+  },
+  'wraith#4029': {
+    name: 'Wraith', handle: '@wraith#4029',
+    color: '#5bde8d', bg: '#1a2a20', initial: 'W',
+    uni: 'UTSC', roles: ['UTSC','GAMING','DISCORD'],
+    bio: 'Gaming @ UTSC. Admin of the UTSC discord server.',
+    ranks: [['r/GAMING','900 XP',95]]
+  },
+  'eatrice#0929': {
+    name: 'Eatrice', handle: '@eatrice#0929',
+    color: '#f0c040', bg: '#2a2a1a', initial: 'E',
+    uni: 'UTSC', roles: ['UTSC','R6','RAINBOW6'],
+    bio: 'Rainbow Six and chess. UTSC 2nd year.',
+    ranks: [['r/UTSC','110 XP',15],['r/R6','600 XP',80]]
+  },
+  'anon#00065': {
+    name: 'Anon', handle: '@anon#00065',
+    color: '#ee7b7b', bg: '#2a1e20', initial: '?',
+    uni: 'UTSC', roles: ['UTSC','MATHEMATICS','MAT411','WATERLOO-UNDERGRAD','TENNIS'],
+    bio: 'Anonymous user. Mathematics + tennis.',
+    ranks: [['r/UTSC','40 XP',5],['r/MATHEMATICS','210 XP',35],['r/TENNIS','580 XP',72]]
+  },
+  'self': {
+    name: 'Paccbet (You)', handle: '@paccbet#3026',
+    color: '#5b9dee', bg: '#1a2840', initial: 'P',
+    uni: 'UTSC', roles: ['UTSC','PHILOSOPHY','UOFT','PHLB55'],
+    bio: 'Your profile. UTSC philosophy student.',
+    ranks: [['r/UTSC','200 XP',40],['r/PHLB55','4 XP',5],['r/TENNIS','580 XP',72]]
+  }
+};
+
+const postsData = [
+  {
+    id: 1,
+    author: 'paccbet#2132',
+    tags: [['UTSC','uni'],['PHILOSOPHY','sub'],['UOFT','uni'],['PHLB55','sub'],['R6','interest'],['MINECRAFT','interest']],
+    text: 'I have an assignment for t/phlb55, with prof t/benj-hellie, and I can\'t understand problem set 3. anyone else in the class? pls help me w the problem :\'(',
+    ftags: [],
+    votes: 4,
+    seeds: 0,
+    replies: [
+      { author: 'wraith#4029', text: 'i know that on the t/discord server there\'s a group of people that play t/Minecraft and t/rainbow-6, but you\'d have to ask the admin to join', indent: false },
+      { author: 'eatrice#0929', text: '@wraith#4029: i\'m pretty sure you can just join, ping them and they\'ll add you', mention: 'wraith#4029', indent: true }
+    ]
+  },
+  {
+    id: 2,
+    author: 'ReListCommand#5422',
+    tags: [['UTSC','uni'],['COMPUTER SCIENCE','sub'],['CSA21','sub'],['UOFT','uni']],
+    text: 'are there any clubs at t/utsc for t/cs students? anything to do w t/gaming? t/rainbow6 t/r6',
+    ftags: [],
+    votes: 8,
+    seeds: 0,
+    replies: [],
+    collapsed: false
+  },
+  {
+    id: 3,
+    author: 'anon#00065',
+    tags: [['UTSC','uni'],['MATHEMATICS','sub'],['MAT411','sub'],['WATERLOO-UNDERGRAD','uni'],['TENNIS','interest']],
+    text: 'this post is a bit long, so i\'ll add a t/tldr at the bottom. I\'m in the t/PHL411 class with t/aaron-wilson, and I heard that he said that the final exam would consist of the problem sets of the last two assignments, but when I asked the professor if this was the case, he said the exam wouldn\'t consist of any prior questions we\'ve done before. I need a B+ in this class, but missed the last 3 classes due to personal reasons. would anyone be willing to send t/notes to me? I would really appreciate it.',
+    ftags: ['t/help','t/study','r/mathematics','r/stem'],
+    votes: 2,
+    seeds: 5,
+    replies: []
+  },
+  {
+    id: 4,
+    author: 'ReListCommand#5422',
+    tags: [['UTSC','uni'],['COMPUTER SCIENCE','sub'],['UOFT','uni']],
+    text: 'Anyone want to form a study group for the algorithms midterm? Looking for 2-3 people. I\'m free weekday evenings.',
+    ftags: ['t/study-group','t/algorithms','r/cs'],
+    votes: 15,
+    seeds: 2,
+    replies: [
+      { author: 'wraith#4029', text: 'I\'m in! What time works? I\'m free Mon/Wed evenings after 7pm', indent: false }
+    ]
+  }
+];
+
+let activeSearchTags = [];
+let currentPosts = [...postsData];
+
+// ── RENDER POSTS ──
+function renderPosts(filter) {
+  const feed = document.getElementById('feed');
+  let posts = currentPosts;
+
+  if (activeSearchTags.length > 0) {
+    posts = posts.filter(post => {
+      const postTagNames = post.tags.map(t => t[0].toLowerCase());
+      return activeSearchTags.some(st => postTagNames.some(pt => pt.includes(st.toLowerCase())));
+    });
+  }
+
+  feed.innerHTML = '';
+  if (posts.length === 0) {
+    feed.innerHTML = `<div style="text-align:center;color:var(--text-faint);font-family:'Space Mono',monospace;padding:40px;font-size:13px">no posts match these filters.<br><br><span style="font-size:11px">try adjusting your search tags.</span></div>`;
+    return;
+  }
+
+  posts.forEach((post, i) => {
+    const user = users[post.author] || {};
+    const el = document.createElement('div');
+    el.className = 'post';
+    el.style.animationDelay = `${i * 0.06}s`;
+
+    const tagHtml = post.tags.map(([name, type]) =>
+      `<span class="tag tag-${type === 'uni' ? 'uni' : type === 'sub' ? 'sub' : type === 'prof' ? 'prof' : 'interest'}" onclick="addSearchTag('${name}')">${name}</span>`
+    ).join('');
+
+    const ftagHtml = post.ftags.length ? `<div class="post-ftags">${post.ftags.map(t => `<span class="ftag" onclick="addSearchTag('${t}')">${t}</span>`).join('')}</div>` : '';
+
+    const repliesHtml = post.replies.length > 0 ? `
+      <div class="replies">
+        ${post.replies.map(r => {
+          const ru = users[r.author] || {};
+          const mentionText = r.mention ? `<span class="reply-mention">@${r.mention}</span> ` : '';
+          return `<div class="reply">
+            ${r.indent ? '<div class="reply-line"></div>' : ''}
+            <div class="reply-content">
+              <div class="reply-header">
+                <div class="avatar" style="background:${ru.bg||'#222'};color:${ru.color||'#888'};width:18px;height:18px;font-size:9px">${ru.initial||'?'}</div>
+                <span class="username" onclick="openProfile('${r.author}')" style="cursor:pointer">@${r.author}</span>
+              </div>
+              <div class="reply-text">${mentionText}${r.text}</div>
+            </div>
+          </div>`;
+        }).join('')}
+        <div class="reply-input-row">
+          <input class="reply-input" placeholder="reply to @${post.author.split('#')[0]}...">
+          <button class="send-btn" onclick="handleReply(this, ${post.id})">SEND</button>
+        </div>
+      </div>` : `
+      <div style="margin-top:10px">
+        <div class="reply-input-row">
+          <input class="reply-input" placeholder="reply to @${post.author.split('#')[0]}...">
+          <button class="send-btn" onclick="handleReply(this, ${post.id})">SEND</button>
+        </div>
+      </div>`;
+
+    const seedLabel = post.seeds > 0 ? `<span class="seed-badge">${post.seeds} Seed${post.seeds > 1 ? 's' : ''}</span>` : '';
+
+    el.innerHTML = `
+      <div class="post-vote">
+        <button class="vote-btn" onclick="vote(this, ${post.id}, 1)">▲</button>
+        <span class="vote-count" id="votes-${post.id}">${post.votes}</span>
+        <button class="vote-btn" onclick="vote(this, ${post.id}, -1)">▼</button>
+      </div>
+      <div class="post-body">
+        <div class="post-header">
+          <div class="avatar" style="background:${user.bg||'#222'};color:${user.color||'#888'}">${user.initial||'?'}</div>
+          <span class="username" onclick="openProfile('${post.author}')" style="cursor:pointer">@${post.author}</span>
+          ${tagHtml}
+        </div>
+        <div class="post-text">${linkify(post.text)}</div>
+        ${ftagHtml}
+        <div class="post-actions">
+          <button class="action-btn">💬 ${post.replies.length} replies</button>
+          <button class="action-btn" onclick="showToast('Post saved!')">🔖 save</button>
+          <button class="action-btn" onclick="showToast('Link copied!')">🔗 share</button>
+          <button class="seed-btn" onclick="offerSeed(${post.id}, this)">${seedLabel} offer seed ▾</button>
+        </div>
+        ${repliesHtml}
+      </div>`;
+
+    feed.appendChild(el);
+  });
+}
+
+function linkify(text) {
+  return text.replace(/t\/(\S+)/g, '<span style="color:var(--accent);cursor:pointer;font-family:\'Space Mono\',monospace;font-size:12px" onclick="addSearchTag(\'$1\')">t/$1</span>')
+             .replace(/r\/(\S+)/g, '<span style="color:var(--accent2);cursor:pointer;font-family:\'Space Mono\',monospace;font-size:12px" onclick="addSearchTag(\'$1\')">r/$1</span>');
+}
+
+// ── VOTING ──
+function vote(btn, postId, dir) {
+  const post = postsData.find(p => p.id === postId);
+  if (!post) return;
+  post.votes += dir;
+  document.getElementById(`votes-${postId}`).textContent = post.votes;
+  btn.style.color = dir > 0 ? 'var(--accent)' : 'var(--accent2)';
+  setTimeout(() => btn.style.color = '', 800);
+  showToast(dir > 0 ? 'Upvoted!' : 'Downvoted!');
+}
+
+// ── SEED ──
+function offerSeed(postId, btn) {
+  const post = postsData.find(p => p.id === postId);
+  if (!post) return;
+  post.seeds++;
+  showToast(`Offered 1 seed on post #${postId}`);
+  renderPosts();
+}
+
+// ── REPLY ──
+function handleReply(btn, postId) {
+  const input = btn.previousElementSibling;
+  if (!input.value.trim()) return;
+  const post = postsData.find(p => p.id === postId);
+  if (post) {
+    post.replies.push({ author: 'paccbet#3026', text: input.value.trim(), indent: false });
+    showToast('Reply sent!');
+    renderPosts();
+  }
+}
+
+// ── SEARCH ──
+function handleSearch(e) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    const val = e.target.value.replace(/[\[\]]/g,'').trim();
+    if (val) {
+      addSearchTag(val);
+      e.target.value = '';
+      e.preventDefault();
+    }
+  }
+}
+
+function addSearchTag(tag) {
+  tag = tag.replace(/^[tr]\//, '');
+  if (activeSearchTags.includes(tag.toLowerCase())) return;
+  activeSearchTags.push(tag.toLowerCase());
+  renderSearchTags();
+  renderPosts();
+  showToast(`Filtering by [${tag}]`);
+}
+
+function removeSearchTag(tag) {
+  activeSearchTags = activeSearchTags.filter(t => t !== tag);
+  renderSearchTags();
+  renderPosts();
+}
+
+function renderSearchTags() {
+  const wrap = document.getElementById('searchTags');
+  wrap.innerHTML = activeSearchTags.map(t =>
+    `<div class="stag">[${t}] <span class="remove" onclick="removeSearchTag('${t}')">✕</span></div>`
+  ).join('');
+}
+
+// ── FILTERS ──
+function setFilter(el, type, val) {
+  document.querySelectorAll('.fchip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  showToast(`Filter set: ${val}`);
+}
+
+// ── SERVER SWITCH ──
+function selectServer(el, id) {
+  document.querySelectorAll('.server-icon').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  const names = {uoft:'S/UOFT',utsc:'S/UTSC',mcmaster:'S/MCMASTER',waterloo:'S/WATERLOO',queens:'S/QUEENS',ryerson:'S/TMU',york:'S/YORK'};
+  document.getElementById('serverTitle').textContent = names[id] || id.toUpperCase();
+  showToast(`Switched to ${names[id] || id}`);
+}
+
+function switchChannel(el, id) {
+  document.querySelectorAll('.channel').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  showToast(`Viewing #${id}`);
+}
+
+// ── PROFILE MODAL ──
+function openProfile(userId) {
+  const user = users[userId];
+  if (!user) return;
+
+  document.getElementById('modalAvatar').style.cssText = `background:${user.bg};color:${user.color};`;
+  document.getElementById('modalAvatar').textContent = user.initial;
+  document.getElementById('modalName').textContent = user.name;
+  document.getElementById('modalHandle').textContent = user.handle;
+
+  const rolesHtml = user.roles.map(r =>
+    `<div class="role-chip" style="color:var(--tag-text);border-color:var(--tag-bg)">${r}</div>`
+  ).join('');
+
+  const ranksHtml = user.ranks.map(([name, xp, pct]) => `
+    <div class="rank-row"><div class="rank-name">${name}</div><div class="rank-val">${xp}</div></div>
+    <div class="rank-bar"><div class="rank-fill" style="width:${pct}%"></div></div>
+  `).join('');
+
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-section">
+      <div class="modal-section-title">Bio</div>
+      <div style="color:var(--text-dim);font-size:13px;line-height:1.6">${user.bio}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">University</div>
+      <div class="tag tag-uni" style="display:inline-block">${user.uni}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Roles & Tags</div>
+      <div class="roles-wrap">${rolesHtml}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Ranks</div>
+      ${ranksHtml}
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="nav-btn" style="flex:1" onclick="showToast('Following ${user.name}!')">+ Follow</button>
+      <button class="nav-btn outline" style="flex:1" onclick="showToast('Message coming soon!')">Message</button>
+    </div>`;
+
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('open');
+  }
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// ── INIT ──
+renderPosts();
+</script>
+</body>
+</html>
