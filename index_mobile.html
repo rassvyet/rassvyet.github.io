@@ -165,10 +165,13 @@ https://dollarchive.neocities.org/compendium
   }
 
   function newColour() {
-  var lightness = Math.floor(Math.random() * 40 + 55); /* 55–95% lightness */
-  var saturation = Math.floor(Math.random() * 30 + 40); /* 40–70% saturation */
-  return "hsl(270, " + saturation + "%, " + lightness + "%)";
-}
+    var c=new Array();
+    c[0]=255;
+    c[1]=Math.floor(Math.random()*256);
+    c[2]=Math.floor(Math.random()*(256-c[1]/2));
+    c.sort(function(){return (0.5 - Math.random());});
+    return ("rgb("+c[0]+", "+c[1]+", "+c[2]+")");
+  }
   // ]]>
   </script>
 
@@ -192,7 +195,7 @@ https://dollarchive.neocities.org/compendium
         overflow: inherit;
         filter: contrast(1.0);
         font-size: 18px;
-      
+        zoom: 1.2;
     }
 
     .all { margin-left: 10px; margin-top: 25px; }

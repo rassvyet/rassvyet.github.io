@@ -1,0 +1,981 @@
+<html><!--
+
+The lace borders and plates are from foollovers.com! I made my button using: https://goblin-heart.net/sadgrl/projects/88x31-button-maker.
+
+fonts: https://fairygore.neocities.org/fonts
+https://www.onlinewebfonts.com/download/56d3addcc26c615d76f21e7e540c2647
+https://dollarchive.neocities.org/compendium
+
+--><!--METADATA--><head>
+   <link href="https://db.onlinewebfonts.com/c/56d3addcc26c615d76f21e7e540c2647?family=Carol+Gothic" rel="stylesheet"> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">   
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A digital lair featuring my writing, poetry, discarded memos and art I love.">
+    <title>rassvyet's labyrinth</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/30/50/0a/30500a53480c5c2bd9bada02a7926d58.jpg">
+    <link href="C:\Users\Hanna\Documents\GitHub\rassvyet.github.io\assets" rel="stylesheet">   
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+    </style>
+        
+<!-- demo: https://liveweave.com/gu0ReI -->
+ 
+<!--<script>
+var password;
+var pass1="cammy";
+password=prompt("enter your password to view this page.","");
+if (password==pass1)
+alert('password correct! click ok to enter.');
+else
+{
+window.location="https://fauux.neocities.org/god";
+}
+
+</script> -->
+
+<script type="text/javascript">
+// <![CDATA[
+var colour="random"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+var sparkles=50;
+
+/****************************
+*  Tinkerbell Magic Sparkle *
+*(c)2005-13 mf2fm web-design*
+*  http://www.mf2fm.com/rv  *
+* DON'T EDIT BELOW THIS BOX *
+****************************/
+var x=ox=400;
+var y=oy=300;
+var swide=800;
+var shigh=600;
+var sleft=sdown=0;
+var tiny=new Array();
+var star=new Array();
+var starv=new Array();
+var starx=new Array();
+var stary=new Array();
+var tinyx=new Array();
+var tinyy=new Array();
+var tinyv=new Array();
+
+window.onload=function() { if (document.getElementById) {
+  var i, rats, rlef, rdow;
+  for (var i=0; i<sparkles; i++) {
+    var rats=createDiv(3, 3);
+    rats.style.visibility="hidden";
+    rats.style.zIndex="999";
+    document.body.appendChild(tiny[i]=rats);
+    starv[i]=0;
+    tinyv[i]=0;
+    var rats=createDiv(5, 5);
+    rats.style.backgroundColor="transparent";
+    rats.style.visibility="hidden";
+    rats.style.zIndex="999";
+    var rlef=createDiv(1, 5);
+    var rdow=createDiv(5, 1);
+    rats.appendChild(rlef);
+    rats.appendChild(rdow);
+    rlef.style.top="2px";
+    rlef.style.left="0px";
+    rdow.style.top="0px";
+    rdow.style.left="2px";
+    document.body.appendChild(star[i]=rats);
+  }
+  set_width();
+  sparkle();
+}}
+
+function sparkle() {
+  var c;
+  if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+    ox=x;
+    oy=y;
+    for (c=0; c<sparkles; c++) if (!starv[c]) {
+      star[c].style.left=(starx[c]=x)+"px";
+      star[c].style.top=(stary[c]=y+1)+"px";
+      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+      star[c].childNodes[0].style.backgroundColor=star[c].childNodes[1].style.backgroundColor=(colour=="random")?newColour():colour;
+      star[c].style.visibility="visible";
+      starv[c]=50;
+      break;
+    }
+  }
+  for (c=0; c<sparkles; c++) {
+    if (starv[c]) update_star(c);
+    if (tinyv[c]) update_tiny(c);
+  }
+  setTimeout("sparkle()", 40);
+}
+
+function update_star(i) {
+  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+  if (starv[i]) {
+    stary[i]+=1+Math.random()*3;
+    starx[i]+=(i%5-2)/5;
+    if (stary[i]<shigh+sdown) {
+      star[i].style.top=stary[i]+"px";
+      star[i].style.left=starx[i]+"px";
+    }
+    else {
+      star[i].style.visibility="hidden";
+      starv[i]=0;
+      return;
+    }
+  }
+  else {
+    tinyv[i]=50;
+    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+    tiny[i].style.width="2px";
+    tiny[i].style.height="2px";
+    tiny[i].style.backgroundColor=star[i].childNodes[0].style.backgroundColor;
+    star[i].style.visibility="hidden";
+    tiny[i].style.visibility="visible"
+  }
+}
+
+function update_tiny(i) {
+  if (--tinyv[i]==25) {
+    tiny[i].style.width="1px";
+    tiny[i].style.height="1px";
+  }
+  if (tinyv[i]) {
+    tinyy[i]+=1+Math.random()*3;
+    tinyx[i]+=(i%5-2)/5;
+    if (tinyy[i]<shigh+sdown) {
+      tiny[i].style.top=tinyy[i]+"px";
+      tiny[i].style.left=tinyx[i]+"px";
+    }
+    else {
+      tiny[i].style.visibility="hidden";
+      tinyv[i]=0;
+      return;
+    }
+  }
+  else tiny[i].style.visibility="hidden";
+}
+
+document.onmousemove=mouse;
+function mouse(e) {
+  if (e) {
+    y=e.pageY;
+    x=e.pageX;
+  }
+  else {
+    set_scroll();
+    y=event.y+sdown;
+    x=event.x+sleft;
+  }
+}
+
+window.onscroll=set_scroll;
+function set_scroll() {
+  if (typeof(self.pageYOffset)=='number') {
+    sdown=self.pageYOffset;
+    sleft=self.pageXOffset;
+  }
+  else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+    sdown=document.body.scrollTop;
+    sleft=document.body.scrollLeft;
+  }
+  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+    sleft=document.documentElement.scrollLeft;
+    sdown=document.documentElement.scrollTop;
+  }
+  else {
+    sdown=0;
+    sleft=0;
+  }
+}
+
+window.onresize=set_width;
+function set_width() {
+  var sw_min=999999;
+  var sh_min=999999;
+  if (document.documentElement && document.documentElement.clientWidth) {
+    if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+    if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+  }
+  if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+    if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+    if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+  }
+  if (document.body.clientWidth) {
+    if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+    if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+  }
+  if (sw_min==999999 || sh_min==999999) {
+    sw_min=800;
+    sh_min=600;
+  }
+  swide=sw_min;
+  shigh=sh_min;
+}
+
+function createDiv(height, width) {
+  var div=document.createElement("div");
+  div.style.position="absolute";
+  div.style.height=height+"px";
+  div.style.width=width+"px";
+  div.style.overflow="hidden";
+  return (div);
+}
+
+function newColour() {
+  var lightness = Math.floor(Math.random() * 40 + 55); /* 55–95% lightness */
+  var saturation = Math.floor(Math.random() * 30 + 40); /* 40–70% saturation */
+  return "hsl(270, " + saturation + "%, " + lightness + "%)";
+}
+// ]]>
+</script>
+
+
+
+
+
+<style>
+    
+    ::-webkit-scrollbar {width: 4px;}::-webkit-scrollbar:horimzontal {height: 10px;}::-webkit-scrollbar-corner {background: #dfdfdf;}::-webkit-scrollbar-track {background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='2' height='2' viewBox='0 0 2 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 0H0V1H1V2H2V1H1V0Z' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 0H1V1H0V2H1V1H2V0Z' fill='white'/%3E %3C/svg%3E");}::-webkit-scrollbar-thumb {background-color: #dfdfdf;box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #ffffff, inset -2px -2px #808080,inset 2px 2px #dfdfdf;}::-webkit-scrollbar-button:vertical:start {height: 17px;background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E %3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 6H7V7H6V8H5V9H4V10H11V9H10V8H9V7H8V6Z' fill='black'/%3E %3C/svg%3E");}::-webkit-scrollbar-button:vertical:end { height: 17px;background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E %3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11 6H4V7H5V8H6V9H7V10H8V9H9V8H10V7H11V6Z' fill='black'/%3E %3C/svg%3E");}::-webkit-scrollbar-button:horizontal:start {width: 17px;background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E %3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 4H8V5H7V6H6V7H5V8H6V9H7V10H8V11H9V4Z' fill='black'/%3E %3C/svg%3E");}::-webkit-scrollbar-button:horizontal:end {width: 17px;background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E %3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 4H6V11H7V10H8V9H9V8H10V7H9V6H8V5H7V4Z' fill='black'/%3E %3C/svg%3E");}
+    
+</style><style>
+    
+    a {
+        color: #3d0101;
+    }
+    
+    a:visited { 
+        color: #33010169;
+    }
+
+    a:hover {
+        color: #300000; 
+    }
+    
+    ::selection {
+        background-color: #b7ae7d;
+        color: #696138;
+    }
+
+    
+    
+    html {
+        background-image: url(assets/waiting.jpg);
+        /*background-attachment: fixed;*/
+        background-size: 950px;
+        background-position: repeat;
+        overflow: inherit;
+        /*margin-left: 30px;*/
+        filter: contrast(1.0);
+        font-size: 18px; /* base size, bump this up to scale all rem/em units */
+   
+    }
+    
+    .all {
+        margin-left: 10px;
+        margin-top: 25px;
+    }
+
+    
+    
+    .topbar {
+        margin-left: 25px;
+        width: 1045px;
+        height: 40px;
+        background-image: url(assets/magrain.jpg);
+        background-color: #180008;
+        background-position: top right;
+
+        border-radius: 50px 50px 5px 5px;
+        background-size: 140%;
+        border-style: double;
+        border-color: #d3a761;
+        filter: contrast(1.1);
+    }
+    
+    .mainbg {
+        background-image: url(assets/violetdawn.jpg);
+        
+        background-position: 100%;
+        background-color: rgba(46, 46, 206, 0.5); /* the tint colour */
+        width: 1005px;
+        height: 507px;
+        margin-left: 25px;
+        margin-top: 5px;
+        padding: 20px;
+        border-style: double;
+        border-color: #d3a761;
+        border-radius: 5px 5px 5px 5px;
+        padding: 10px;
+       /* background-color: #20010c;*/
+       opacity: 0.89;
+        filter:contrast(1.3);
+         filter: grayscale(0.2);    /* full greyscale */
+        
+         filter: saturate(0.1);   /* desaturate */
+          filter: brightness(0.9); /* darken */
+    }
+    
+    .header {
+        font-family: "Carol Gothic";
+        background-image: url(assets/rainycastle.gif);
+        height: 100px;
+        margin: -10px;
+        background-position: top left;
+        background-size: 110%;
+        border-radius: 5px 5px px px;
+        color: #ead2b6;
+        letter-spacing: 5px;
+        text-shadow: -1px 0 #2b1b01, 0 5px #291900, 1px 0 #4b2e00, 0 -1px #a47c3b, 0 0;
+        transition: 3s;
+        border-bottom-style: double;
+        border-color: #a47c3b;
+        margin-bottom: 10px;
+    }
+    
+    .header:hover {
+        color: #a47c3b;
+        text-shadow: -1px 0 #ead2b6, 0 1px #ead2b6, 1px 0 #ead2b6, 0 -1px #ead2b6, 0 0;
+        transition: 3s;
+        background-position: top;
+    }
+    
+    .sidebar {
+        width: 350px;
+        /*background-image: url(https://images4.imagebam.com/44/0f/a2/ME101MPX_o.png); */
+        height: 425;
+        position: absolute;
+        margin-left: -10px;
+        margin-top: -10px;
+        border-right: double;
+        color: #a47c3b;
+        background-color: #20010c;
+    }
+    
+    .desc {
+        background-color: #a3946a;
+        width: 305px;
+        padding: 10px;
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        font-size: 12px;
+        text-align: justify;
+        color: #5e4a2c;
+        line-height: 13px;
+        position: absolute;
+        margin-top: -1px;
+    }
+    
+    .directory {
+        width: 250px;
+        height: 200px;
+        border-width: 40px;
+        border-style:solid;
+        border-image: url("https://images4.imagebam.com/e9/a1/a7/MEPI84T_o.png") 45 fill round;
+        padding-top: 20px;
+        margin-top: 100px;
+        position: absolute;
+    }
+    
+    .directory table a:hover {
+      color: rgb(83, 0, 0);
+      text-shadow: 0 0 10px #5a4040;
+      transition: all 0.7s ease;
+    }
+
+   
+    
+    .about {
+        position: absolute;
+        background-color: #201B1D;
+        width: 305px;
+        /*background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png); */
+        
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        color: #bd9559;
+        margin-left: 350px;
+        margin-top: 52px;
+        padding-top: 5px;
+        height: 220px;
+        text-align: left;
+        padding: 5px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        font-size: 12px;
+    }
+    
+    .natureofsite {
+        background: linear-gradient(180deg, #50012abe, #8b8860);
+        color: #ead2b6;
+        font-size: 19px;
+        padding: 5px;
+        margin-top: -5px;
+        margin-left: -5px;
+        width: 305px;
+        font-family: carol gothic;
+    }
+    
+    .neginsays {
+        position: absolute;
+        background-color: #201B1D;
+        width: 200px;
+        /*background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);*/
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        color: #5e4a2c;
+        font-size: 11px;
+        margin-left: 350px;
+        margin-top: 293px;
+        height: 98.5px;
+        overflow-y: scroll;
+        padding: 5px;
+        transition: 0.3s;
+        z-index: 1;
+    }
+    
+    .neginsays:hover {
+        width: 500px;
+        height: auto;
+        transition: 0.5s;
+        position: absolute;
+        z-index: 1;
+        font-size: 15px;
+        font-family: Serif;
+        margin-bottom: 20px;
+    }
+    
+    .meee {
+        position: absolute;
+        background-color: #a3946a;
+        width: 95px;
+        background-image: url(https://i.pinimg.com/1200x/69/5d/49/695d49bc0653f20a85939d999eebddd6.jpg);
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        color: #4a2c5e;
+        font-size: 10px;
+        margin-left: 570px;
+        margin-top: 293px;
+        height: 108.5px;
+        overflow: hidden;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: #d9ceb7;
+        text-align: center;
+        font-size: 9px;
+        transition: 0.3s;
+    }
+    
+    .meee:hover {
+        background-image: url(https://i.pinimg.com/1200x/0c/ef/00/0cef001e0e14de7fca46d9bb2fd6c8d0.jpg);
+        transition: 0.3s;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .album {
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        margin-left: 785px;
+        margin-top: -100px;
+        width: 208px;
+        height: 85.9px;
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        font-size: 11px;
+        padding: 5px;
+        text-align: justify;
+        color: #5e4a2c;
+        position: absolute;
+    }
+    
+    .albumimg {
+        float: left;
+        margin-right: 5px;
+        margin-left: -5px;
+        margin-top: -5px;
+        transition: 0.3s;
+    }
+    
+    .albumimg:hover {
+        filter: saturate(4);
+        transition: 0.3s;
+    }
+    
+    .cred {
+        font-family: DotGothic16;
+        font-size: 9px;
+        color: #d2cdba;
+        margin-top: 25px;
+        margin-left: 510px;
+        position: absolute;
+        text-align: center;
+    }
+    
+    .buttons {
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        margin-left: 675px;
+        margin-top: 62px;
+        width: 98;
+        height: 95px;
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        font-size: 11px;
+        text-align: justify;
+        color: #5e4a2c;
+        overflow-y: scroll;
+        text-align: center;
+        color: #ece4d4;
+        transition: 0.3s;
+    }
+    
+    .buttons img:hover {
+        filter: saturate(3);
+        transition: 0.3s;
+    }
+    
+    .laceright {
+        background-image: url(https://images4.imagebam.com/e4/e3/85/ME1195FY_o.png);
+        width: 20px;
+        height: 500px;
+        margin-top: 50px;
+        margin-left: 1055px;
+        position: absolute;
+    }
+    
+    .lacebottom {
+        background-image: url(https://images4.imagebam.com/e4/e3/85/ME1195FY_o.png);
+        width: 20px;
+        height: 1040px;
+        transform: rotate(90deg);
+        margin-top: 72px;
+        margin-left: 540px;
+        position: absolute;
+    }
+    
+    .linkme {
+        background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png);
+        margin-left: 675px;
+        margin-top: 5px;
+        
+        width: 318px;
+        height: 30px;
+        border-style: double;
+        border-color: #a47c3b;
+        font-family: DotGothic16;
+        font-size: 14px;
+        padding: 5px;
+        text-align: left;
+        color: #5e4a2c;
+        position: absolute;
+        
+    }
+    
+    .antics {
+        /*background-image: url(https://images4.imagebam.com/a8/c1/22/MERG2LL_o.png); */
+        background-color:#201B1D;
+        margin-left: 675px;
+        margin-top: 55px;
+        width: 318px;
+        height: 185px;
+        border-style: double;
+        border-color: #6d5f31;
+        font-family: DotGothic16;
+        font-size: 12px;
+        padding: 5px;
+        text-align: justify;
+        color: #bd9559;
+        position: absolute;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    
+    .anticsside {
+        background: linear-gradient(180deg, #50012ad5, #8b8860);
+        color: #ead2b6;
+        font-size: 19px;
+        padding: 5px;
+        margin-top: -5px;
+        margin-left: -5px;
+        width: 318px;
+        font-family: carol gothic;
+        margin-bottom: 5px;
+    }
+    
+    .marina {
+        background-image: url(https://images4.imagebam.com/c2/05/f2/ME10ECD4_o.png);
+        margin-top: -210px;
+        margin-left: 1000px;
+        position: absolute;
+        width: 190px;
+        height: 270px;
+        transition: 0.3s;
+    }
+    
+    .marina:hover {
+        background-image: url(https://images4.imagebam.com/26/f5/7c/ME10ECA6_o.png);
+        transition: 0.3s;
+    }
+    
+    .tooltip {
+        position: absolute;
+        display: inline-block;
+    }
+    
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 100px;
+        background-color: #a47c3b;
+        color: #ece4d4;
+        text-align: center;
+        border-radius: 5px;
+        font-family: DotGothic16;
+        font-size: 15px;
+        padding: 3px;
+        
+        border-style: dashed;
+        border-width: 1px;
+        transform: rotate(0deg);
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+    
+    .rightsidebar { 
+        margin: 1em 0;
+        width: 150px;
+        position: absolute;
+        margin-left: 1090px;
+        margin-top: 100px;
+        font-family: DotGothic16;
+        font-size: 11px;
+        color: #a47c3b;
+    }
+    
+    .log {
+        font-family: Carol Gothic;
+        text-align: center;
+        font-size: 25px;
+        margin-top: -10px;
+        color: #8a754f;
+    }
+    
+    .updates {
+        background: #3d0015;
+        overflow-y: scroll;
+        height: 100px;
+        font-size: 10px;
+        margin-top: 5px;
+        color: #5e4a2c;
+    }
+    
+    .u01 { 
+        background: url(https://images4.imagebam.com/3c/36/a5/ME10G4HF_o.png) repeat-x; 
+        height: 23px; 
+        margin: 0 23px;
+    }
+    
+    .s01 { 
+        background: url(https://images4.imagebam.com/e4/b2/31/ME10G4HG_o.png) repeat-x; 
+        height: 23px ; 
+        margin: 0 23px;
+    }
+    
+    .box-top { 
+        background-image : url(https://images4.imagebam.com/c7/64/aa/ME10G4HH_o.png), url(https://images4.imagebam.com/3a/1b/74/ME10G4HI_o.png); 
+        background-position: top left, top right; 
+        background-repeat : no-repeat, no-repeat; 
+        height: 23px;
+    }
+    
+    .box-center { 
+        background-image: url(https://images4.imagebam.com/cb/0c/9f/ME10G4HJ_o.png), url(https://images4.imagebam.com/d2/94/12/ME10G4HK_o.png); 
+        background-position: top right, top left; 
+        background-repeat : repeat-y , repeat-y;
+    }
+    
+    .box-inner { 
+        background: #cebe8c;
+        margin: 0 23px;
+    
+        
+    }
+    
+    .box-bottom { 
+        background-image: url(https://images4.imagebam.com/11/3d/c0/ME10G4HL_o.png), url(https://images4.imagebam.com/c6/6c/60/ME10G4HM_o.png); 
+        background-position : top left, top right; 
+        background-repeat: no-repeat, no-repeat; 
+        height: 23px;
+    }
+
+ 
+    .knight {
+      margin-left: 934px; 
+      margin-top: -259px; 
+      position: absolute;
+            filter: saturate(1.0) brightness(0.9);
+        opacity: 1.0;
+         transition: filter 1.2s ease-in-out, opacity 2.5s ease-in-out;
+    }
+
+    .knight:hover {
+        /* “lamp on” – slow radiant glow */
+        filter: saturate(1.5) brightness(1.1);
+        opacity: 1;
+        }
+
+
+    .heart {
+        position: absolute;
+        margin-left: 1190px;
+        margin-top: 230px;
+        z-index: 1;
+        transition: 2s;
+    }
+    
+    .heart:hover {
+        transform: rotate(720deg);
+        transition: 2s;
+    }
+
+
+
+
+   
+ .magicball {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  margin-left: 680px;
+  margin-top: -95px;
+  background-image: url("assets/ball1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;
+  transition: opacity 0.9s;
+}
+
+.magicball:hover {
+  background-image: url("assets/ball2.gif");
+  opacity: 1;
+  transition: 1s;
+}
+    
+
+.catbanjo {
+   background-image: url("assets/cat.png");
+   width: 150px; 
+   margin-left: -20px; 
+   margin-top: -85px; 
+   position: absolute; 
+   box-shadow: whitesmoke;
+}
+
+   .marquee1 {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background-color: #20010c00;
+  color: #5f3e09a6; /* ← change this to whatever color you want */
+  font-family: "Carol Gothic", monospace;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  padding: 5px 0;
+  position: relative;
+  margin-top:2px;
+}
+
+    .marquee1 span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollText1 45s linear infinite;
+}
+
+@keyframes scrollText1 {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+    
+</style></head>
+    
+<!--SCROLLBAR MONSTROSITY-->
+    
+
+    
+<!--CSS CONTENT-->
+    
+
+    
+<!--HTML CONTENT-->
+    
+<body>
+  
+        <div class="all">
+        
+    </div>
+    <div class="laceright"></div>
+    <div class="lacebottom"></div>
+    <div class="topbar">
+        <div class="marquee1">
+        <span>"DEAREST TRAVELLER, I THANK YOU FOR VISITING MY QUARTERS. YOUR JOURNEY MUST BE TIRING. PLEASE, MAKE YOURSELF AT HOME. VISIT THE LIBRARY IF YOU WOULD LIKE A READ, AND 
+            BE SURE TO STAY OUT OF THE UNCONSTRUCTED PARTS...THEY ARE NOT SAFE, NOT AT THIS HOUR. BE SAFE, TRAVELLER."</span>
+        </div>
+    </div>
+    
+    
+    <div class="mainbg">
+        <div class="header">
+           <text style="margin-left: 550px; font-size: 70px;">Rassvyet</text>
+           
+        </div>
+        <div class="sidebar"></div>
+        <div class="desc">
+            Hello &amp; welcome, dear visitor. Come in, do not be afraid... this is  <span style="background-color: #939468; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; color: #ece4d4"><i>Rass' bunker</i></span>:
+a lavish junkyard of old relics, a rabbit hole that leads to all things fundamentally unsound, and a quiet resting haven for all to lament in somber tones.
+        </div>
+        <div class="directory">
+            <text style="font-family: 'Carol Gothic'; margin-left: 90px; color: #5e4a2c; font-size: 25px;"><u>Directory</u></text>
+                <table cellpadding="1" style="font-size: 11px; margin-left: 15px; color: #2f000091; font-family: DotGothic16; margin-top: 10px;">
+                    <tbody><tr>
+                        <td>☞ <a href="philosophy_files/philosophy.html">philosophy</a></td>
+                        <td>☞ <a href="psychoanalysis_files/essay1.html">psychoanalysis</a></td>
+                        <td>☞ <a href="https://letterboxd.com/rassvyet/films/by/entry-rating/">films</a></td>
+                    </tr>
+                    <tr>
+                        <td>☞ <a href="sitemap.html">sitemap</a></td>
+                        <td>☞ <a href="thought_files/thoughts.html">thoughts</a></td>
+                        <td>☞ <a href="https://rassvyet.com">pics</a></td>
+                    </tr>
+                    <tr>
+                        <td>☞ <a href="wrongturn.html">danger</a></td>
+                        <td>☞ <a href="bookshelf_files/bookshelf.html">bookshelf</a></td>
+                        <td>☞ <a href="poetry.html">poems</a></td>
+                    </tr>
+            </tbody></table>
+            <img src="assets/god.png" style="width:220px; margin-left: 15px; margin-top: 10px;" alt="A scroll-like banner depicting a knight and a lady at either ends of the words 'The judgement of God'.">
+        </div>
+        
+        <div class="about">
+            <div class="natureofsite">
+                ✵ May Musing...
+            </div>
+                <text style="color: transparent; font-size: 4px;">.</text><br>
+                <img src="assets/finger.png" alt="kitty" style="width:100px; border-style: double; border-color: #a47c3b; float: right; margin-right: 5px;">
+                Oh fuck. Oh fuck. I let this project slip away, haven't I? <span style="background-color: #939468; opacity: 0.5;padding-bottom: 2px; padding-left: 3px; padding-right: 3px; color: #ece4d4"><i>FUCK</i></span>
+                Well, I have not forgotten any of the promises I made, and for the umpteenth time I will say.... stay tuned?
+                <br><br>
+                On another note, i got tickets to see КИНО's fucking guitarist Yuri Dmitriyevich Kasparyan live in november. what the actual FUCK
+                
+                <br><text style="color: transparent; font-size: 7px;">.</text><br>
+                
+        </div>
+        <div class="neginsays">
+            <b>Website Credits: </b>https://fairygore.neocities.org/ <br>https://dollarchive.neocities.org/<br> Please note, this website functions <i>bestly</i> on Firefox.
+        </div>
+
+        <div class="meee">
+            <br><br><br><br><br><br><br>(Me)
+        </div>
+
+        <br><br><br><br><br><br><br><br>
+
+
+        <div class="magicball"></div>
+
+               
+                    
+                
+        
+        
+        
+
+        <div class="album">
+            <div class="albumimg">
+                <a href="https://rateyourmusic.com/release/video/bjork/all-is-full-of-love/"><img src="https://cdn.sonemic.net/i/600/s/f8543d0a8bb9809cccb81e31db915cbf/1260054/bjork-all-is-full-of-love-Cover-Art.jpg" alt="Duvet, by Boa" style="width: 95.8px;"></a>
+            </div>
+            <span style="background-color: #939468; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; color: #ece4d4; width: 84px; font-size: 9.88px">
+                <i>Rass' Songs ♫♪ </i>
+            </span>
+            <text style="font-size: 3px; color: transparent">.</text><br>
+            <b>All is full of love</b> <br>By Bjork.<br><text style="font-size: 10px;"><text>
+        </text></text></div>
+
+        <div class="linkme">
+            <p><i>✦✦✦✦✦✦✦✦ Sign my <a href="https://rassvyet.atabook.org/">Guestbook</a>!✦✦✦✦✦✦✦✦</i></p>
+        </div>
+        <div class="antics">
+            <div class="anticsside">✵ What's new, Rass? <text style="font-size: 14px;">May 21st, 2026</text></div>
+
+            What is new? Less to say, more to see with this update.
+            In all seriousness, I need to really lock in. I began a new feature-length script FMCM (Flower, My Concrete Man), estimated to be complete by the end of summer 2026. It requires me to 
+            observe a lot of brutalist architecture, which I'll be doing on Saturday. Other than that, I just have a long, unwinding, unending, ever-so tiring list of goals/projects to move from the drawing board onto real life.
+            <br><br>The list goes as follows: <br><br>
+            - Write, Direct, Act, Edit, Produce, Upload my fucking youtube video blyat. <br>
+            - Create actual public-friendly blog content for substack that won't get me flagged by intelligentsia or interpol<br>
+            - Finish my watercolour painting, the border specifically, which has been a pain in my soft, shapely ass, which reminds me:<br>
+            - Involve more dynamic glute exercises into my workout program <br>
+            - Finish learning duvet on guitar. You were gifted picks today, USE THEM....<br>
+            - Shape out this website a little... don't be afraid of javascript, it won't make you grow a neckbeard. <br>
+            - TRY TO WRITE DAILY - YOU WANT TO BE A WRITER NO? WHAT KIND OF WRITER DOES NOT WRITE? <br>
+            - Complete your books... <br>
+            - Design your jeans to have windows in them (this isn't supposed to make sense to anyone who's not me)<br>
+            - Work on Niicii......it'll help you get a job.
+            
+            <br>
+            
+              
+            <br>
+        
+            <br><br>
+            
+            
+        </div>
+    </div>
+    <div class="cred">
+        <a href="https://neocities.org/site/rassvyet">rassvyet.neocities.org (2025-forever)</a><br>
+        Let's All Love Lain
+    </div>
+   <!-- <div class="marina">
+        <div class="tooltip">
+            
+            <div class="tooltiptext">
+                Marina: "I don't feel good about this ... Do we really have to fight?"
+            </div></div>   --> 
+            
+            <div class="knight">
+                 <img src="assets/danish.png" style="width:280px;" alt="danish knight">
+                    <div class="tooltip" style="margin-left: -220px; margin-top:120px;">
+            
+                        <div class="tooltiptext">
+                            Knight: "I'm bored without a song or fight. Can you strum the old cat's banjo for me?"
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+        <img src="assets/cat.png" style="width: 150px; margin-left: -20px; margin-top: -85px; position: absolute; box-shadow: whitesmoke;" alt="A teal teacup and saucer. The teacup reads 'drink me' on the innter rim and has art of the white rabbit from Alice in Wonderland on the front.">
+        </div>
+
+        <div><img src="assets/grapes.png" style="width:150px; margin-left: 1005px; margin-top: -640; rotate: calc(350deg); z-index: 1;"></div>
+
+<!--MUSIC-->
+
+    <audio controls autoplay loop style="width: 40px; height:auto; position: absolute; border-radius: 25px; opacity: 0.0; margin-left: 5px;">
+    <source src="assets/laintheme.mp3" type="audio/mpeg">
+</audio>
+
+    
+
+</body></html>
