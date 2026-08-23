@@ -1,0 +1,808 @@
+<!--
+BG SONG: They're In Love, Where Am I? by The Weepies
+BG IMAGE: https://ca.pinterest.com/pin/11822017767560726/
+LAYOUT INSP: https://ca.pinterest.com/pin/951455858791638199/
+-->
+<!DOCTYPE html>
+<!--METADATA-->
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Summer Saddness</title>
+    <link rel="icon" href="assets/meow.png">
+        
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap');
+    </style>
+        
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+    </style>
+        
+    <style>
+
+    ::-webkit-scrollbar {
+      width: 16px;
+      height: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFElEQVQIW2M4fPz0////GYAYyAIASnoKpV3w4kgAAAAASUVORK5CYII=");
+      image-rendering: pixelated;
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+
+    ::-webkit-scrollbar-track:active {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAEElEQVQIW2No6+pjgAAgCwAWogM9VKrgGQAAAABJRU5ErkJggg==");
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-top: 1px solid #cccccc;
+      border-left: 1px solid #cccccc;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      box-shadow: inset 1px 1px 0 0 white, inset -1px -1px 0 0 #868a8e;
+      width: 16px;
+      height: 16px;
+      background-color: #cccccc;
+      z-index: 1;
+    }
+
+    ::-webkit-scrollbar-corner {
+      background-color: #cccccc;
+    }
+
+    ::-webkit-resizer {
+      width: 16px;
+      height: 16px;
+      background-color: #cccccc;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAN0lEQVR4Ae3MgQUAMBRDwU5fFF05lb/CARTBw2Ulof0DxPtcwp3hNuEYnjbcEW4TjuFpwx3h9gMWGgZ2Y/PT2gAAAABJRU5ErkJggg==");
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+    }
+
+    ::-webkit-scrollbar-button,
+    .scroll::-webkit-scrollbar-button {
+      border-top: 1px solid #cccccc;
+      border-left: 1px solid #cccccc;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      box-shadow: inset 1px 1px 0 0 white, inset -1px -1px 0 0 #868a8e;
+      display: block;
+      width: 16px;
+      height: 16px;
+      background-color: #cccccc;
+      image-rendering: pixelated;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    ::-webkit-scrollbar-button:active,
+    .scroll::-webkit-scrollbar-button:active {
+      background-position: 2px 2px;
+    }
+
+    ::-webkit-scrollbar-button:horizontal:decrement,
+    .scroll::-webkit-scrollbar-button:horizontal:decrement {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAHklEQVQY02NgoBT8xyX8H5fwf1zCpOjAYwceV1EEAAO2D/HsQ4vsAAAAAElFTkSuQmCC");
+    }
+
+    ::-webkit-scrollbar-button:horizontal:increment,
+    .scroll::-webkit-scrollbar-button:horizontal:increment {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAHUlEQVQY02NgIB/8xy3xH7fEf9wS/0nUQZqrKAYAK44P8ZRmzLQAAAAASUVORK5CYII=");
+    }
+
+    ::-webkit-scrollbar-button:vertical:decrement,
+    .scroll::-webkit-scrollbar-button:vertical:decrement {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGklEQVR4AWMYxuA/SYphmETFhDX9x4mHGQAAcL4P8dQiMq8AAAAASUVORK5CYII=");
+    }
+
+    ::-webkit-scrollbar-button:vertical:increment,
+    .scroll::-webkit-scrollbar-button:vertical:increment {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAF0lEQVQY02NgoBf4jwJxSOHQhcNAOgMAWWAP8Rv2U3UAAAAASUVORK5CYII=");
+    }
+
+    ::-webkit-scrollbar-button:horizontal:increment:start,
+    .scroll::-webkit-scrollbar-button:horizontal:increment:start {
+      display: none;
+    }
+
+    ::-webkit-scrollbar-button:horizontal:decrement:end,
+    .scroll::-webkit-scrollbar-button:horizontal:decrement:end {
+      display: none;
+    }
+
+    ::-webkit-scrollbar-button:vertical:increment:start,
+    .scroll::-webkit-scrollbar-button:vertical:increment:start {
+      display: none;
+    }
+
+    ::-webkit-scrollbar-button:vertical:decrement:end,
+    .scroll::-webkit-scrollbar-button:vertical:decrement:end {
+      display: none;
+    }
+
+    ::-webkit-scrollbar-button:active,
+    .scroll::-webkit-scrollbar-button:active {
+      border-top: 1px solid #868a8e;
+      border-left: 1px solid #868a8e;
+      border-bottom: 1px solid #868a8e;
+      border-right: 1px solid #868a8e;
+      box-shadow: none;
+    }
+  </style><style>
+    
+    .crt {position: fixed; top: 0; left: 0; bottom: 0; right: 0; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); z-index: 2; background-size: 100% 2px, 3px 100%; pointer-events: none;}
+    
+    html {
+        background-image: url(assets/swamp.jpg);
+        background-size: cover;
+        background-position: bottom;
+        background-attachment: fixed;
+        font-family: DotGothic16;
+        cursor: grab;
+    }
+    
+    ::selection {background-color: white; color: blue;}
+    
+    body {display: grid; place-items: center;}
+ 
+    .cont {
+        display: grid;
+        grid-template-columns: 300px 300px 300px;
+        gap: 10px;
+        margin-top: 200px;
+    }
+    
+    .me {
+        background-image: url(assets/pillowkitty.gif);
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+        font-family: Spirit;
+        font-size: 50px;
+        text-align: center;
+        color: transparent;
+        border-color: #cac9ca; border-width: 1px; border-style: inset;
+    }
+    
+    .me:hover {color: rgba(233, 198, 198, 0.616); cursor: pointer;}
+    
+    .entry {
+        width: 280px; 
+        height: 280px;
+        background-color: #d1cec9;
+        overflow-y: scroll;
+        padding: 10px;
+        border-color: #cac9ca; border-width: 1px; border-style: inset;
+    }
+    
+    .buttons {padding-top: 15px;}
+    
+    button {
+        width: 20px;
+        height: 20px;
+        border-radius: 0px;
+        border: none;
+        margin: 8px;
+        cursor: grabbing;
+        border-color: #cac9ca; border-width: 1px; border-style: inset;
+    }
+        
+    @font-face {
+        font-family: Spirit;
+        src: url(assets/Spirit.ttf);
+    }
+        
+    h1 {font-family: "Spirit"; margin: 0px; margin-bottom: 10px; border-bottom: dashed; border-bottom-width: 2px; color: #364243; font-weight: 100px; font-size: 30px;}
+    
+    p {font-size: 14px; margin: 0px; text-align: justify; margin-top: 10px;}
+    
+</style></head>
+    
+<!--SCROLLBAR MONSTROSITY-->
+    
+
+
+<!--CSS CONTENT-->
+    
+
+
+<body>
+    
+    <div class="crt"></div>
+    
+    <div class="cont">
+        <div class="me">Meow</div>
+        <div class="entry" id="entry1" style="display: block;">
+            <h1>August 23</h1>
+            <p>One of those days where I feel that I am losing my spark.
+              I've been trying to re-engage with my hobbies to stimulate some whimsy and wonder back in me.
+              But it's strange, none of this was brought about by any bad news. It's a spontaneous bout of saddness that 
+              obviously chooses to attack me the day before a very important interview. I feel that maybe revisiting some of 
+              my worst memories (in effort to try and help A with his problems), I have brought it up way too close to the surface.
+              People do not want their bubbles popped. They need their copes, prickles and all, to keep the brisk breeze from getting to
+              them again.
+            </p>
+            <p>I have made so many promises - ambitions one, nonetheless - to myself about what I will do. But this summer was odd. It flew by much too fast, 
+              And i was abnormally happy with letting it skim past. Yet, at the same time, I made conscious efforts to plan every other day or weekend with something.
+              Why do I feel like time was not on my side, still? Why do i feel gone with the wind?
+            </p>
+            <p>I will brush myself off. At least I fixed my website up and decided to add something new to it. Even if it is totally ripped off from Fairygore. 
+              But reading her website makes me so happy. She has no idea what a muse she is to me. She reminds me of myself as a little girl. Funny to think that 
+              we live in proximity to each other. But I dont want to disrupt that fantasy, better to pretend that she'll like me, and keep the phantasy protected in my own mind.
+              As she says, she feels a spiritual ennui with her writing. Me too. And her response was to keep a virtual diary log. I will try my best to maintain mine as well, let's see....
+            </p>
+            <p>Last words I have are just that I am hoping after tomorrow, I will have a little break to get myself back on track. I just want to be done with this interview.
+              I would love to get the job, it would be a fantastic conclusion to a devastating few months without a job. But honestly, if they cannot see worthy in my words and my demeanor, 
+              I don't care. I need to continue my path. My true path.
+            </p>
+            <p>Some website thoughts i had were: creating an interactive train station or house, or perhaps a journey through some rooms, or maybe even a cross-continental travel! Oh, 
+              there could be a ghibli time travelling machine, and it brings you to various places in my life and world. It could be ithica circa 948, it could be my old childhood bedroom,
+              it could be a most wonderful scene from a film I love. I could add and add to it. and give people options of going whereever they like. It sounds like monstrous planning, but it'll be fun?
+              I told A that I wished it could be winter again, that I could be sitting in my room, blinds open, with view of the snowwy street, the luminous moon reflected in each 
+              striking snowflake. And i would be playing minecraft in the dead of night, not a single person to bother me, no work to wake up to. Just me, in a world i can escape to.
+              I would like it very much to be winter, even if for a brief moment. Why am i getting nostalgia all the time for past places and spaces? I do wish I'll have a vivid dream soon,
+              so i can revisit some people I can no longer see. Right now, im feeling better than i have in the last 24 hours. Symptoms of anxiety are coming back, and I don't know why.
+              I'm just trying to push through it, push push and push myself to some better happiness. I have to cook soon, but I am not in the mood. I wonder what I can do to maintain the energy.
+              But now, i need to rehearse for this interview. I must try. Adeiu.
+            </p>
+        </div>
+        <div class="entry" id="entry2" style="display: none;">
+            <h1>August 24</h1>
+            <p>TBW</p>
+            <p>TBW</p>
+            <p>TBW</p>
+            <p>TBW</p>
+            <p>TBW</p>
+            <p>TBW</p>
+        </div>
+        <div class="entry" id="entry3" style="display: none;">
+            <h1>december 5</h1>
+            <p>today was not a very good day. i was so tired and 
+listless the whole time, and i'm not really sure why. i turned in my 
+final for one of my classes and i'm not proud of it at all. i tried to 
+take a risk with the story that i was telling and it didn't pan out 
+because it was so far outside of the wheelhouse of what i'm interested 
+in. i feel like i do that a lot—when the time to show my writing comes 
+i'm not able to because i always choose to write something that doesn't 
+align with my interests. this one ended up being literary fiction in a 
+way that bores me. i'm sure i'll do ok when evaluated on it, but it's 
+the principle of the thing...</p>
+            <p>i don't know how or why that happens. i guess i have a 
+weird bias against anything i feel comfortable writing, which is totally
+ the opposite of how i should approach it. mostly i'm out of practice 
+and don't know my writing well enough, which is a funny thing to say 
+because i've been writing basically my whole life, but it's true. i want
+ to spend time working on that over the break, but it's hard to not feel
+ like a doomer about it.</p>
+            <p>apart from that, nothing interesting really happened. i 
+just don't feel very well at all. i can't even properly verbalize my 
+feelings about the writing thing; the way i phrased it here isn't really
+ accurate to how i feel.</p>
+            <p>hopefully tomorrow will be better. i have work so i'll 
+have to find something good to listen to. probably i'll continue the 
+audiobook for 'the condemnation of blackness'.</p>
+            <p>i guess i look up to so many literary giants and can so 
+clearly see the things that make them great that it's uspetting when i 
+can't track those same influences and changes in my work. also a stupid 
+thing to say because i am not very old. i don't know! nothing i make is 
+good enough, especially not by my standards. and everyone is pissed off.</p>
+        </div>
+        <div class="entry" id="entry4" style="display: none;">
+            <h1>december 6</h1>
+            <p>i was basically finished writing this entry and then my 
+tab crashed! &gt;:-( anyway work today was so totally lame. that's 
+typical of the december retail rush, especially on weekends, but that 
+doesn't mean i have to be happy about it... plus all the customers that 
+spoke to me today were irate and condescending so i guess something was 
+in the water. i slept late last night so i was basically primed to be 
+annoyed myself, but i feel like today really tested my patience. they 
+bounced me around between my relatively quiet side of the store in 
+health+beauty and food, which is always crowded and unpleasant, and 
+people ask the stupidest questions! i hate my job in december.</p>
+            <p>i finished my book during the break ('mr.humble &amp; dr.
+ butcher') and i didn't like it. i had a hard time concentrating on it 
+because some of my coworkers were having a very loud conversation right 
+next to me. there's no options for places to sit during lunch apart from
+ the breakroom so if it sucks, you're screwed. maybe i'll ask the 
+managers if i can crash in their office next time. also, one of the 
+annoying coworkers was my ex-friend from high school who stopped talking
+ to me during the pandemic. we didn't fight or anything, he just stopped
+ talking to me after [] which i am totally over because i am 21 and have
+ better things to worry about, but it still hurts that he didn't bother 
+getting my side of the story or anything. and then i just got sad 
+because i don't really have a lot of friends the way most people do and i
+ feel really lonely a lot of the time at school. that's part of why i 
+want to get more involved with clubs next semester because i think the 
+lack of that specific kind of interaction is making me nuts.</p>
+            <p>ok so before the pity part i was talking about how much i
+ didn't like the book and that's because i think it presents itself as 
+something it's not. i went into it expecting a dissection of the ethics 
+of head transplantation and was unpleasantly surprised when it turned 
+out to be nothing more than a plodding biography. every time the author 
+got close to talking about something interesting, she drew back and 
+refused to engage with it further. on the bright side, i got through a 
+significant chunk of 'the condemnation of blackness' which is very very 
+good! it's an extremely well-researched and -written documentation of 
+how notions of crime were systemically associated with the black 
+community in america. the work khalil gibran muhammad put into this book
+ is apparent in every word. i highly recommend it, not just because it 
+chronicles its subject with such meticulous detail and logic, but also 
+because i think that it gives you the knowledge and language you need to
+ fight a lot of right-wing rhetoric. overall i consider it a deeply 
+valuable and indispensable book. i will definitely have to sit down with
+ the physical book soon so i can read it more closely.</p>
+            <p>anyway, i'm going to go play re4 with my sister and then 
+maybe later i will write some. i'm still experiencing a lot of, like, 
+spiritual ennui about my writing and am dissatisfied with it overall but
+ the only way to deal with that is to write more. when will it end...</p>
+        </div>
+        <div class="entry" id="entry6" style="display: none;">
+            <h1>december 7 &amp; 8</h1>
+            <p>i was busy last night and didn't have enough time to do yesterday's so i'm doing a joint entry. exciting!</p>
+            <p>yesterday was not very interesting, but it was nice. i 
+went to the mall with my mom and we walked around for a while. the 
+winter crowds are annoying but it's also only really fun to be in the 
+mall if there are other people there. we got boba :-) in the evening, i 
+submitted my essay outline and knit while watching death note (i started
+ it in the summer but never finished). later i watched a show with jesse
+ and talked to my sister a bunch. it was good! i was happy.</p>
+            <p>today i woke up around 10:30 and had tea and biscuits for
+ breakfast. i knit and watched more death note before spending, like, 2 
+hours picking methi leaves, but i called jesse after that and we had fun
+ poking fun at the same show as last night ^_^. that was very nice 
+because we haven't gotten to call in ages and ages and it always makes 
+me so happy when we do!</p>
+            <p>it was the coldest it's gotten this year today now that 
+it's finally dipped below the -20s. i saw a friend who i miss on the bus
+ to work and she said hello instead of ignoring me (we only saw each 
+other as she was disembarking). i miss her. i know why, but it still 
+makes me really upset to be ignored like that regardless of the reason, 
+and naturally i've been worried that she hates me or something. i don't 
+think that's true, but it's hard not to be insecure in a situation like 
+that.</p>
+            <p>work was alright; i joked around with some regulars and 
+coworkers and also started rereading 'the raven boys'! so that made me 
+feel a bit better. i got my nabokov essay back from my favourite teacher
+ with an a+ and some lovely comments :-)</p>
+            <p>feeling: robogirl.</p>
+        </div>
+        <div class="entry" id="entry7" style="display: none;">
+            <h1>december 9</h1>
+            <p>shorter entry because i have a HEADACHE. watched ep. 3 of
+ the horrible show with jesse and had lunch with my mom before reading 
+'the shining' by stephen king for a while on the couch. i've been 
+reading so much more these past two years but i'm still not back in the 
+swing of sitting and reading a book when i'm not on transit. like, if i 
+have something else i could do, even if that's just scrolling through 
+instagram until my brain leaks out my ears, i always choose the other 
+thing and i hate that! i want to make the conscious decision to read 
+because i love to read. it used to be so easy as a kid. i think it's 
+like training a muscle. i got 100 pages into the book and i like it so 
+far! it's not incredible or anything, but i don't dislike it and i would
+ like to see how it goes.</p>
+            <p>we went out to get pizza for dinner and that was a lot of
+ fun. when i am older i will miss nights like this more than anything. 
+when we got home, i called jesse and wrote some.</p>
+            <p>feeling ok—a bit sad. i played 'rose' on loop as i read. winter blues! what can you do. i feel so loved but so sad.</p>
+        </div>
+        <div class="entry" id="entry8" style="display: none;">
+            <h1>december 10</h1>
+            <p>shorter entry because nothing really happened today. i 
+watched youtube until my mom came home from lunch and then i got struck 
+with the intense need to keep working on boisvert. most of the work i've
+ been doing on it recently has been mental—worldbuilding and plotting 
+and stuff. i haven't sat down and actively worked on writing it in 
+longer than i care to admit! i want to try and challenge myself and see 
+if i can get significantly into the book by the end of 2026.</p>
+            <p>i wrote until it was time to go to work. it's been 
+snowing since this afternoon and will continue to snow overnight. all 
+the roads are white white white. a mini snow plough came up to the bus 
+stop as i was waiting and we played a fun game where i would walk to the
+ end of his path and he would clear it and then gesture for me to move 
+back. work was boring as ever but i started listening to 'the adventure 
+zone' (i've been listening to mbmbam since i was, like 15, but i could 
+never get into taz.) it's entertaining so far but i hear it gets 
+properly good later on, which i'm excited for.</p>
+            <p>that's basically all that happened today. talked to my friends some and now i'm going to write more :-)</p>
+        </div>
+        <div class="entry" id="entry9" style="display: none;">
+            <h1>december 11</h1>
+            <p>today was ok. it had snowed so much by this morning, and 
+all day the wind was blowing it around so that sometimes, the whole 
+world looked white. i'm glad i didn't have to go out today. i spent most
+ of the day screwing around and doing nothing, but i did continue 
+watching 'chernobyl' with bon (we finished episode 2). it's a really 
+excellent show but it makes me so, so sad and upset — it's really good 
+at letting the implications of what's happening sink in. there was this 
+one shot this episode of a deer lying dead in a forest. the camera 
+lingered on it before slowly panning up to the treetops waving in the 
+wind. it was deeply frightening and was compounded, of course, by the 
+fact that everything that was being shown more or less happened in real 
+life. i feel like i can't say much about it because everything i could 
+say would be too trivial.</p>
+            <p>bon said something i have been thinking for a long time 
+but have never properly articulated. at the end of the episode, a speech
+ is given about the necessity of sacrifice; bon said that it maps well 
+onto the current climate crisis. whenever i have tried to express this 
+sentiment — most recently to a history professor — it has been 
+dismissed, a bit uncomfortably, as fearmongering and defeatism. i think 
+it is a scary prospect but it is one that needs to be reckoned with.</p>
+            <p>not exactly the same, but i saw elements of this echoed 
+in the book i started with jesse tonight: 'fatal strategies' by jean 
+baudrillard. we read the introduction today and i'm very excited to 
+continue. i won't say more yet, since i haven't finished! but i am glad 
+to be reading it, especially with him, since i think i will need to talk
+ it out to be able to understand it fully.</p>
+            <p>i spent the last hour reblogging posts to an archive 
+account i've made for older 'ace attorney' fanart. it's cool to see how 
+styles have changed. i wasn't into aa when tumblr was at its peak 
+fandom-wise, so it's kind of like playing catch-up. i'm charmed, though!
+ i made the blog because i used to love trawling through people's blog 
+archives to see aa posts from 2016 or 17, and as i was doing that today,
+ i saw posts i recognized time-stamped for 6 years ago. FRIGHTENING! i 
+love these games :-)</p>
+        </div>
+        <div class="entry" id="entry10" style="display: none;">
+            <h1>december 12, 13, &amp; 14</h1>
+            <p>i was either too busy or too tired to do an entry the last few days, so i'm doing a quick cumulative one right now.</p>
+            <p>i started watching 'the walking dead' with my sister 
+because we needed a show to watch over break, and i like it so far! 
+we're going to watch episode 3 in a bit. the weekend was pretty 
+uneventful—i had a shift at work that was boring (again: everyone's so 
+pissy in december...) and i spent all of today working on my final essay
+ for chaucer. it's not my BEST work because i wanted to finish it fast, 
+but i'll edit it tomorrow and then it'll be good! i'm glad to be done 
+with the semester at last...</p>
+            <p>i also finally got around to starting a movie club! it's 
+with some of my friends and mutuals who i think are cool/i've talked to a
+ few times. me and may kept talking about watching something with jesse 
+and then we never got around to it, so it's good to finally have an 
+excuse. we're watching 'we cloned tyrone' sometime this week! ^_^ yay i 
+love my friends. i'm excited to get to watch more movies and to do it 
+with people i like. i also got a bunch of cool library books today and i
+ WILL FINISH THEM!!!!!! ALL!!!! ('absalom, absalom!', 'the road', 
+'empire of silence', 'the bluest eye', 'the autobiography of my 
+mother'.)</p>
+            <p>that's all, i think. OH, it snowed soooo much and now 
+it's proper wintertime. -_- but it's gorgeous so i guess i'll be 
+forgiving. ok my sister's here CIAO to FUTURE ME!</p>
+        </div>
+        <div class="entry" id="entry13" style="display: none;">
+            <h1>december 15</h1>
+            <p>absolutely nothing happened today. i screwed around all 
+morning and went to work, where i finished 'the condemnation of 
+blackness' (very good; highly recommend) and started 'blindsight', which
+ i've been eyeing for a while. c'est tout! oh, i got an a on my final 
+exam for chaucer :-)</p>
+        </div>
+        <div class="entry" id="entry14" style="display: none;">
+            <h1>december 16</h1>
+            <p>i've been feeling down all week, and i guess because i 
+was up late last night, today was a day for wallowing. i didn't really 
+do anything, just worked a little bit on this and that and looped big 
+thief's 'dragon new warm mountain i believe in you'. i was really weepy 
+last night because i realized my parents are going to die one day and 
+everyone i know is going to get old and be sad, which is a very childish
+ thing to be sad about, or at least, it looks like it in writing.</p>
+            <p>i made a post about my wallowing and bon saw it and said 
+we should watch the next episode of chernobyl to deepen the wallowing, 
+so we did! and that was nice. or, not nice, depending on how you look at
+ it, but it felt good to watch something very depressing and have the 
+freedom to be depressed for a real reason. i went on a quick walk after 
+and listened to some more of 'blindsight' before coming home and cutting
+ beeeaaans. everyone is nice today, i am happy to be alive. :-)</p>
+        </div>
+        <div class="entry" id="entry15" style="display: none;">
+            <h1>december 17</h1>
+            <p>woke up sad. the whole day was sad; marchwarm rain 
+falling on my walk to the bus stop, and that was nice, and my fingers 
+were cold. i did nothing in the morning except for laying around feeling
+ sorry for myself. later in te afternoon i read 70 pages of 'the bluest 
+eye' and then wrote, but the words were all wrong. i feel stupid and 
+dull and nothing i write comes out properly. my sentences are clumsy and
+ unmusical and i will never make anything good in all my life. it looks 
+like everyone else can do it and i am the odd one out and i am the one 
+who will never be able to do it and there is no one in all the world who
+ will help me i do not think and it feels so sick to think it because 
+there are people who care for me and love me but i think that the kind 
+of care i need is the kind nobody wants to give. i think i need the care
+ you afford a truly sick person who will not be able to stay alive on 
+her own.</p>
+            <p>when i was standing at the bus stop i saw people in their
+ cars and people walking towards the mall and the big bus stop and i 
+felt like an alienperson. there is not really much else to say. at work 
+my coworker told me she had found maggots in the cat food and i 
+remembered how last year when it was so bad i used to wish and wish that
+ i could see maggots on my body because that would mean i was not 
+anyone's problem anymore, and then i remembered blowfly girl, who i have
+ always felt an admiration for because i think she is just as sick as 
+me. every time i get on the bus now i look for my friend's face.</p>
+            <p>but i think that i must have heart. my mother said that 
+she thinks i will be a good writer. jesse believes in me always. i feel 
+like a liar because i am.</p>
+        </div>
+        <div class="entry" id="entry16" style="display: none;">
+            <h1>december 18 &amp; 19</h1>
+            <p>went to the mall with my sister yesterday and helped an 
+old man the restaurant owner couldn't help himself. in thanks, he gave 
+me free taters, which made me happy even though i of course did not need
+ anything in return. my sister caught a cold today and i have been 
+trying to take care of her. situations like this always make me so aware
+ of my clumsiness. i feel weird referring to people in my life here 
+because it breaks whatever sheen of privacy i was operating under and 
+reminds me that what i'm writing is subject to scrutiny, even if 
+probably no one is reading. i don't really care how my writing here 
+comes off, but remembering that makes me feel self-conscious and 
+terrible about it.</p>
+            <p>i spent most of today reading 'the bluest eye', which i 
+just finished. i wish i felt less stupid so i could say something about 
+it; i liked it a lot, i thought it was very smart and very sad. i've 
+been thinking a lot about whiteness and how i am grateful that as a 
+child, the desperate jealousy for it in my physical features never took 
+hold in me. i don't think it did any of us overmuch; i think, for me at 
+least, it's moreso in my temperament and the feeling of always been too 
+much. morrison touches on this, too. i've been thinking a lot about dirt
+ and filth and nastiness and how i always feel a litle bit of all of 
+these. i tried writing about it last year but i don't think i got it 
+right. that reminds me: i should probably put that up. i don't like my 
+writing page very much and should probably fix it now that i know how to
+ use js buttons... ^_^</p>
+            <p>going to start 'the road' by mccarthy and watch twd with 
+my sister now. spent the better part of the evening sweeping up sawdust 
+(we installed decorative wall panneling in my mom's room. i've been 
+telling her forever she needs to make her room more enjoyable for her to
+ be in; we're finally making steps towards that!) when i took these 
+books out, the librarian talked to me about how much she loves mccarthy,
+ which was nice.</p>
+            <p>feeling: depressed out of my gourd. keep having not-hallucinations at night. i wish i could lie in bed forever.</p>
+        </div>
+        <div class="entry" id="entry18" style="display: none;">
+            <h1>december 20</h1>
+            <p>work today SUCKED!!!!!!!!!!!!!!!! every single customer 
+was so mean and pissy because of the holiday rush and getting mad at ME 
+about my store's stupid rules like ok man do you think my dad founded 
+this massive retail chain SHUT UP! there was a guy who didn't want to 
+pay for a locked item with me and in the interest of not getting yelled 
+at i said well you have to. and he got mad so i said well then i'm not 
+giving it to you and left. which was very freeing. i feel like i get 
+less mean customers than some of my coworkers, maybe because of my lotus
+ flower nature or maybe because i like chatting and joking with them if 
+they look like they won't immediately start getting angry. one of my 
+favourite jokes to pull is to say that i charge $50 on every lock i open
+ and i've gotten a lot of great reactions from it... i also like asking 
+trivia about whatever's on my mind that month. ok anyway, so it was so 
+busy and then when i crawled into the breakroom to have my lunch it was 
+very loud and the coworker i complained about earlier was there and it 
+made me SAD and SELF-CONSCIOUS.</p>
+            <p>but then we got cake on the way back, so that was nice :-)</p>
+            <p>my sister and i watched 3 episodes of twd and it was VERY
+ GOOD! it makes me angry that the filler episode we ended on was rated 
+lower than the rest because it was a good time... i think tv watchers 
+just have rotten hearts. i don't like the pregnancy arc they introduced,
+ though. i don't see why they had to do that! i mean i see what they're 
+going for but i don't think this show's handling of its female cast is 
+the best.</p>
+            <p>i'm about halfway through 'the road' and it's really so 
+viscerally upsetting and gorgeously written. i think that the content 
+would feel excessive or ham-fisted if it were anyone but mccarthy 
+writing it.</p>
+            <p>i am happy because everyone loves me :-)</p>
+        </div>
+        <div class="entry" id="entry19" style="display: none;">
+            <h1>december 21</h1>
+            <p>nothing eventful. laughed a lot. i love my family and my 
+friends. wrote some and read some and sent a lot of emails. not feeling 
+well, but not so acutely as before. i love the world :-)</p>
+        </div>
+        <div class="entry" id="entry20" style="display: none;">
+            <h1>december 22</h1>
+            <p>nothing day. woke up late. watched tv. car almost hit me. feeling: upset.</p>
+        </div>
+        <div class="entry" id="entry21" style="display: none;">
+            <h1>december 23 &amp; 24</h1>
+            <p>i'm not really sure how i feel. i guess i started this 
+diary as a way to prove to myself that i don't totally fall apart 
+whenever i don't have a structure to my life, or that i can make my own 
+structure, but i don't actually know that i can. last night i had, not 
+an argument, but not a conversation either, with j, and they said 
+something that frightened me about growing up. i think i value being 
+independent too much, but i'm not an independent person. spending too 
+much time alone makes me sulky and reallytruly upset. i don't know what 
+to do about it. and i was thinking about that and i was thinking about 
+how completely unwilling i was to work with my doctors every time they 
+have put me on medication. i was thinking about a lot of things and none
+ of them were very good. i don't know that i am a good person. i try 
+very hard to be good but i care about everything so much and i have a 
+tooshort temper and i am too much all of the time except for when i am 
+not. and i'm writing these things and i feel like a bad writer. i don't 
+know who i am if i'm not a writer and i'm bad at it. everyting i write 
+is so vapid and without intention and i'm trying to fix that now but i 
+don't know if i will be able to. this whole entry reads stupidly. they 
+are the thoughts of a stupid and shallow person. but i don't think that 
+i'm stupid and i don't think that i'm shallow and i don't hate myself. 
+that was never really the problem. i am like a child and i am like the 
+caretaker of that child and i will never be able to take care of it but i
+ will keep trying. "sometimes you have to think about yourself in 
+unusual ways."</p>
+        </div>
+        <div class="entry" id="entry23" style="display: none;">
+            <h1>december 25</h1>
+            <p>today was mostly good. i spent most of it trying to write
+ and playing turnabout goodbyes :-) i thought maybe going back to 
+writing fic would heal whatever slump i'm in but i only wrote 1000 words
+ and none of them were very good. oh well. it's weird - last time i was 
+really REALLY deep into aa i banged out sooo much fic and now it all 
+feels kind of alien which is normal i guess because of how the obsession
+ comes and goes. i mean, i always love ace attorney but sometimes i get 
+SUPER into it and that's fun :-) anyway so if that happens again now the
+ problem will be fixed but until then it is a bit funny. i miss my 
+friends! both fictional and real.</p>
+            <p>i went walking with my mom this evening and it was really
+ nice. cold and windy and snowy. we had a nice conversation. everything 
+was good ^_^</p>
+        </div>
+        <div class="entry" id="entry24" style="display: none;">
+            <h1>december 26 &amp; 27</h1>
+            <p>today was not very interesting, but it was good. i 
+watched a movie called 'ice road' with my mom - i love the cinematic 
+universe of movies to watch with your parents. not one single second of 
+peace in the whole 1.45 hr runtime, but it was pretty okay! it was a 
+good movie to hang out with.</p>
+            <p>yesterday was good :-) i went to the mall and got 2 
+really nice sweaters and 2 really nice shirts. my dad had made pizza and
+ i was so hungry and excited for it and it was really good, and then 
+after i played frostpunk and watched twd with my sister ^_^ we finished 
+season 2. i liked how it ended... the whole show is so much better than i
+ expected. but now my head does hurt -_- unrelated to twd i mean.</p>
+        </div>
+        <div class="entry" id="entry26" style="display: none;">
+            <h1>december 28</h1>
+            <p>total heartbreak</p>
+        </div>
+        <div class="entry" id="entry27" style="display: none;">
+            <h1>december 29, 30, 31, january 1, 2</h1>
+            <p>haven't really felt like updating. mostly i've just been 
+depressed and upset. i'm not doing really well. i went to the art museum
+ on tuesday with my mom and sister and today i went to the downtown mall
+ with my mom but i didn't feel good. i tried to be chipper but i don't 
+know how well that worked. yesterday was nice. went to the store with my
+ parents. shop owner gave us kahwah. took lots of photos with my camera.</p>
+            <p>it is a new year. new dog same tricks.</p>
+        </div>
+        <div class="entry" id="entry32" style="display: none;">
+            <h1>january 3</h1>
+            <p>better day, but not good. hungerheadache.</p>
+        </div>
+        <div class="entry" id="entry33" style="display: none;">
+            <h1>january 4</h1>
+            <p>went to the library and got to drive by myself for the 
+very first time. i was nervous at first but it went well :-) i was 
+weirdly anxious all day and i don't know why. got good books. very 
+sleepy as i write this. my brother made us watch jjk with him and it's 
+fine so far. i like it better then i thought i would which is not very 
+much but it is something.</p>
+        </div>
+        <div class="entry" id="entry34" style="display: none;">
+            <h1>january 5, 6, 7 &amp; 8</h1>
+            <p>on the 6th, i drove a car by myself for the first time to the store and back. i'm not very happy with my website anymore.</p>
+        </div>
+        <div class="entry" id="entry38" style="display: none;">
+            <h1>january 9 &amp; 10</h1>
+            <p>penultimate entry. i'm happy even if i only wrote about half of these.</p>
+            <p>i'm a bit scared for school. i mean, not scared, because 
+it'll be ok, i think i'm just overwhelmed, but at the same time i kind 
+of dread it because, and this is so dumb, i feel so lonely all the time 
+there. like, everyone has friends, everyone has someone to hang out 
+with, and i don't and i don't know how to make new friends. i have my 2 
+friends and lots of online ones and lots of acquaintences but i never 
+see them because my schedule doesn't align with one and the other goes 
+to a different school so we're getting further apart and i have a class 
+with one starting monday when the semester begins and i'm happy i'll get
+ to see her more but i'm so afraid and i don't even know why. what if 
+we're not friends anymore? it feels so stupid to worry about in my big 
+university but it's hard to not notice that everyone has people to hang 
+out with except for me. i feel like everyone already has friends from 
+high school or cegep and i missed my chance because i lost most of mine.
+ and it's easy to pretend that doesn't bother me but i feel so sad and 
+lonely and upset about what happened and upset that everyone who i 
+thought was my friend was okay with just believing a lie that was 
+convenient and letting covid deal with the rest. i don't want anybody to
+ pity me but i'm afraid i'll go into class on monday and she'll see how 
+disgustingly lonely i am and that's going to make us grow further apart 
+then we already are. i don't know. i'm scared.</p>
+        </div>
+        <div class="entry" id="entry40" style="display: none;">
+            <h1>january 11</h1>
+            <p>last entry :-) i think probably i will make something 
+similar for the semester because this was a nice experiment, even if i 
+couldn't commit to it properly. actually, that's a lie, i did commit, 
+this is what my commitment looked like, and that's ok. today was a good 
+day and i was happy and i love everyone :-) and i'm scared about 
+tomorrow but it will be okay. i drove my mom and sister to walmart and 
+canadian tire and we got food for school and stuff for my brother's 
+birthday party. biryani for dinner. i finished true crime by samantha 
+kolesnik. i watched jerma with my sister.</p>
+            <p>feeling: sweetandhappydoll</p>
+        </div>
+        
+        <div class="buttons">
+            <button onclick="showEntry(1)" style="background-color: #5a5b5f;"></button>
+            <button onclick="showEntry(2)" style="background-color: #364243;"></button>
+            <button onclick="showEntry(3)" style="background-color: #a4a3a1;"></button>
+            <button onclick="showEntry(4)" style="background-color: #5a5b5f;"></button>
+            <button onclick="showEntry(6)" style="background-color: #fff;"></button>
+            <button onclick="showEntry(6)" style="background-color: #a4a3a1;"></button>
+            <button onclick="showEntry(7)" style="background-color: #3e4756;"></button>
+            <button onclick="showEntry(8)" style="background-color: #b2b1b8;"></button>
+            <button onclick="showEntry(9)" style="background-color: #5a5b5f;"></button>
+            <button onclick="showEntry(10)" style="background-color: #a4a3a1;"></button>
+            <button onclick="showEntry(10)" style="background-color: #fff;"></button>
+            <button onclick="showEntry(10)" style="background-color: #3e4756;"></button>
+            <button onclick="showEntry(13)" style="background-color: #5a5b5f;"></button>
+            <button onclick="showEntry(14)" style="background-color: #fff;"></button>
+            <button onclick="showEntry(15)" style="background-color: #364243;"></button>
+            <button onclick="showEntry(16)" style="background-color: #5a5b5f;"></button>
+            <button onclick="showEntry(16)" style="background-color: #b2b1b8;"></button>
+            <button onclick="showEntry(18)" style="background-color: #eceef7;"></button>
+            <button onclick="showEntry(19)" style="background-color: #b2b1b8;"></button>
+            <button onclick="showEntry(20)" style="background-color: #364243;"></button>
+            <button onclick="showEntry(21)" style="background-color: #5a5b5f;"></button>
+            <button onclick="showEntry(21)" style="background-color: #5a5b5f;"></button>
+            <button onclick="showEntry(23)" style="background-color: #b2b1b8;"></button>
+            <button onclick="showEntry(24)" style="background-color: #3e4756;"></button>
+            <button onclick="showEntry(24)" style="background-color: ##eceef7;"></button>
+            <button onclick="showEntry(26)" style="background-color: #a4a3a1;"></button>
+            <button onclick="showEntry(27)" style="background-color: #3e4756;"></button>
+            <button onclick="showEntry(27)" style="background-color: ##eceef7;"></button>
+            <button onclick="showEntry(27)" style="background-color: #fff;"></button>
+            <button onclick="showEntry(27)" style="background-color: #a4a3a1;"></button>
+            <button onclick="showEntry(27)" style="background-color: #5a5b5f;"></button>
+            <button onclick="showEntry(32)" style="background-color: #364243;"></button>
+            <button onclick="showEntry(33)" style="background-color: #b2b1b8;"></button>
+            <button onclick="showEntry(34)" style="background-color: #b2b1b8;"></button>
+            <button onclick="showEntry(34)" style="background-color: #364243;"></button>
+            <button onclick="showEntry(34)" style="background-color: #a4a3a1;"></button>
+            <button onclick="showEntry(34)" style="background-color: ##eceef7;"></button>
+            <button onclick="showEntry(38)" style="background-color: #b2b1b8;"></button>
+            <button onclick="showEntry(38)" style="background-color: #5a5b5f;"></button>
+            <button onclick="showEntry(40)" style="background-color: #364243;"></button>
+        </div>
+    </div>
+
+<script>
+  function showEntry(entryNumber) {
+    const entries = document.querySelectorAll(".entry");
+    entries.forEach((entry) => {
+      entry.style.display = "none";
+    });
+    const entryToShow = document.getElementById("entry" + entryNumber);
+    if (entryToShow) {
+      entryToShow.style.display = "block";
+    }
+  }
+  showEntry(40);
+</script>
+    
+<!--MUSIC-->
+
+    <audio controls="controls" autoplay="autoplay" loop="" style="width: 0;">
+        <source src="diary_files/7ng7wd_8h7G.mp3" type="audio/mpeg">
+    </audio>
+    
+
+
+</body></html>
