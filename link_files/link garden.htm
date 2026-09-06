@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<!--METADATA-->
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>link garden</title>
+    <link rel="icon" href="https://fairygore.neocities.org/imgs/favicon.png">
+        
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+    </style>
+      
+    <style>
+
+    ::-webkit-scrollbar {
+      width: 16px;
+      height: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFElEQVQIW2M4fPz0////GYAYyAIASnoKpV3w4kgAAAAASUVORK5CYII=");
+      image-rendering: pixelated;
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+
+    ::-webkit-scrollbar-track:active {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAEElEQVQIW2No6+pjgAAgCwAWogM9VKrgGQAAAABJRU5ErkJggg==");
+      -webkit-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-top: 1px solid #cccccc;
+      border-left: 1px solid #cccccc;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      box-shadow: inset 1px 1px 0 0 white, inset -1px -1px 0 0 #868a8e;
+      width: 16px;
+      height: 16px;
+      background-color: #cccccc;
+      z-index: 1;
+    }
+
+    ::-webkit-scrollbar-corner {
+      background-color: #cccccc;
+    }
+
+    ::-webkit-resizer {
+      width: 16px;
+      height: 16px;
+      background-color: #cccccc;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAN0lEQVR4Ae3MgQUAMBRDwU5fFF05lb/CARTBw2Ulof0DxPtcwp3hNuEYnjbcEW4TjuFpwx3h9gMWGgZ2Y/PT2gAAAABJRU5ErkJggg==");
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+    }
+
+    ::-webkit-scrollbar-button,
+    .scroll::-webkit-scrollbar-button {
+      border-top: 1px solid #cccccc;
+      border-left: 1px solid #cccccc;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      box-shadow: inset 1px 1px 0 0 white, inset -1px -1px 0 0 #868a8e;
+      display: block;
+      width: 16px;
+      height: 16px;
+      background-color: #cccccc;
+      image-rendering: pixelated;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    ::-webkit-scrollbar-button:active,
+    .scroll::-webkit-scrollbar-button:active {
+      background-position: 2px 2px;
+    }
+
+    ::-webkit-scrollbar-button:horizontal:decrement,
+    .scroll::-webkit-scrollbar-button:horizontal:decrement {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAHklEQVQY02NgoBT8xyX8H5fwf1zCpOjAYwceV1EEAAO2D/HsQ4vsAAAAAElFTkSuQmCC");
+    }
+
+    ::-webkit-scrollbar-button:horizontal:increment,
+    .scroll::-webkit-scrollbar-button:horizontal:increment {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAHUlEQVQY02NgIB/8xy3xH7fEf9wS/0nUQZqrKAYAK44P8ZRmzLQAAAAASUVORK5CYII=");
+    }
+
+    ::-webkit-scrollbar-button:vertical:decrement,
+    .scroll::-webkit-scrollbar-button:vertical:decrement {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGklEQVR4AWMYxuA/SYphmETFhDX9x4mHGQAAcL4P8dQiMq8AAAAASUVORK5CYII=");
+    }
+
+    ::-webkit-scrollbar-button:vertical:increment,
+    .scroll::-webkit-scrollbar-button:vertical:increment {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAF0lEQVQY02NgoBf4jwJxSOHQhcNAOgMAWWAP8Rv2U3UAAAAASUVORK5CYII=");
+    }
+
+    ::-webkit-scrollbar-button:horizontal:increment:start,
+    .scroll::-webkit-scrollbar-button:horizontal:increment:start {
+      display: none;
+    }
+
+    ::-webkit-scrollbar-button:horizontal:decrement:end,
+    .scroll::-webkit-scrollbar-button:horizontal:decrement:end {
+      display: none;
+    }
+
+    ::-webkit-scrollbar-button:vertical:increment:start,
+    .scroll::-webkit-scrollbar-button:vertical:increment:start {
+      display: none;
+    }
+
+    ::-webkit-scrollbar-button:vertical:decrement:end,
+    .scroll::-webkit-scrollbar-button:vertical:decrement:end {
+      display: none;
+    }
+
+    ::-webkit-scrollbar-button:active,
+    .scroll::-webkit-scrollbar-button:active {
+      border-top: 1px solid #868a8e;
+      border-left: 1px solid #868a8e;
+      border-bottom: 1px solid #868a8e;
+      border-right: 1px solid #868a8e;
+      box-shadow: none;
+    }
+  </style><style>
+  
+  html {
+    background-color: #8d98b8;
+    font-family: MS PGothic;
+    cursor: grab;
+  }
+  
+  body {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-areas: "side entry";
+    gap: 10px;
+  }
+  
+  .side {
+    background-color: transparent;
+    color: #f2f2db;
+  }
+  
+  .side p {margin-left: 10px;}
+  
+  .entry {
+    background-color: #6d6d0a;
+    padding: 10px;
+    color: #433020;
+    display: none;
+    margin-bottom: 10px;
+  }
+  
+  .entry p {font-size: 14px; margin: 10px;}
+  
+  h1 {font-family: DotGothic16; font-size: 15px; margin: 0px; background-color: #f2f2db; color: #5375db;}
+  
+  button {
+    font-family: DotGothic16;
+    font-size: 13px;
+    margin: 0px;
+    background-color: #f2f2db;
+    color: #5375db;
+    margin-bottom: 10px;
+    width: 50%;
+    border: none;
+    text-align: left;
+    font-weight: 600;
+    padding: 0px;
+    cursor: grabbing;
+  }
+  
+  a {color: #790065; text-decoration: none; cursor: grabbing; transition: 0.5s; font-weight: 600; font-size: 17px;}
+  a:hover {color: #910054; font-style: italic; transition: 0.5s;}
+  
+  ol {border-left-style: dashed; border-left-width: 1.5px; margin: 0px;}
+  
+  li {margin-top: 5px;}
+  
+  ::selection {background-color: #c9c993; color: #5375db;}
+    
+</style></head>
+    
+<!--SCROLLBAR MONSTROSITY-->
+    
+
+
+<!--CSS CONTENT-->
+    
+
+    
+<!--HTML CONTENT
+
+<li><a href="" target="d"></a></li>
+
+-->
+    
+<body>
+  
+  <div class="side">
+    <h1>//link_garden</h1>
+    <p>bookmarks across a variety of subjects i either like or want to get around to.</p><p>links open in new tab.</p>
+    <button onclick="showEntry(10)">all_chronologically</button>
+    <br>
+    <p>topics list</p>
+    <button onclick="showEntry(11)">language</button>
+    <button onclick="showEntry(7)">essays &amp; articles, philosophy</button>
+    <button onclick="showEntry(1)">news</button>
+    <button onclick="showEntry(8)">nonwestern culture</button>
+    <button onclick="showEntry(3)">literature</button>
+    <button onclick="showEntry(9)">movie linx</button>
+    <button onclick="showEntry(4)">music</button>
+    <button onclick="showEntry(6)">cool websites, neocities, resources</button>
+    <button onclick="showEntry(5)">things i've been meaning to check out</button>
+    <button onclick="showEntry(2)">www</button>
+  </div>
+  <div class="entry" id="entry10" style="display: block;">
+    <ol>
+      <p>NEW</p>
+      <li><a href="https://www.citiesinfiction.com/">citiesinfiction.com</a></li>
+      <li><a href="https://www.gamenarrativereader.org/">gamenarrativereader.org</a></li>
+      <li><a href="https://www.yolkliterary.ca/" target="_blank">yolkliterary.ca</a></li>
+      <li><a href="https://wiby.me/" target="_blank">wilby.me</a></li>
+      <li><a href="https://nimravidae.neocities.org/myspace" target="_blank">myspace mood emoticons</a></li>
+      <br>
+      <p>LESS NEW</p>
+      <li><a href="http://wbcq.com/" target="_blank">wbcq.com</a></li>
+      <li><a href="https://www.cultureunplugged.com/filmedia/index.php" target="_blank">cultureunplugged.com</a></li>
+      <li><a href="https://boomkat.com/" target="_blank">boomkat.com</a></li>
+      <li><a href="https://www.parapraxismagazine.com/" target="_blank">parapraxismagazine.com</a></li>
+      <li><a href="https://web.archive.org/web/20220701005643/https://ghoststudy.com/" target="_blank">ghoststudy.com</a></li>
+      <li><a href="https://marshdeer.github.io/xkcd2501-generator/" target="_blank">xkcd2501-generator</a></li>
+      <li><a href="https://enhanced.townofsilenthill.com/SH2/about.htm" target="_blank">enhanced.townofsilenthill.com</a></li>
+      <li><a href="https://alienmelon.itch.io/electric-zine-maker" target="_blank">electric-zine-maker</a></li>
+      <li><a href="https://web.stanford.edu/class/ihum42/fascinatingfascism.pdf" target="_blank">"Fascinating Fascism" / Susan Sontag</a></li>
+      <li><a href="https://www.parapraxismagazine.com/articles/incest-in-this-economy" target="_blank">"Incest, in This Economy?" / Brien Connolly</a></li>
+      <li><a href="https://cluesbysam.com/" target="_blank">cluesbysam.com</a></li>
+      <li><a href="https://wuthering-heights.co.uk/" target="_blank">wuthering-heights.co.uk</a></li>
+      <li><a href="https://www.theringer.com/2022/03/03/health/fatherhood-cancer-jonathan-tjarks/" target="_blank">"Does My Son Know You?" / Jonathan Tjarks</a></li>
+      <li><a href="https://iso-coaster.com/" target="_blank">iso-coaster.com</a></li>
+      <li><a href="https://nytv.live/" target="_blank">nytv.live</a></li>
+      <li><a href="https://www.veralistcenter.org/publications/the-belly-of-the-world-a-note-on-black-womens-labors/" target="_blank">"The Belly of the World" / Saidiya Hartman</a></li>
+      <li><a href="https://www.pigeonsandplanes.com/" target="_blank">pigeonsandplanes.com</a></li>
+      <li><a href="https://www.thebeyondnoise.com/" target="_blank">thebeyondnoise.com</a></li>
+      <li><a href="https://midnight-peppermint.com/" target="_blank">midnight-peppermint.com</a></li>
+      <li><a href="https://www.harpspectrum.org/building/Replicating_%20the_18th_Century_Bunworth_Harp.shtml" target="_blank">"Replicating the 18th Century Bunworth Harp" / harpspectrum.org</a></li>
+      <li><a href="https://longposter.neocities.org/yaoi" target="_blank">yaoi zine</a></li>
+      <li><a href="https://github.com/clifford269/FrutigerFX" target="_blank">frutiger fx</a></li>
+      <li><a href="https://neal.fun/size-of-life/" target="_blank">/size-of-life</a></li>
+      <li><a href="https://thebookofshaders.com/" target="_blank">thebookofshaders.com</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1a6cN0nNLjzGyVP54Q7GRvE204SgiDYjX">do the knowledge</a></li>
+      <li><a href="https://drive.google.com/file/d/1AXlCr9qDWgpfoD2w0N3AzjklOliGMrt4/view" target="_blank">african gender studies: a reader</a></li>
+      <li><a href="https://angelfoodmag.com/" target="_blank">angelfoodmag.com</a></li>
+      <li><a href="https://scripted.neocities.org/" target="_blank">scripted.org</a></li>
+      <li><a href="https://www.marysialewandowska.com/waa/" target="d_blank">/women's audio archive</a></li>
+      <li><a href="https://lyra.horse/antonymph/" target="_blank">lyra.horse/antonymph</a></li>
+      <li><a href="https://sydney-hirsch.com/dollzmaker-1" target="_blank">sydney-hirsch.com/dollzmaker</a></li>
+      <li><a href="https://www.retrogames.cz/play_1554-DOS.php" target="_blank">defender of the crown</a></li>
+      <li><a href="https://colorpalette.pro/" target="_blank">colorpalette.pro</a></li>
+      <li><a href="https://www.departuremono.com/" target="_blank">departuremono.com</a></li>
+      <li><a href="https://kurnowhere.com/fonts" target="_blank">kurnowhere.com/fonts</a></li>
+      <li><a href="https://int10h.org/oldschool-pc-fonts/fontlist/" target="_blank">oldschool-pc-fonts/fontlist</a></li>
+      <li><a href="https://randoma11y.com/" target="_blank">randoma11y.com</a></li>
+      <li><a href="https://cultmtl.com/" target="_blank">cultmtl.com</a></li>
+      <li><a href="https://altermag.com/" target="blank">altermag.com</a></li>
+      <li><a href="https://dialecticalartist.wordpress.com/politicalresources/" target="_blank">revolutionary study guide</a></li>
+      <li><a href="https://chiptune.app/" target="_blank">chiptune.app</a></li>
+      <li><a href="https://sounds.spriters-resource.com/" target="_blank">sounds.spriters-resource.com</a></li>
+      <li><a href="https://thebaffler.com/salvos/we-used-to-read-things-in-this-country-mccormack" target="_blank">"We Used to Read Things in This Country" / Noah McCormack</a></li>
+      <li><a href="https://www.thenation.com/article/culture/thomas-meaney-granta-interview/" target="_blank">"The Future of Magazines… and the World" / Daniel Steinmetz-Jenkins</a></li>
+      <li><a href="https://altermag.com/articles/the-secret-history-of-indian-science-fiction" target="_blank">"The Secret History of Indian Science Fiction" / Gautam Bhatia</a></li>
+      <li><a href="https://internetphonebook.net/" target="_blank">internetphonebook.net</a></li>
+      <li><a href="https://library.saintheron.com/" target="_blank">library.saintheron.com</a></li>
+      <li><a href="https://www.sayhito-atlas.com/" target="_blank">sayhito-atlas.com</a></li>
+      <li><a href="https://drive.google.com/drive/folders/11NaPSlp5E9PZSg8GTZpU1vnwowoUUgiA" target="_blank">african philosophy</a></li>
+      <li><a href="https://www.arabicnovel.org/" target="_blank">arabicnovel.org</a></li>
+      <li><a href="https://www.marxists.org/" target="_blank">marxists.org</a></li>
+      <li><a href="https://github.com/comradeajax/totally-legally-aquired-communist-literature" target="_blank">communist reading list</a></li>
+      <li><a href="https://cosmonautmag.com/" target="_blank">cosmonautmag.com</a></li>
+    </ol>
+  </div>
+  <div class="entry" id="entry11" style="display: none;">  <!--Languages-->
+    <ol>
+      <li><a href="https://www.thespanishexperiment.com/stories/bird-and-whale" target="_blank">El Pajaro y la Ballena</a></li>
+      <p>A story to help learn spanish.</p>
+      <li><a href="https://icelandiconline.com/" target="_blank">Learn Icelandic!</a></li>
+      <p>learning icelandic for upcoming trip!</p>
+    </ol>
+  </div>
+  <div class="entry" id="entry7" style="display: none;"> <!--Essays, articles, philosophy-->
+    <ol>
+      <li><a href="https://historyofphilosophy.net/" target="_blank">"History of philosophy"</a></li>
+      <p>Podcast page that takes you through the historical moments between key philosophical periods.</p>
+      <li><a href="https://aeon.co/" target="_blank">"aeon.co /  ★  /  think-pieces</a></li>
+      <p>"Lovely resource for toilet reading."</p>
+      <li><a href="https://www.lesswrong.com/" target="_blank">"lesswrong</a></li>
+      <p>"Lia's dads recommendation"</p>
+      <li><a href="https://www.thenation.com/article/culture/thomas-meaney-granta-interview/" target="_blank">"The Future of Magazines… and the World" / Daniel Steinmetz-Jenkins</a></li>
+      <p>"A conversation with Thomas Meaney, the editor of Granta, about literature and the left."</p>
+      <li><a href="https://www.parapraxismagazine.com/articles/incest-in-this-economy" target="_blank">"Incest, in This Economy?" / Brien Connolly</a></li>
+      <p>"The 21st-Century Family Romance"</p>
+      <li><a href="https://altermag.com/articles/the-secret-history-of-indian-science-fiction" target="_blank">"The Secret History of Indian Science Fiction" / Gautam Bhatia</a></li>
+      <p>"Before Asimov, there was Rokeya."</p>
+      <li><a href="https://thebaffler.com/salvos/we-used-to-read-things-in-this-country-mccormack" target="_blank">"We Used to Read Things in This Country" / Noah McCormack</a></li>
+      <p>"The history of literacy is the history of class"</p>
+    </ol>
+  </div>
+  <div class="entry" id="entry1" style="display: none;"> <!--News-->
+    <ol>
+      <li><a href="https://philosophynow.org/" target="blank">philosophynow.org</a></li>
+      <p>philosophy magazine</p>
+      <li><a href="https://www.anthroencyclopedia.com/articles-a-to-z" target="_blank">anthroencyclopedia.com</a></li>
+      <p>amazing resource on anthropological/geneological deep dives into culture, phenomena.</p>
+      <li><a href="https://www.quantamagazine.org/" target="_blank">quantamagazine.com</a></li>
+      <p>online magazine for science news</p>
+      <li><a href="https://asteriskmag.com/" target="_blank">asteriskmag.com</a></li>
+      <p>cool reads</p>
+      <li><a href="https://nytv.live/" target="_blank">nytv.live</a></li>
+      <p>television broadcast from new york</p>
+      <li><a href="https://www.pigeonsandplanes.com/" target="_blank">pigeonsandplanes.com</a></li>
+      <p>"pigeons &amp; planes started as a music blog in late 2008. we set out to create a space for music-obsessed fans who wanted to discover new artists first, read stories about their favorite acts, and better understand the albums and songs that shape culture."</p>
+      <li><a href="https://www.sayhito-atlas.com/" target="_blank">sayhito-atlas.com</a></li>
+      <p>contemporary design and architecture magazine</p>
+      <li><a href="http://wbcq.com/" target="_blank">wbcq.com</a></li>
+      <p>international shortwave broadcast station</p>
+      <li><a href="https://www.marysialewandowska.com/waa/" target="d_blank">/women's audio archive</a></li>
+      <p>conversations, debates between women</p>
+    </ol>
+  </div>
+  <div class="entry" id="entry2" style="display: none;"> <!--www-->
+    <ol>
+      <li><a href="https://www.bird-sounds.net/alphabetical/" target="_blank">bird sounds</a></li>
+      <p>"list of every bird and the sounds they make, for my beloved A."</p>
+      <li><a href="https://web.archive.org/web/20220701005643/https://ghoststudy.com/" target="_blank">ghoststudy.com</a></li>
+      <p>(wayback link to) a paranormal blog.</p>
+      <li><a href="https://internetphonebook.net/" target="_blank">internetphonebook.net</a></li>
+      <p>for exploring the wider web</p>
+      <li><a href="https://neal.fun/size-of-life/" target="_blank">/size-of-life</a></li>
+      <p>website with custom illustrations that shows the size differences between all kinds of organisms. lovely bgm ^_^</p>
+      <li><a href="https://wiby.me/" target="_blank">wilby.me</a></li>
+      <p>"search engine for the classic web"</p>
+      <li><a href="https://marshdeer.github.io/xkcd2501-generator/" target="_blank">xkcd2501-generator</a></li>
+      <p>"a little web app to generate xkcd 2501 edits right from your browser"</p>
+    </ol>
+  </div>
+  <div class="entry" id="entry3" style="display: none;"> <!--literature-->
+    <p>note: most are collections of lit. since i keep individual ebooks saved elsewhere.</p>
+    <ol>
+      <li><a href="https://www.hplovecraft.com/writings/texts/" target="_blank">Lovecraft writings</a></li>
+      <p>what's his cat's name?</p>
+      <li><a href="https://www.marxists.org/english.htm" target="_blank">marxist internet archive</a></li>
+      <p>selected readings from top marxists</p>
+      <li><a href="https://www.arabicnovel.org/" target="_blank">arabicnovel.org</a></li>
+      <p>collection of arabic novels</p>
+      <li><a href="https://github.com/comradeajax/totally-legally-aquired-communist-literature" target="_blank">communist reading list</a></li>
+      <p>github directory</p>
+      <li><a href="https://www.citiesinfiction.com/">citiesinfiction.com</a></li>
+      <p>"cities in fiction is an on going experiment creating a literary database to archive real-world places in fiction."</p>
+      <li><a href="https://drive.google.com/drive/folders/1a6cN0nNLjzGyVP54Q7GRvE204SgiDYjX">do the knowledge</a></li>
+      <p>working library of nonfiction</p>
+      <li><a href="https://www.marxists.org/" target="_blank">marxists.org</a></li>
+      <p>marxist readings</p>
+      <li><a href="https://dialecticalartist.wordpress.com/politicalresources/" target="_blank">revolutionary study guide</a></li>
+      <p>wordpress compilation</p>
+      <li><a href="https://wuthering-heights.co.uk/" target="_blank">wuthering-heights.co.uk</a></li>
+      <p>'wuthering heights' reader and guide</p>
+    </ol>
+  </div>
+  <div class="entry" id="entry4" style="display: none;">
+    <ol>
+      <li><a href="https://boomkat.com/" target="_blank">boomkat.com</a></li>
+      <p>"a specialist, independent online record store that has been trading since 1998."</p>
+      <li><a href="https://chiptune.app/" target="_blank">chiptune.app</a></li>
+      <p>midi music</p>
+      <li><a href="https://lyra.horse/antonymph/" target="_blank">lyra.horse/antonymph</a></li>
+      <p>pop-up music video!</p>
+      <li><a href="https://sounds.spriters-resource.com/" target="_blank">sounds.spriters-resource.com</a></li>
+      <p>video game sfx archive</p>
+    </ol>
+  </div>
+  <div class="entry" id="entry5" style="display: none;"> <!--Things ive been meaning to read or cross off-->
+    <ol>
+      <li><a href="https://www.poetryfoundation.org/articles/69390/the-philosophy-of-composition" target="_blank">Philosophy of composition, by edgar allen poe.</a></li>
+      <p>very cool meditiation on the spirit of his writing process</p>
+      <li><a href="https://www.lesswrong.com/posts/FtwMA5fenkHeomz52/intuitive-self-models-1-preliminaries" target="_blank">intuitive self models on lesswrong</a></li>
+      <p>""</p>
+      <li><a href="https://www.gamenarrativereader.org/">gamenarrativereader.org</a></li>
+      <p>"the game narrative reader is a collection of links built to resemble an anthology textbook. it's a survey of key topics in video game narrative design, composed from essays and articles published elsewhere by their respective authors. it's meant as a resource for students, educators, and practitioners."</p>
+      <li><a href="https://iso-coaster.com/" target="_blank">iso-coaster.com</a></li>
+      <p>free theme park builder with shops, water/metal/wooden coasters, guests, and more. no signup, plays in browser, co-op included.</p>
+      <li><a href="https://midnight-peppermint.com/" target="_blank">midnight-peppermint.com</a></li>
+      <p>indie game studio, "<a href="https://midnight-peppermint.com/i-saw-a-flying-saucer-1">i saw a flying saucer</a>"</p>
+      <li><a href="https://enhanced.townofsilenthill.com/SH2/about.htm" target="_blank">enhanced.townofsilenthill.com</a></li>
+      <p>"a project of enhancement packages that makes the PC version of Silent Hill 2 (2001) compatible with modern hardware."</p>
+    </ol>
+  </div>
+  <div class="entry" id="entry6" style="display: none;"> <!--cool websites, links, resources-->
+    <ol>
+      <li><a href="https://colorpalette.pro/" target="_blank">colorpalette.pro</a></li>
+      <p>really cool colour 'synthesizer'</p>
+      <li><a href="https://www.departuremono.com/" target="_blank">departuremono.com</a></li>
+      <p>font + really neat graphic design</p>
+      <li><a href="https://kurnowhere.com/fonts" target="_blank">kurnowhere.com/fonts</a></li>
+      <p>list of fonts</p>
+      <li><a href="https://int10h.org/oldschool-pc-fonts/fontlist/" target="_blank">oldschool-pc-fonts/fontlist</a></li>
+      <p>list of older fonts</p>
+      <li><a href="https://scripted.neocities.org/" target="_blank">scripted.org</a></li>
+      <p>cute site resources</p>
+      <li><a href="https://iwillneverbehappy.neocities.org/site/nest" target="_blank">iwillneverbehappy</a></li>
+      <p>he likes math n russian</p>
+      <li><a href="https://spiritcellar.neocities.org/library" target="_blank">spiritcellar</a></li>
+      <p>very cool resources</p>
+      <li><a href="https://dollarchive.neocities.org/compendium" target="_blank">dollarchive</a></li>
+      <p>very cool resources</p>
+      <li><a href="https://textures.neocities.org/" target="_blank">textures</a></li>
+      <p>very cool resources</p>
+      <li><a href="https://1337x.to/home/" target="_blank">rarbg</a></li>
+      <p>films</p>
+      <li><a href="https://www.photopea.com/" target="_blank">photopea</a></li>
+      <p>edit pics</p>
+      <li><a href="https://z-library.sk/" target="_blank">z-library</a></li>
+      <p>like libgen</p>
+      <li><a href="https://open-slum.org/" target="_blank">list of pdf links</a></li>
+      <p>like libgen</p>
+      <li><a href="https://snailspng.tumblr.com/" target="_blank">snailspng</a></li>
+      <p>cute pics for website, directory backgrounds and fairycore pngs</p>
+
+      
+
+    
+
+    </ol>
+  </div>
+  <div class="entry" id="entry8" style="display: none;"> <!--nonwestern culture-->
+    <ol>
+      <li><a href="https://galture.com/en/" target="_blank">gyaru culture</a></li>
+      <p>japanese magazine abt gyaru culture, its history, and fashion subtypes</p>
+      <li><a href="https://www.worldpackers.com/" target="_blank">worldpacker.com</a></li>
+      <p>volunteer for board website, where you can travel and work on a farm in ireland or teach english in thailand in exhcange for room, board, meals.</p>
+      <li><a href="https://gointernational.ca/" target="_blank">go international</a></li>
+      <p>website to travel abroad for work experience</p>
+      <li><a href="https://jetprogramme.ca/" target="_blank">jetprogramme</a></li>
+      <p>work abroad in japan</p>
+    </ol>
+  </div>
+  <div class="entry" id="entry9" style="display: none;">
+    <ol>
+      <li><a href="https://altermag.com/" target="blank">altermag.com</a></li>
+      <p>south asian science, tech, and art</p>
+      <li><a href="https://angelfoodmag.com/" target="_blank">angelfoodmag.com</a></li>
+      <p>online poetry and lit mag</p>
+      <li><a href="https://www.thebeyondnoise.com/" target="_blank">thebeyondnoise.com</a></li>
+      <p>"a female perspective and meaningful, original curated content covering fashion, music, film, science, the environment, humanitarian issues, design, sustainability, art, and literature."</p>
+      <li><a href="https://cosmonautmag.com/" target="_blank">cosmonautmag.com</a></li>
+      <p>marxist history and politics mag</p>
+      <li><a href="https://cultmtl.com/" target="_blank">cultmtl.com</a></li>
+      <p>arts and culture mag from montreal</p>
+      <li><a href="https://www.parapraxismagazine.com/" target="_blank">parapraxismagazine.com</a></li>
+      <p>"a psychoanalysis for the twenty-first century so that we might inquire into, and uncover, the psychosocial dimension of our lives."</p>
+      <li><a href="https://www.sayhito-atlas.com/" target="_blank">sayhito-atlas.com</a></li>
+      <p>contemporary design and architecture magazine</p>
+      <li><a href="https://longposter.neocities.org/yaoi" target="_blank">yaoi zine</a></li>
+      <p>from neocities user longposter: "YAOI ZINE is a collaborative biannual zine about well. yaoi."</p>
+      <li><a href="https://www.yolkliterary.ca/" target="_blank">yolkliterary.ca</a></li>
+      <p>"montreal-based literary journal publishing fine work by established and emerging artists"</p>
+    </ol>
+  </div>
+  
+<script>
+  function showEntry(entryNumber) {
+    const entries = document.querySelectorAll(".entry");
+    entries.forEach((entry) => {
+      entry.style.display = "none";
+    });
+    const entryToShow = document.getElementById("entry" + entryNumber);
+    if (entryToShow) {
+      entryToShow.style.display = "block";
+    }
+  }
+  showEntry(10);
+</script>
+    
+<!--MUSIC-->
+
+    <audio controls="controls" autoplay="autoplay" loop="" style="width: 0;">
+        <source src="link%20garden_files/MUSIC_0XGC.MP3" type="audio/mpeg">
+    </audio>
+    
+
+
+</body></html>
