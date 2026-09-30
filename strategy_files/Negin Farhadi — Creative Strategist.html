@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Negin Farhadi — Creative Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   COLOUR PALETTE — edit these to retheme the whole site
+   ============================================================ */
+:root {
+  --black: #000000;          /* pure background */
+  --white: #F5F0F8;          /* main text */
+  --magenta: #E040A0;        /* primary accent */
+  --violet: #9B5DE5;         /* secondary accent */
+  --teal: #40E0D0;           /* iridescent highlight */
+  --rose: #FF6EB4;           /* soft pink */
+  --dim: rgba(245,240,248,0.35); /* muted text */
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  height: auto;
+ 
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  overflow-x: hidden;
+  
+  cursor: none;
+  overscroll-behavior: none;
+}
+
+/* ============================================================
+   CUSTOM CURSOR — glowing orb that twinkles on click
+   ============================================================ */
+#cursor-orb {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+  mix-blend-mode: screen;
+}
+#cursor-orb .orb-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+    #ffffff 0%,
+    var(--teal) 20%,
+    var(--violet) 45%,
+    var(--magenta) 70%,
+    transparent 100%
+  );
+  filter: blur(2px);
+  opacity: 0.85;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+#cursor-orb .orb-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(228,64,160,0.3);
+  animation: orb-pulse 2s ease-in-out infinite;
+}
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.3); opacity: 0.1; }
+}
+
+/* twinkling star burst on click */
+.star-burst {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  animation: star-out 0.3s ease forwards;
+}
+.star-burst::before,
+.star-burst::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to top, transparent, var(--magenta), transparent);
+  border-radius: 2px;
+}
+.star-burst::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  background: linear-gradient(to top, transparent, var(--teal), transparent);
+}
+@keyframes star-out {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.2); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4); }
+}
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+#progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--violet), var(--magenta), var(--teal));
+  z-index: 200;
+  width: 0%;
+  transition: width 0.05s linear;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 3rem;
+  z-index: 100;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--rose);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--dim);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--rose); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Iridescent background bloom */
+.hero-bloom {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.bloom-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(155,93,229,0.25), transparent 70%);
+  top: -100px; right: -100px;
+  animation: float-a 8s ease-in-out infinite alternate;
+}
+.bloom-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(224,64,160,0.2), transparent 70%);
+  bottom: 0; left: -80px;
+  animation: float-b 10s ease-in-out infinite alternate;
+}
+.bloom-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(64,224,208,0.15), transparent 70%);
+  top: 40%; right: 20%;
+  animation: float-a 12s ease-in-out infinite alternate;
+}
+@keyframes float-a { to { transform: translate(30px, 20px); } }
+@keyframes float-b { to { transform: translate(-20px, -30px); } }
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 1.5rem;
+  
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(4.5rem, 11vw, 12rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--white) 0%, var(--rose) 40%, var(--violet) 70%, var(--teal) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+}
+.hero-sub {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--dim);
+  line-height: 1.8;
+  max-width: 380px;
+  
+}
+.hero-sub em {
+  color: var(--rose);
+  font-style: normal;
+}
+.hero-cta {
+  margin-top: 2.5rem;
+  
+}
+.hero-cta a {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 1px solid var(--magenta);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.hero-cta a:hover { color: var(--magenta); }
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: drift linear infinite;
+}
+@keyframes drift {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(-120vh) translateX(40px) scale(0.3); opacity: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+#about {
+  padding: 10rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 6rem;
+  align-items: start;
+  position: relative;
+}
+.about-bloom {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(155,93,229,0.12), transparent 70%);
+  filter: blur(60px);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.section-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 1.5rem;
+}
+.about-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 0;
+}
+.about-body {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--dim);
+  margin-bottom: 1.4rem;
+  max-width: 52ch;
+}
+.about-body strong { color: var(--white); font-weight: 300; }
+.about-facts {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+}
+.fact-item { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.8rem; }
+.fact-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--magenta); margin-bottom: 0.3rem; }
+.fact-value { font-size: 0.8rem; color: var(--dim); }
+
+/* ============================================================
+   WORK — horizontal drag carousel
+   ============================================================ */
+#work {
+  padding: 8rem 0 8rem 4rem;
+  overflow: hidden;
+}
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-right: 4rem;
+  margin-bottom: 3rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  background: linear-gradient(90deg, var(--white), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.work-hint {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 4rem;
+  padding-bottom: 2rem;
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+}
+.carousel::-webkit-scrollbar { display: none; }
+.carousel.dragging { cursor: grabbing; }
+
+.case {
+  flex: 0 0 min(78vw, 860px);
+  scroll-snap-align: start;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #050508;
+  border: 1px solid rgba(155,93,229,0.15);
+  transition: border-color 0.3s;
+}
+.case:hover { border-color: rgba(224,64,160,0.4); }
+
+/* iridescent case backgrounds */
+.case-1 { background: radial-gradient(ellipse at 20% 50%, rgba(155,93,229,0.3) 0%, rgba(224,64,160,0.15) 40%, #050508 70%); }
+.case-2 { background: radial-gradient(ellipse at 80% 30%, rgba(64,224,208,0.25) 0%, rgba(155,93,229,0.2) 40%, #050508 70%); }
+.case-3 { background: radial-gradient(ellipse at 50% 80%, rgba(224,64,160,0.3) 0%, rgba(255,110,180,0.1) 40%, #050508 70%); }
+
+.case-num {
+  position: absolute;
+  top: 2rem; right: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 5rem;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.case-content {
+  position: absolute;
+  inset: 0;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+}
+.case-brand {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 0.6rem;
+}
+.case-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.case-text {
+  font-size: 0.8rem;
+  line-height: 1.75;
+  color: rgba(245,240,248,0.6);
+  max-width: 50ch;
+  margin-bottom: 1.5rem;
+}
+.case-pill {
+  display: inline-block;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  border: 1px solid rgba(64,224,208,0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+.case-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.case-link {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rose);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,110,180,0.4);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.case-link:hover { color: var(--magenta); border-color: var(--magenta); }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.contact-bloom-1 {
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224,64,160,0.15), transparent 65%);
+  filter: blur(80px);
+  top: 50%; left: 30%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: float-a 9s ease-in-out infinite alternate;
+}
+.contact-bloom-2 {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(64,224,208,0.12), transparent 65%);
+  filter: blur(80px);
+  top: 50%; right: 10%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  animation: float-b 11s ease-in-out infinite alternate;
+}
+.contact-inner { position: relative; z-index: 1; }
+.contact-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  line-height: 0.95;
+  background: linear-gradient(135deg, var(--white) 0%, var(--rose) 50%, var(--violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 3rem;
+}
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--dim);
+}
+.copy-btn {
+  background: none;
+  border: 1px solid rgba(224,64,160,0.35);
+  color: var(--rose);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 100px;
+  cursor: none;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+.copy-btn:hover, .copy-btn.copied { background: var(--magenta); color: #000; border-color: var(--magenta); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  nav { padding: 1.5rem; }
+  #hero { padding: 0 2rem; }
+  #about { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 2rem; }
+  #work { padding: 6rem 0 6rem 2rem; }
+  .case { flex: 0 0 88vw; }
+  #contact { padding: 6rem 2rem; }
+  footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
+  .about-facts { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div id="cursor-orb">
+  <div class="orb-inner"></div>
+  <div class="orb-ring"></div>
+</div>
+
+<!-- Scroll progress -->
+<div id="progress"></div>
+
+<!-- Navigation -->
+<nav>
+  <a href="#hero" class="nav-logo">⋆｡°✩</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bloom bloom-1"></div>
+  <div class="hero-bloom bloom-2"></div>
+  <div class="hero-bloom bloom-3"></div>
+
+  <p class="hero-eyebrow">Creative Strategist &nbsp;&amp;&nbsp; Operations Coordinator</p>
+  <h1 class="hero-name">Negin<br>Farhadi</h1>
+  <p class="hero-sub">
+    Philosophy, Psychoanalysis, Strategy.<br>
+    My approach is to immerse myself into the <em>mood, mind</em>, and <em> attitude</em> of the audience.  
+  </p>
+  <div class="hero-cta"><a href="#work">View selected work</a></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-bloom"></div>
+  <div>
+    <p class="section-label">Who I am</p>
+    <h2 class="about-title">Strategy is how I'm oriented toward the world.</h2>
+  </div>
+  <div>
+    <p class="about-body">I have a specialist degree in <strong>philosophy and psychoanalysis</strong> from the University of Toronto. I am drawn to the questions underneath the questions — why people want what they want before desire becomes conscious, and what social truths brands are actually responding to.</p>
+    <p class="about-body">I have worked across international film festivals, commercial productions, and live events in Canada and the United States. I am a <strong>filmmaker</strong>, a <strong>startup founder</strong>, and an <strong>APG Canada member</strong>. Trilingual in English, Farsi, and Danish.</p>
+    <div class="about-facts">
+      <div class="fact-item"><p class="fact-label">Based in</p><p class="fact-value">Toronto, Ontario</p></div>
+      <div class="fact-item"><p class="fact-label">Languages</p><p class="fact-value">English · Farsi · Danish</p></div>
+      <div class="fact-item"><p class="fact-label">Industry</p><p class="fact-value">Advertising</p></div>
+      <div class="fact-item"><p class="fact-label">Education</p><p class="fact-value">Philosophy, UofT 2025</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="work-header">
+    <h2 class="section-title">Selected Work</h2>
+    <span class="work-hint">← Drag to explore →</span>
+  </div>
+  <div class="carousel" id="carousel">
+
+    <div class="case case-1">
+      <div class="case-num">01</div>
+      <div class="case-content">
+        <p class="case-brand">Lululemon — Menswear</p>
+        <h3 class="case-title">The Missing Variable</h3>
+        <p class="case-text">Serious fitness optimisers apply marginal gains thinking to every variable in their training — from supplements to recovery tech — while tolerating substandard gear. The strategy made that social contradiction visible and repositioned lululemon's fabric technology as the missing variable in their performance calculations.</p>
+        <div class="case-actions">
+  <span class="case-pill">Brand Strategy</span>
+  <a class="case-link" href="https://drive.google.com/file/d/1hbhzCTrLWz9XOx2A-HmrTQOWhNC9hBqK/view?usp=sharing" target="_blank">View case study →</a>
+</div>
+      </div>
+    </div>
+
+    <div class="case case-2">
+      <div class="case-num">02</div>
+      <div class="case-content">
+        <p class="case-brand">Spotify — Podcast</p>
+        <h3 class="case-title">The Protected Hour</h3>
+        <p class="case-text">Intentional listeners treat podcast time as a protected mental sanctuary. The tension: YouTube's engagement-maximising architecture actively undermines the deep-listening state they arrive in. Spotify is the platform that doesn't fight the listener.</p>
+        <div class="case-actions">
+  <span class="case-pill">Platform Strategy</span>
+  <a class="case-link" href="https://drive.google.com/file/d/13fNofKMk2dYoEanUlOUGmOCB5omPcplu/view?usp=drive_link" target="_blank">View case study →</a>
+</div>
+      </div>
+    </div>
+
+    <div class="case case-3">
+      <div class="case-num">03</div>
+      <div class="case-content">
+        <p class="case-brand">Nespresso — Heritage</p>
+        <h3 class="case-title">Ancestral Memory</h3>
+        <p class="case-text">For second and third-generation Canadians from coffee-growing regions, coffee ritual is their most intimate form of cultural continuity. Provenance is not a premium signal — it is a portal to diasporic identity and ancestral memory.</p>
+        <div class="case-actions">
+  <span class="case-pill">Cultural Strategy</span>
+  <a class="case-link" href="https://drive.google.com/file/d/1wxXyCzwKa5dEHC80lMNyiuOWe7hYDIrA/view?usp=sharing" target="_blank">View case study →</a>
+</div>
+      </div>
+    </div>
+<div class="case case-1">
+  <div class="case-num">04</div>
+  <div class="case-content">
+    <p class="case-brand">Spotify — Social Behaviour</p>
+    <h3 class="case-title">Social Listening</h3>
+    <p class="case-text">A supplementary deck tracking how Spotify users engage socially with audio content — mapping behaviour patterns, shareability triggers, and the social layer that sits beneath the listening experience.</p>
+    <div class="case-actions">
+      <span class="case-pill">Behaviour Tracking</span>
+      <a class="case-link" href="https://drive.google.com/file/d/1_o2LeOyp0N9ePUbB63BTfVqrRSXU6f58/view?usp=drive_link" target="_blank">View deck →</a>
+    </div>
+  </div>
+</div>
+  </div>
+  <p style="padding: 1rem 0 0 0; padding-right: 4rem; font-size: 0.65rem; color: rgba(245,240,248,0.3); letter-spacing: 0.05em;">
+    Full case studies available on request — <a href="mailto:rassvyeta@gmail.com" style="color: var(--rose); text-decoration: none;">rassvyeta@gmail.com</a>
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-bloom-1"></div>
+  <div class="contact-bloom-2"></div>
+  <div class="contact-inner">
+    <h2 class="contact-title">Let's<br>talk.</h2>
+    <div class="contact-row">
+      <span>rassvyeta@gmail.com</span>
+      <button class="copy-btn" data-copy="rassvyeta@gmail.com">Copy</button>
+    </div>
+    <div class="contact-row">
+      <span>+1 (647) 891-4630</span>
+      <button class="copy-btn" data-copy="+16478914630">Copy</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Negin Farhadi</span>
+  <span>Toronto, Ontario</span>
+</footer>
+
+<script>
+// ============================================================
+// CUSTOM ORB CURSOR
+// ============================================================
+const orb = document.getElementById('cursor-orb');
+let cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+
+document.addEventListener('mousemove', e => {
+  cx = e.clientX; cy = e.clientY;
+  orb.style.left = cx + 'px';
+  orb.style.top = cy + 'px';
+});
+
+// Star burst on click
+document.addEventListener('click', e => {
+  const burst = document.createElement('div');
+  burst.className = 'star-burst';
+  burst.style.left = e.clientX + 'px';
+  burst.style.top = e.clientY + 'px';
+  document.body.appendChild(burst);
+  setTimeout(() => burst.remove(), 700);
+
+  // extra tiny sparkles
+  for (let i = 0; i < 6; i++) {
+    const s = document.createElement('div');
+    const angle = (i / 6) * Math.PI * 2;
+    const dist = 20 + Math.random() * 30;
+    s.style.cssText = `
+      position:fixed; width:3px; height:3px; border-radius:50%;
+      background:${['#E040A0','#40E0D0','#9B5DE5','#FF6EB4'][i%4]};
+      left:${e.clientX}px; top:${e.clientY}px;
+      pointer-events:none; z-index:9997;
+      animation: sparkle-out 0.5s ease forwards;
+      --dx:${Math.cos(angle)*dist}px; --dy:${Math.sin(angle)*dist}px;
+    `;
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 550);
+  }
+});
+
+// CSS for sparkles
+const sparkleStyle = document.createElement('style');
+sparkleStyle.textContent = `
+  @keyframes sparkle-out {
+    0% { transform: translate(0,0) scale(1); opacity:1; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity:0; }
+  }
+`;
+document.head.appendChild(sparkleStyle);
+
+// Orb scale on hoverable elements
+document.querySelectorAll('a, button, .case').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    orb.style.width = '50px';
+    orb.style.height = '50px';
+  });
+  el.addEventListener('mouseleave', () => {
+    orb.style.width = '28px';
+    orb.style.height = '28px';
+  });
+});
+
+// ============================================================
+// SCROLL PROGRESS BAR
+// ============================================================
+const bar = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  bar.style.width = Math.min(pct, 100) + '%';
+}, { passive: true });
+
+// ============================================================
+// FLOATING PARTICLES IN HERO
+// ============================================================
+const hero = document.getElementById('hero');
+const colours = ['#E040A0','#9B5DE5','#40E0D0','#FF6EB4','#ffffff'];
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  const size = 2 + Math.random() * 3;
+  const dur = 6 + Math.random() * 10;
+  const delay = Math.random() * -12;
+  p.className = 'particle';
+  p.style.cssText = `
+    width:${size}px; height:${size}px;
+    background:${colours[i % colours.length]};
+    left:${Math.random() * 100}%;
+    bottom:0;
+    animation-duration:${dur}s;
+    animation-delay:${delay}s;
+    opacity:0.6;
+    filter:blur(${size > 3 ? 1 : 0}px);
+  `;
+  hero.appendChild(p);
+}
+
+// ============================================================
+// CAROUSEL DRAG SCROLL
+// ============================================================
+const carousel = document.getElementById('carousel');
+let isDown = false, startX, scrollLeft;
+carousel.addEventListener('mousedown', e => {
+  isDown = true;
+  carousel.classList.add('dragging');
+  startX = e.pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+});
+document.addEventListener('mouseup', () => { isDown = false; carousel.classList.remove('dragging'); });
+carousel.addEventListener('mousemove', e => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - carousel.offsetLeft;
+  carousel.scrollLeft = scrollLeft - (x - startX) * 1.2;
+});
+carousel.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+  scrollLeft = carousel.scrollLeft;
+}, { passive: true });
+carousel.addEventListener('touchmove', e => {
+  carousel.scrollLeft = scrollLeft - (e.touches[0].clientX - startX);
+}, { passive: true });
+
+// ============================================================
+// COPY BUTTONS
+// ============================================================
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+      btn.textContent = 'Copied ✦';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  });
+});
+</script>
+</body>
+</html>

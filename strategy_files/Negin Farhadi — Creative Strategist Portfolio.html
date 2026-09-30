@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Negin Farhadi — Creative Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=Emily%27s+Candy&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0D0F1A;
+    --paper: #F0EDE6;
+    --gold: #C9A84C;
+    --grey: #6B6B7A;
+    --light-grey: #2A2C3A;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+    transform: translate(-50%, -50%);
+  }
+  body.cursor-hover .cursor { transform: translate(-50%, -50%) scale(2.5); }
+  body.cursor-hover .cursor-ring { width: 60px; height: 60px; opacity: 0.3; }
+
+  /* Nav */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    z-index: 100;
+    mix-blend-mode: normal;
+  }
+  .nav-logo {
+    font-family: 'Emily\'s Candy', cursive;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+  /* Hero */
+  #hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+  .hero-name {
+    font-family: 'Emily\'s Candy', cursive;
+    font-size: clamp(5rem, 12vw, 13rem);
+    line-height: 0.9;
+    color: var(--paper);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+    max-width: 80vw;
+  }
+  .hero-name span { color: var(--gold); }
+  .hero-descriptor {
+    margin-top: 2.5rem;
+    font-size: 0.9rem;
+    color: var(--grey);
+    max-width: 400px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.9s forwards;
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 3rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+    writing-mode: vertical-rl;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1.2s forwards;
+  }
+  .hero-line {
+    position: absolute;
+    bottom: 0;
+    left: 3rem;
+    width: 1px;
+    height: 0;
+    background: var(--gold);
+    animation: lineGrow 1s ease 1s forwards;
+  }
+  @keyframes lineGrow { to { height: 80px; } }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* About */
+  #about {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 3rem;
+  }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    max-width: 1100px;
+  }
+  .about-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+  .about-title {
+    font-family: 'Emily\'s Candy', cursive;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    color: var(--paper);
+    margin-bottom: 2rem;
+  }
+  .about-body {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--grey);
+    margin-bottom: 1.5rem;
+    max-width: 55ch;
+  }
+  .about-body strong { color: var(--paper); font-weight: 400; }
+  .about-facts {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .fact {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+  .fact-label {
+    color: var(--gold);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    min-width: 90px;
+  }
+  .fact-value { color: var(--paper); opacity: 0.7; }
+
+  /* Work */
+  #work {
+    padding: 8rem 0 8rem 3rem;
+  }
+  .work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-right: 3rem;
+    margin-bottom: 3rem;
+  }
+  .section-title {
+    font-family: 'Emily\'s Candy', cursive;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--paper);
+  }
+  .work-hint {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+
+  /* Carousel */
+  .carousel-track {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 3rem;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+    cursor: grab;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-track.dragging { cursor: grabbing; }
+
+  .case-card {
+    flex: 0 0 calc(75vw);
+    max-width: 900px;
+    scroll-snap-align: start;
+    background: var(--light-grey);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16/10;
+    transition: transform 0.3s ease;
+  }
+  .case-card:hover { transform: scale(1.01); }
+
+  .case-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Emily\'s Candy', cursive;
+    font-size: 8rem;
+    color: rgba(255,255,255,0.04);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .case-content {
+    position: absolute;
+    inset: 0;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(13,15,26,0.95) 0%, rgba(13,15,26,0.2) 60%, transparent 100%);
+  }
+  .case-brand {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .case-title {
+    font-family: 'Emily\'s Candy', cursive;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1;
+    color: var(--paper);
+    margin-bottom: 1rem;
+  }
+  .case-insight {
+    font-size: 0.85rem;
+    color: rgba(240,237,230,0.65);
+    max-width: 55ch;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .case-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+  }
+
+  .case-accent-1 { background: linear-gradient(135deg, #1a1f3a, #0d1428); }
+  .case-accent-2 { background: linear-gradient(135deg, #1a2a1a, #0d1a0d); }
+  .case-accent-3 { background: linear-gradient(135deg, #2a1a10, #1a0d08); }
+
+  .pdf-note {
+    margin-top: 1.5rem;
+    padding-right: 3rem;
+    font-size: 0.7rem;
+    color: var(--grey);
+    letter-spacing: 0.05em;
+  }
+  .pdf-note a {
+    color: var(--gold);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .pdf-note a:hover { opacity: 1; }
+
+  /* Contact */
+  #contact {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 3rem;
+    position: relative;
+  }
+  .contact-inner { position: relative; z-index: 1; }
+  .contact-title {
+    font-family: 'Emily\'s Candy', cursive;
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: 0.95;
+    color: var(--paper);
+    margin-bottom: 3rem;
+  }
+  .contact-title span { color: var(--gold); }
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--grey);
+  }
+  .copy-btn {
+    background: none;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border-radius: 2px;
+    cursor: none;
+    transition: background 0.2s, color 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .copy-btn:hover { background: var(--gold); color: var(--ink); }
+  .copy-btn.copied { background: var(--gold); color: var(--ink); }
+
+  .contact-bg-text {
+    position: absolute;
+    font-family: 'Emily\'s Candy', cursive;
+    font-size: 20vw;
+    color: rgba(240,237,230,0.02);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Footer */
+  footer {
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  footer p {
+    font-size: 0.65rem;
+    color: var(--grey);
+    letter-spacing: 0.1em;
+  }
+
+  /* Scroll progress */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 1px;
+    background: var(--gold);
+    z-index: 200;
+    transition: width 0.1s linear;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.5rem; }
+    .hero-name { font-size: 4rem; }
+    #about { padding: 6rem 1.5rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    #work { padding: 6rem 0 6rem 1.5rem; }
+    .case-card { flex: 0 0 88vw; }
+    #contact { padding: 6rem 1.5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a href="#hero" class="nav-logo">NF</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow">Creative Strategist &nbsp;·&nbsp; Toronto</p>
+  <h1 class="hero-name">Negin<br><span>Farhadi</span></h1>
+  <p class="hero-descriptor">Philosophy. Psychoanalysis. Strategy.<br>Understanding how people think before they know they think it.</p>
+  <span class="hero-scroll">Scroll to explore</span>
+  <div class="hero-line"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div>
+      <p class="about-label">Who I am</p>
+      <h2 class="about-title">Strategy is how I'm oriented toward the world.</h2>
+    </div>
+    <div>
+      <p class="about-body">I have a specialist degree in <strong>philosophy and psychoanalysis</strong> from the University of Toronto. I am drawn to the questions underneath the questions — why people want what they want before desire becomes conscious, and what social truths brands are actually responding to through their creative work.</p>
+      <p class="about-body">I have worked across international film festivals, commercial productions, and live events in Canada and the United States. I am a filmmaker, a startup founder, and an <strong>APG Canada member</strong>. Trilingual in English, Farsi, and Danish.</p>
+      <div class="about-facts">
+        <div class="fact"><span class="fact-label">Based in</span><span class="fact-value">Toronto, Ontario</span></div>
+        <div class="fact"><span class="fact-label">Languages</span><span class="fact-value">English, Farsi, Danish</span></div>
+        <div class="fact"><span class="fact-label">Industry</span><span class="fact-value">APG Canada Member</span></div>
+        <div class="fact"><span class="fact-label">Education</span><span class="fact-value">Philosophy Specialist, University of Toronto</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="work-header">
+    <h2 class="section-title">Selected Work</h2>
+    <span class="work-hint">Drag to explore →</span>
+  </div>
+
+  <div class="carousel-track" id="carousel">
+
+    <div class="case-card case-accent-1">
+      <div class="case-bg">Lu</div>
+      <div class="case-content">
+        <p class="case-brand">Lululemon — Menswear</p>
+        <h3 class="case-title">The Missing Variable</h3>
+        <p class="case-insight">Serious fitness optimisers apply marginal gains thinking to every variable in their training — from supplements to recovery tech — while tolerating substandard gear. The strategy made that social contradiction visible and repositioned lululemon's fabric technology as the missing variable in their performance calculations.</p>
+        <span class="case-tag">Brand Strategy</span>
+      </div>
+    </div>
+
+    <div class="case-card case-accent-2">
+      <div class="case-bg">Sp</div>
+      <div class="case-content">
+        <p class="case-brand">Spotify — Podcast</p>
+        <h3 class="case-title">The Protected Hour</h3>
+        <p class="case-insight">Intentional listeners treat podcast time as a protected mental sanctuary. The tension: YouTube's engagement-maximising architecture actively undermines the deep-listening state they arrive in. Spotify is the platform that doesn't fight the listener.</p>
+        <span class="case-tag">Platform Strategy</span>
+      </div>
+    </div>
+
+    <div class="case-card case-accent-3">
+      <div class="case-bg">Ne</div>
+      <div class="case-content">
+        <p class="case-brand">Nespresso — Heritage</p>
+        <h3 class="case-title">Ancestral Memory</h3>
+        <p class="case-insight">For second and third-generation Canadians from coffee-growing regions, coffee ritual is their most intimate form of cultural continuity. Provenance is not a premium signal — it is a portal to diasporic identity and ancestral memory.</p>
+        <span class="case-tag">Cultural Strategy</span>
+      </div>
+    </div>
+
+  </div>
+  <p class="pdf-note">Full case studies available on request — <a href="mailto:rassvyeta@gmail.com">rassvyeta@gmail.com</a></p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-bg-text">Hello</div>
+  <div class="contact-inner">
+    <h2 class="contact-title">Let's<br><span>talk.</span></h2>
+    <div class="contact-items">
+      <div class="contact-item">
+        <span>rassvyeta@gmail.com</span>
+        <button class="copy-btn" data-copy="rassvyeta@gmail.com" id="emailBtn">Copy</button>
+      </div>
+      <div class="contact-item">
+        <span>+1 (647) 891-4630</span>
+        <button class="copy-btn" data-copy="+16478914630" id="phoneBtn">Copy</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Negin Farhadi</p>
+  <p>Toronto, Ontario</p>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, .case-card').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  // Scroll progress
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    bar.style.width = pct + '%';
+  });
+
+  // Carousel drag scroll
+  const track = document.getElementById('carousel');
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', e => {
+    isDown = true;
+    track.classList.add('dragging');
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+  document.addEventListener('mouseup', () => { isDown = false; track.classList.remove('dragging'); });
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.2;
+  });
+
+  // Touch support for carousel
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; scrollLeft = track.scrollLeft; });
+  track.addEventListener('touchmove', e => {
+    const dx = touchStartX - e.touches[0].clientX;
+    track.scrollLeft = scrollLeft + dx;
+  });
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    });
+  });
+
+  // Intersection observer for section reveals
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('#about, #work, #contact').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
