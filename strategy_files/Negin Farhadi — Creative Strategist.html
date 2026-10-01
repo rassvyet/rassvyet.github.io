@@ -24,8 +24,6 @@
 
 html {
   scroll-behavior: smooth;
-  height: auto;
- 
 }
 
 body {
@@ -34,9 +32,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 200;
   overflow-x: hidden;
-  
   cursor: none;
-  overscroll-behavior: none;
 }
 
 /* ============================================================
@@ -85,7 +81,7 @@ body {
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  animation: star-out 0.3s ease forwards;
+  animation: star-out 0.6s ease forwards;
 }
 .star-burst::before,
 .star-burst::after {
@@ -161,11 +157,11 @@ nav {
    HERO
    ============================================================ */
 #hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 4rem;
+  padding: 7rem 4rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -199,12 +195,11 @@ nav {
 @keyframes float-b { to { transform: translate(-20px, -30px); } }
 
 .hero-eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--magenta);
   margin-bottom: 1.5rem;
-  
 }
 .hero-name {
   font-family: 'Cormorant Garamond', serif;
@@ -216,7 +211,6 @@ nav {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  
 }
 .hero-sub {
   margin-top: 2rem;
@@ -224,7 +218,6 @@ nav {
   color: var(--dim);
   line-height: 1.8;
   max-width: 380px;
-  
 }
 .hero-sub em {
   color: var(--rose);
@@ -232,7 +225,6 @@ nav {
 }
 .hero-cta {
   margin-top: 2.5rem;
-  
 }
 .hero-cta a {
   font-size: 0.65rem;
@@ -246,19 +238,19 @@ nav {
 }
 .hero-cta a:hover { color: var(--magenta); }
 
-/* Floating particles */
+/* Floating particles — cross-browser including Firefox */
 .particle {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  animation: drift linear infinite;
+  will-change: transform, opacity;
 }
-@keyframes drift {
-  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 0.5; }
-  100% { transform: translateY(-120vh) translateX(40px) scale(0.3); opacity: 0; }
-}
+@keyframes drift-0  { 0%{transform:translateY(0) translateX(0px) scale(1);opacity:0} 10%{opacity:.7} 90%{opacity:.4} 100%{transform:translateY(-115vh) translateX(12px) scale(.3);opacity:0} }
+@keyframes drift-1  { 0%{transform:translateY(0) translateX(0px) scale(1);opacity:0} 10%{opacity:.6} 90%{opacity:.3} 100%{transform:translateY(-120vh) translateX(-18px) scale(.2);opacity:0} }
+@keyframes drift-2  { 0%{transform:translateY(0) translateX(0px) scale(1);opacity:0} 10%{opacity:.8} 90%{opacity:.5} 100%{transform:translateY(-118vh) translateX(24px) scale(.4);opacity:0} }
+@keyframes drift-3  { 0%{transform:translateY(0) translateX(0px) scale(1);opacity:0} 10%{opacity:.5} 90%{opacity:.2} 100%{transform:translateY(-122vh) translateX(-8px) scale(.25);opacity:0} }
+@keyframes drift-4  { 0%{transform:translateY(0) translateX(0px) scale(1);opacity:0} 10%{opacity:.7} 90%{opacity:.4} 100%{transform:translateY(-116vh) translateX(30px) scale(.35);opacity:0} }
+.p0{animation-name:drift-0} .p1{animation-name:drift-1} .p2{animation-name:drift-2} .p3{animation-name:drift-3} .p4{animation-name:drift-4}
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
@@ -356,18 +348,21 @@ nav {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
   padding-right: 4rem;
   padding-bottom: 2rem;
   scrollbar-width: none;
   cursor: grab;
   user-select: none;
+  -webkit-overflow-scrolling: touch;
 }
 .carousel::-webkit-scrollbar { display: none; }
-.carousel.dragging { cursor: grabbing; }
+.carousel.dragging { cursor: grabbing; scroll-snap-type: none; }
 
 .case {
-  flex: 0 0 min(78vw, 860px);
-  scroll-snap-align: start;
+  flex: 0 0 min(82vw, 880px);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
   border-radius: 2px;
   overflow: hidden;
   position: relative;
@@ -377,6 +372,11 @@ nav {
   transition: border-color 0.3s;
 }
 .case:hover { border-color: rgba(224,64,160,0.4); }
+
+@media (max-width: 768px) {
+  .case { flex: 0 0 90vw; aspect-ratio: 4/3; }
+  .carousel { padding-right: 2rem; gap: 1rem; }
+}
 
 /* iridescent case backgrounds */
 .case-1 { background: radial-gradient(ellipse at 20% 50%, rgba(155,93,229,0.3) 0%, rgba(224,64,160,0.15) 40%, #050508 70%); }
@@ -441,6 +441,24 @@ nav {
   gap: 1.2rem;
   flex-wrap: wrap;
 }
+.case-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.case-tag-secondary {
+  display: inline-block;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(224,64,160,0.7);
+  border: 1px solid rgba(224,64,160,0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  background: rgba(224,64,160,0.05);
+}
 .case-link {
   font-size: 0.65rem;
   letter-spacing: 0.15em;
@@ -452,6 +470,43 @@ nav {
   transition: color 0.2s, border-color 0.2s;
 }
 .case-link:hover { color: var(--magenta); border-color: var(--magenta); }
+
+/* ============================================================
+   CAROUSEL SCROLL INDICATOR
+   ============================================================ */
+.carousel-track-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 4rem 0 0;
+}
+.carousel-track-bg {
+  flex: 1;
+  height: 2px;
+  background: rgba(245,240,248,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  max-width: 300px;
+}
+.carousel-track-fill {
+  height: 100%;
+  width: 25%;
+  background: linear-gradient(to right, var(--magenta), var(--rose));
+  border-radius: 2px;
+  transition: width 0.15s ease;
+  box-shadow: 0 0 8px rgba(224,64,160,0.6);
+}
+.carousel-track-hint {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,240,248,0.25);
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+.carousel-track-hint.active {
+  color: var(--rose);
+}
 
 /* ============================================================
    CONTACT
@@ -570,7 +625,7 @@ footer {
 
 <!-- Navigation -->
 <nav>
-  <a href="#hero" class="nav-logo">⋆｡°✩</a>
+  <a href="#hero" class="nav-logo">Negin Farhadi</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#work">Work</a></li>
@@ -584,11 +639,11 @@ footer {
   <div class="hero-bloom bloom-2"></div>
   <div class="hero-bloom bloom-3"></div>
 
-  <p class="hero-eyebrow">Creative Strategist &nbsp;&amp;&nbsp; Operations Coordinator</p>
+  <p class="hero-eyebrow">Creative Strategist &nbsp;·&nbsp; Toronto</p>
   <h1 class="hero-name">Negin<br>Farhadi</h1>
   <p class="hero-sub">
-    Philosophy, Psychoanalysis, Strategy.<br>
-    My approach is to immerse myself into the <em>mood, mind</em>, and <em> attitude</em> of the audience.  
+    Philosophy. Psychoanalysis. Strategy.<br>
+    Understanding how people think <em>before they know they think it.</em>
   </p>
   <div class="hero-cta"><a href="#work">View selected work</a></div>
 </section>
@@ -606,7 +661,7 @@ footer {
     <div class="about-facts">
       <div class="fact-item"><p class="fact-label">Based in</p><p class="fact-value">Toronto, Ontario</p></div>
       <div class="fact-item"><p class="fact-label">Languages</p><p class="fact-value">English · Farsi · Danish</p></div>
-      <div class="fact-item"><p class="fact-label">Industry</p><p class="fact-value">Advertising</p></div>
+      <div class="fact-item"><p class="fact-label">Industry</p><p class="fact-value">APG Canada Member</p></div>
       <div class="fact-item"><p class="fact-label">Education</p><p class="fact-value">Philosophy, UofT 2025</p></div>
     </div>
   </div>
@@ -626,23 +681,27 @@ footer {
         <p class="case-brand">Lululemon — Menswear</p>
         <h3 class="case-title">The Missing Variable</h3>
         <p class="case-text">Serious fitness optimisers apply marginal gains thinking to every variable in their training — from supplements to recovery tech — while tolerating substandard gear. The strategy made that social contradiction visible and repositioned lululemon's fabric technology as the missing variable in their performance calculations.</p>
-        <div class="case-actions">
-  <span class="case-pill">Brand Strategy</span>
-  <a class="case-link" href="https://drive.google.com/file/d/1hbhzCTrLWz9XOx2A-HmrTQOWhNC9hBqK/view?usp=sharing" target="_blank">View case study →</a>
-</div>
+        <div class="case-tags">
+          <span class="case-pill">Brand Strategy</span>
+          <span class="case-tag-secondary">Male Consumer Psychology</span>
+          <span class="case-tag-secondary">Aspirational Masculinity</span>
+        </div>
+        <a class="case-link" href="https://drive.google.com/file/d/1hbhzCTrLWz9XOx2A-HmrTQOWhNC9hBqK/view?usp=sharing" target="_blank">View case study →</a>
       </div>
     </div>
 
     <div class="case case-2">
       <div class="case-num">02</div>
       <div class="case-content">
-        <p class="case-brand">Spotify — Podcast</p>
+        <p class="case-brand">Spotify — Platform Strategy</p>
         <h3 class="case-title">The Protected Hour</h3>
         <p class="case-text">Intentional listeners treat podcast time as a protected mental sanctuary. The tension: YouTube's engagement-maximising architecture actively undermines the deep-listening state they arrive in. Spotify is the platform that doesn't fight the listener.</p>
-        <div class="case-actions">
-  <span class="case-pill">Platform Strategy</span>
-  <a class="case-link" href="https://drive.google.com/file/d/13fNofKMk2dYoEanUlOUGmOCB5omPcplu/view?usp=drive_link" target="_blank">View case study →</a>
-</div>
+        <div class="case-tags">
+          <span class="case-pill">Platform Strategy</span>
+          <span class="case-tag-secondary">Platform Psychology</span>
+          <span class="case-tag-secondary">Attention Economy</span>
+        </div>
+        <a class="case-link" href="https://drive.google.com/file/d/13fNofKMk2dYoEanUlOUGmOCB5omPcplu/view?usp=drive_link" target="_blank">View case study →</a>
       </div>
     </div>
 
@@ -652,25 +711,38 @@ footer {
         <p class="case-brand">Nespresso — Heritage</p>
         <h3 class="case-title">Ancestral Memory</h3>
         <p class="case-text">For second and third-generation Canadians from coffee-growing regions, coffee ritual is their most intimate form of cultural continuity. Provenance is not a premium signal — it is a portal to diasporic identity and ancestral memory.</p>
-        <div class="case-actions">
-  <span class="case-pill">Cultural Strategy</span>
-  <a class="case-link" href="https://drive.google.com/file/d/1wxXyCzwKa5dEHC80lMNyiuOWe7hYDIrA/view?usp=sharing" target="_blank">View case study →</a>
-</div>
+        <div class="case-tags">
+          <span class="case-pill">Cultural Strategy</span>
+          <span class="case-tag-secondary">Diasporic Identity</span>
+          <span class="case-tag-secondary">Heritage Branding</span>
+        </div>
+        <a class="case-link" href="https://drive.google.com/file/d/1wxXyCzwKa5dEHC80lMNyiuOWe7hYDIrA/view?usp=sharing" target="_blank">View case study →</a>
       </div>
     </div>
-<div class="case case-1">
-  <div class="case-num">04</div>
-  <div class="case-content">
-    <p class="case-brand">Spotify — Social Behaviour</p>
-    <h3 class="case-title">Social Listening</h3>
-    <p class="case-text">A supplementary deck tracking how Spotify users engage socially with audio content — mapping behaviour patterns, shareability triggers, and the social layer that sits beneath the listening experience.</p>
-    <div class="case-actions">
-      <span class="case-pill">Behaviour Tracking</span>
-      <a class="case-link" href="https://drive.google.com/file/d/1_o2LeOyp0N9ePUbB63BTfVqrRSXU6f58/view?usp=drive_link" target="_blank">View deck →</a>
+
+    <div class="case case-1">
+      <div class="case-num">04</div>
+      <div class="case-content">
+        <p class="case-brand">Spotify — Social Behaviour</p>
+        <h3 class="case-title">Social Listening</h3>
+        <p class="case-text">A supplementary deck tracking how Spotify users engage socially with audio content — mapping behaviour patterns, shareability triggers, and the social layer that sits beneath the listening experience.</p>
+        <div class="case-tags">
+          <span class="case-pill">Behaviour Tracking</span>
+          <span class="case-tag-secondary">Gen Z Psychology</span>
+        </div>
+        <a class="case-link" href="https://drive.google.com/file/d/1_o2LeOyp0N9ePUbB63BTfVqrRSXU6f58/view?usp=drive_link" target="_blank">View deck →</a>
+      </div>
     </div>
+
   </div>
-</div>
+  <!-- Scroll progress indicator -->
+  <div class="carousel-track-wrap">
+    <div class="carousel-track-bg">
+      <div class="carousel-track-fill" id="carouselTrack"></div>
+    </div>
+    <span class="carousel-track-hint" id="carouselHint">← drag to explore →</span>
   </div>
+
   <p style="padding: 1rem 0 0 0; padding-right: 4rem; font-size: 0.65rem; color: rgba(245,240,248,0.3); letter-spacing: 0.05em;">
     Full case studies available on request — <a href="mailto:rassvyeta@gmail.com" style="color: var(--rose); text-decoration: none;">rassvyeta@gmail.com</a>
   </p>
@@ -770,7 +842,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ============================================================
-// FLOATING PARTICLES IN HERO
+// FLOATING PARTICLES IN HERO — Firefox-compatible
 // ============================================================
 const hero = document.getElementById('hero');
 const colours = ['#E040A0','#9B5DE5','#40E0D0','#FF6EB4','#ffffff'];
@@ -778,46 +850,83 @@ for (let i = 0; i < 18; i++) {
   const p = document.createElement('div');
   const size = 2 + Math.random() * 3;
   const dur = 6 + Math.random() * 10;
-  const delay = Math.random() * -12;
-  p.className = 'particle';
-  p.style.cssText = `
-    width:${size}px; height:${size}px;
-    background:${colours[i % colours.length]};
-    left:${Math.random() * 100}%;
-    bottom:0;
-    animation-duration:${dur}s;
-    animation-delay:${delay}s;
-    opacity:0.6;
-    filter:blur(${size > 3 ? 1 : 0}px);
-  `;
+  const delay = -(Math.random() * 12);
+  const driftClass = 'p' + (i % 5);
+  p.className = 'particle ' + driftClass;
+  p.style.width = size + 'px';
+  p.style.height = size + 'px';
+  p.style.background = colours[i % colours.length];
+  p.style.left = (Math.random() * 100) + '%';
+  p.style.bottom = '0';
+  p.style.animationDuration = dur + 's';
+  p.style.animationDelay = delay + 's';
+  p.style.animationTimingFunction = 'linear';
+  p.style.animationIterationCount = 'infinite';
+  if (size > 3) p.style.filter = 'blur(1px)';
   hero.appendChild(p);
 }
 
 // ============================================================
-// CAROUSEL DRAG SCROLL
+// CAROUSEL — smooth momentum drag + touch with snap
 // ============================================================
 const carousel = document.getElementById('carousel');
-let isDown = false, startX, scrollLeft;
+let isDown = false, startX, scrollLeft, velX = 0, lastX = 0, rafId;
+
 carousel.addEventListener('mousedown', e => {
   isDown = true;
   carousel.classList.add('dragging');
-  startX = e.pageX - carousel.offsetLeft;
+  startX = e.pageX;
   scrollLeft = carousel.scrollLeft;
+  lastX = e.pageX;
+  velX = 0;
+  cancelAnimationFrame(rafId);
 });
-document.addEventListener('mouseup', () => { isDown = false; carousel.classList.remove('dragging'); });
-carousel.addEventListener('mousemove', e => {
+
+document.addEventListener('mousemove', e => {
   if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - carousel.offsetLeft;
-  carousel.scrollLeft = scrollLeft - (x - startX) * 1.2;
+  velX = e.pageX - lastX;
+  lastX = e.pageX;
+  carousel.scrollLeft = scrollLeft - (e.pageX - startX);
 });
+
+document.addEventListener('mouseup', () => {
+  if (!isDown) return;
+  isDown = false;
+  carousel.classList.remove('dragging');
+  // momentum glide
+  let v = -velX * 2;
+  function glide() {
+    if (Math.abs(v) < 0.5) return;
+    carousel.scrollLeft += v;
+    v *= 0.92;
+    rafId = requestAnimationFrame(glide);
+  }
+  glide();
+});
+
+// Touch — native scroll handles it, just ensure smooth feel
 carousel.addEventListener('touchstart', e => {
-  startX = e.touches[0].clientX;
-  scrollLeft = carousel.scrollLeft;
+  cancelAnimationFrame(rafId);
 }, { passive: true });
-carousel.addEventListener('touchmove', e => {
-  carousel.scrollLeft = scrollLeft - (e.touches[0].clientX - startX);
-}, { passive: true });
+
+// ============================================================
+// CAROUSEL SCROLL INDICATOR
+// ============================================================
+const trackFill = document.getElementById('carouselTrack');
+const trackHint = document.getElementById('carouselHint');
+
+function updateCarouselTrack() {
+  const max = carousel.scrollWidth - carousel.clientWidth;
+  const pct = max > 0 ? (carousel.scrollLeft / max) * 100 : 0;
+  // fill goes from 25% at start to 100% at end
+  const fillW = 25 + (pct * 0.75);
+  trackFill.style.width = fillW + '%';
+  if (pct > 2) trackHint.classList.add('active');
+  else trackHint.classList.remove('active');
+}
+
+carousel.addEventListener('scroll', updateCarouselTrack, { passive: true });
+updateCarouselTrack();
 
 // ============================================================
 // COPY BUTTONS
